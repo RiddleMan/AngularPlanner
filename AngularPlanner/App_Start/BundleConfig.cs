@@ -12,7 +12,7 @@ namespace AngularPlanner
                         "~/Scripts/jquery-{version}.js",
                         "~/Scripts/bootstrap.js",
                         "~/Scripts/angular.js",
-                        "~/Scripts/angular-*.js"
+                        "~/Scripts/angular-*"
                         ));
 
             bundles.Add(new ScriptBundle("~/bundles/app").Include());
