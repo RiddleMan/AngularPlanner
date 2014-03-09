@@ -267,7 +267,11 @@ namespace AngularPlanner.Controllers
             {
                 Name = description.Caption, Url = Url.Route("ExternalLogin", new
                 {
-                    provider = description.AuthenticationType, response_type = "token", client_id = Startup.PublicClientId, redirect_uri = new Uri(Request.RequestUri, returnUrl).AbsoluteUri, state = state
+                    provider = description.AuthenticationType,
+                    response_type = "token", 
+                    client_id = Startup.PublicClientId,
+                    redirect_uri = new Uri(Request.RequestUri, returnUrl).AbsoluteUri,
+                    state = state
                 }),
                 State = state
             }).ToList();

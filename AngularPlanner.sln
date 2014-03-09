@@ -5,7 +5,7 @@ VisualStudioVersion = 12.0.30110.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AngularPlanner", "AngularPlanner\AngularPlanner.csproj", "{CC2B350E-7310-4B5B-AEE5-57FFF3F2896C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AngularPlanner.Tests", "C:\Users\Artur Ptaszek\Documents\Visual Studio 2013\Projects\AngularPlanner\AngularPlanner.Tests\AngularPlanner.Tests.csproj", "{2BB8386C-0E26-441A-A66C-83738D80A963}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AngularPlanner.Tests", "AngularPlanner.Tests\AngularPlanner.Tests.csproj", "{2BB8386C-0E26-441A-A66C-83738D80A963}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
