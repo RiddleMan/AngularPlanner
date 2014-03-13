@@ -1,3 +1,4 @@
+'use strict';
 /**
 * auth.checker Module
 *
@@ -11,8 +12,10 @@ angular.module('auth.checker', ['auth.service'])
     $get: ['auth', function(auth) {
       var service = {
         require: function() {
-
+          return auth.isAuthenticated;
         }
-      }
+      };
+
+      return service;
     }]
-  }]);
+  });

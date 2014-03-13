@@ -4,4 +4,4 @@
 *
 * Authentication index module
 */
-angular.module('auth', ['auth.interceptor', 'auth.service']);
+angular.module('auth', ['auth.interceptor', 'auth.service', 'auth.checker']);

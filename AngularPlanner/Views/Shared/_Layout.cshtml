@@ -14,12 +14,14 @@
     @Styles.Render("~/Content/css")
 </head>
 <body ng-app="app">
-    <div>
+    <div ng-view>
         @RenderBody()
     </div>
     <!--[if lt IE 9]>
     @Scripts.Render("~/bundles/compatibility")
     <![endif]-->
     @Scripts.Render("~/bundles/vendor")
+    
+    @Scripts.Render("~/bundles/app")
 </body>
 </html>

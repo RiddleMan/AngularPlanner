@@ -235,6 +235,15 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App\app.js" />
+    <Content Include="App\components\auth\auth.js" />
+    <Content Include="App\components\auth\authChecker.js" />
+    <Content Include="App\components\auth\index.js" />
+    <Content Include="App\components\auth\interceptor.js" />
+    <Content Include="App\login\login.html" />
+    <Content Include="App\login\login.js" />
+    <Content Include="App\login\login_test.js" />
+    <Content Include="App\register\register.js" />
     <Content Include="App_Readme\Elmah.txt" />
     <Content Include="Areas\HelpPage\HelpPage.css" />
     <Content Include="Content\bootstrap-theme.css" />
@@ -569,13 +578,18 @@
     <Content Include="Scripts\version.json" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App\components\" />
     <Folder Include="App_Data\" />
     <Folder Include="Views\Partials\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AngularPlanner.Extensions\AngularPlanner.Extensions.csproj">
+      <Project>{b58b3760-05e0-4372-8160-5e4f3cf9bb7f}</Project>
+      <Name>AngularPlanner.Extensions</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

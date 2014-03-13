@@ -32,13 +32,12 @@ angular.module('auth.service', [])
           throw new Error('[App] Security: You must specify username and password');
         }
 
-        $http
-          .post('/token', {
+        $http.postUrlEncoded('/token', {
             'grant_type': 'password',
             username: username,
             password: password
           })
-          .succes(function(token) {
+          .success(function(token) {
             $window.sessionStorage.token = parseToken(token);
             defer.resolve();
           })
@@ -49,12 +48,22 @@ angular.module('auth.service', [])
         return defer.promise;
       },
       isAuthenticated: function() {
+        var defer = $q.defer();
+
         if($window.sessionStorage.token &&
           ($window.sessionStorage.token.expire - new Date()) > 0) {
-          return true;
+          $http
+            .get('api/account/userInfo')
+            .success(function(userInfo) {
+              defer.resolve(userInfo);
+            })
+            .error(function(err, status) {
+              console.log('[App] Security (' + status + '): ' + err);
+              defer.reject(err);
+            });
         }
-
-        return false;
+        defer.reject();
+        return defer.promise;
       }
     };
 
