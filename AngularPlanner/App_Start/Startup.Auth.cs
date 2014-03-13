@@ -55,11 +55,11 @@ namespace AngularPlanner
             //    consumerKey: "",
             //    consumerSecret: "");
 
-            //app.UseFacebookAuthentication(
-            //    appId: "",
-            //    appSecret: "");
+            app.UseFacebookAuthentication(
+                appId: "471882356267580",
+                appSecret: "0efe4f656c6b322439c6626cba485e3d");
 
-            //app.UseGoogleAuthentication();
+            app.UseGoogleAuthentication();
         }
     }
 }
