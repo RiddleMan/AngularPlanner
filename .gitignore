@@ -109,3 +109,5 @@ UpgradeLog*.XML
 
 #Node
 node_modules
+*.mdf
+*.ldf
