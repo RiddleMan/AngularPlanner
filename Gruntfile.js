@@ -42,6 +42,7 @@ module.exports = function (grunt) {
         },
         files: [
           '<%= yeoman.views %>/{,*/}*.cshtml',
+          '<%= yeoman.app %>/{,*/}*.html',
           '<%= yeoman.css %>/{,*/}*.css',
           '<%= yeoman.images %>/{,*/}*.{png,jpg,jpeg,gif,webp,svg}'
         ]

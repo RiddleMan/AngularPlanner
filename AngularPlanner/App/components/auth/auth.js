@@ -8,8 +8,9 @@
 angular.module('auth.service', [])
   .factory('auth', ['$http', '$q', '$window', function($http, $q, $window){
     function parseToken(token) {
-      token.issued = new Date(token['.isued']);
-      token.expire = new Date(token['.expire']);
+      token.issued = new Date(token['.issued']);
+      token.expire = new Date(token['.expires']);
+      return token;
     }
 
     var service = {
@@ -38,7 +39,7 @@ angular.module('auth.service', [])
             password: password
           })
           .success(function(token) {
-            $window.sessionStorage.token = parseToken(token);
+            $window.localStorage.token = JSON.stringify(parseToken(token));
             defer.resolve();
           })
           .error(function(data) {
@@ -48,10 +49,11 @@ angular.module('auth.service', [])
         return defer.promise;
       },
       isAuthenticated: function() {
-        var defer = $q.defer();
+        var defer = $q.defer(),
+          token = JSON.parse($window.localStorage.token);
 
-        if($window.sessionStorage.token &&
-          ($window.sessionStorage.token.expire - new Date()) > 0) {
+        if(token &&
+          (token.expire - new Date()) > 0) {
           $http
             .get('api/account/userInfo')
             .success(function(userInfo) {
