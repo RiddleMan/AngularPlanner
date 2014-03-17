@@ -5,14 +5,19 @@
 * index module
 */
 angular.module('index', ['auth', 'app', 'resources'])
-  .config(['$routeProvider',function($routeProvider) {
+  .config(['$routeProvider', 'authCheckerProvider', function($routeProvider, authCheckerProvider) {
     $routeProvider
       .when('/', {
         templateUrl: '/App/index/index.html',
-        controller: 'IndexCtrl'
+        controller: 'IndexCtrl',
+        resolve: {
+          currentUser: authCheckerProvider.require
+        }
+
       });
   }])
-  .controller('IndexCtrl', ['$scope', '$route', 'Values', function($scope, $route, Values) {
+  .controller('IndexCtrl', ['$scope', '$route', 'Values', 'currentUser', function($scope, $route, Values, currentUser) {
+    console.log(currentUser);
     Values.get().$promise.then(function(data) {
       console.log(data);
     });
