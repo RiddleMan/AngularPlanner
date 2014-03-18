@@ -8,14 +8,14 @@ angular.module('auth.interceptor', []).factory('authInterceptor', ['$window', '$
   return {
     'request': function(config) {
       config.headers = config.headers || {};
-      if($window.sessionStorage.token) {
-        config.headers.Authorization = 'Bearer ' + $window.sessionStorage.token;
+      if($window.localStorage.token) {
+        config.headers.Authorization = 'Bearer ' + $window.localStorage.token;
       }
       return config;
     },
-    'response': function(config) {
+    'responseError': function(config) {
       if(config.status === 401) {
-        $location.path('/login/' + encodeURI($location.path()));
+        $location.path('/login');
       }
       return config;
     }

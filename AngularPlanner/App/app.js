@@ -12,7 +12,8 @@ angular.module('app', [
   'ngRoute',
   'http',
   'login',
-  'register'
+  'register',
+  'index'
 ]);
 
 angular.module('app')

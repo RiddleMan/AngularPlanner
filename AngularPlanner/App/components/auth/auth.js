@@ -7,11 +7,6 @@
 */
 angular.module('auth.service', [])
   .factory('auth', ['$http', '$q', '$window', function($http, $q, $window){
-    function parseToken(token) {
-      token.issued = new Date(token['.isued']);
-      token.expire = new Date(token['.expire']);
-    }
-
     var service = {
       register: function(username, password, password2) {
         if(!username || !password || !password2) {
@@ -38,7 +33,7 @@ angular.module('auth.service', [])
             password: password
           })
           .success(function(token) {
-            $window.sessionStorage.token = parseToken(token);
+            $window.localStorage.token = token.access_token;
             defer.resolve();
           })
           .error(function(data) {
@@ -50,19 +45,16 @@ angular.module('auth.service', [])
       isAuthenticated: function() {
         var defer = $q.defer();
 
-        if($window.sessionStorage.token &&
-          ($window.sessionStorage.token.expire - new Date()) > 0) {
-          $http
-            .get('api/account/userInfo')
-            .success(function(userInfo) {
-              defer.resolve(userInfo);
-            })
-            .error(function(err, status) {
-              console.log('[App] Security (' + status + '): ' + err);
-              defer.reject(err);
-            });
-        }
-        defer.reject();
+        $http
+          .get('api/account/userInfo')
+          .success(function(userInfo) {
+            defer.resolve(userInfo);
+          })
+          .error(function(err, status) {
+            console.log('[App] Security (' + status + '): ' + err);
+            defer.reject(err);
+          });
+
         return defer.promise;
       }
     };
