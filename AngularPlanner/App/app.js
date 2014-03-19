@@ -13,7 +13,8 @@ angular.module('app', [
   'http',
   'login',
   'register',
-  'index'
+  'index',
+  'expenses'
 ]);
 
 angular.module('app')

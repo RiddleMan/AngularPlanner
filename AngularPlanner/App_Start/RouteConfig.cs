@@ -18,7 +18,8 @@ namespace AngularPlanner
             {
                 "login",
                 "login/{url}",
-                "register"
+                "register",
+                "expenses/add"
             }, new { controller = "Home", action = "Index" });
 
             routes.MapRoute(

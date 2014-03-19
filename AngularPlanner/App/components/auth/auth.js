@@ -46,7 +46,7 @@ angular.module('auth.service', [])
         var defer = $q.defer();
 
         $http
-          .get('api/account/userInfo')
+          .get('/api/account/userInfo')
           .success(function(userInfo) {
             defer.resolve(userInfo);
           })
