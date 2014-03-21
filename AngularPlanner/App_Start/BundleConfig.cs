@@ -11,6 +11,7 @@ namespace AngularPlanner
             bundles.Add(new ScriptBundle("~/bundles/vendor").Include(
                         "~/Scripts/jquery-{version}.js",
                         "~/Scripts/bootstrap.js",
+                        "~/Scripts/d3.v3.js",
                         "~/Scripts/angular.js",
                         "~/Scripts/angular-*"
                         ));

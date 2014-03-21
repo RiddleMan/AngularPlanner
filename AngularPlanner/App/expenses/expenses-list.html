@@ -1,0 +1,20 @@
+<div ng-include="'/App/components/navbar/navbar.html'"></div>
+<div class="container">
+  <div ng-include="'/App/components/nav/nav.html'"></div>
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>Data</th>
+        <th>Tytuł</th>
+        <th>Kwota</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tr ng-repeat="expense in expenses">
+      <td>{{expense.dateOfExpense | date:'longDate'}}</td>
+      <td>{{expense.title}}</td>
+      <td>{{expense.cost | currency:"PLN"}}</td>
+      <td><button type="button" class="btn btn-default"><span class="glyphicon glyphicon-edit"></span></button></td>
+    </tr>
+  </table>
+</div>

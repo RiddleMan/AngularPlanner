@@ -20,6 +20,9 @@ angular.module('auth.service', [])
             confirmPassword: password2
           });
       },
+      logout: function() {
+        delete $window.localStorage.token;
+      },
       login: function(username, password) {
         var defer = $q.defer();
 

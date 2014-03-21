@@ -9,6 +9,6 @@ namespace AngularPlanner.Models
         public int Id { get; set; }
         public string Name { get; set; }
         public List<ExpenseModel> Expenses { get; set; }
-        public int UserId { get; set; }
+        public string UserId { get; set; }
     }
 }

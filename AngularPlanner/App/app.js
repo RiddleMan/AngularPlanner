@@ -14,7 +14,9 @@ angular.module('app', [
   'login',
   'register',
   'index',
-  'expenses'
+  'expenses',
+  'navbar',
+  'nav'
 ]);
 
 angular.module('app')
@@ -24,7 +26,5 @@ angular.module('app')
 
       $routeProvider
         .otherwise({redirectTo: '/'});
-    }]);
-
-angular.module('app')
-  .constant('TEMPLATE_PREFIX', '/App');
+    }])
+  .constant('d3', d3);

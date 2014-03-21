@@ -236,6 +236,14 @@
     <Compile Include="Migrations\201403192211235_ExpensesAndTags1.Designer.cs">
       <DependentUpon>201403192211235_ExpensesAndTags1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201403202217261_ExpensesAndTags2.cs" />
+    <Compile Include="Migrations\201403202217261_ExpensesAndTags2.Designer.cs">
+      <DependentUpon>201403202217261_ExpensesAndTags2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201403202228315_ExpensesAndTags3.cs" />
+    <Compile Include="Migrations\201403202228315_ExpensesAndTags3.Designer.cs">
+      <DependentUpon>201403202228315_ExpensesAndTags3.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountBindingModels.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -290,6 +298,7 @@
     <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\CollectionModelDescription.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ApiGroup.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\Api.cshtml" />
+    <Content Include="LICENSE.txt" />
     <Content Include="Scripts\angular-animate.js" />
     <Content Include="Scripts\angular-animate.min.js" />
     <Content Include="Scripts\angular-cookies.js" />
@@ -309,6 +318,8 @@
     <Content Include="Scripts\angular-touch.min.js" />
     <Content Include="Scripts\angular.js" />
     <Content Include="Scripts\angular.min.js" />
+    <Content Include="Scripts\d3.v3.js" />
+    <Content Include="Scripts\d3.v3.min.js" />
     <Content Include="Scripts\errors.json" />
     <Content Include="Scripts\angular-touch.min.js.map" />
     <Content Include="Scripts\angular-sanitize.min.js.map" />
@@ -610,6 +621,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201403192211235_ExpensesAndTags1.resx">
       <DependentUpon>201403192211235_ExpensesAndTags1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201403202217261_ExpensesAndTags2.resx">
+      <DependentUpon>201403202217261_ExpensesAndTags2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201403202228315_ExpensesAndTags3.resx">
+      <DependentUpon>201403202228315_ExpensesAndTags3.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

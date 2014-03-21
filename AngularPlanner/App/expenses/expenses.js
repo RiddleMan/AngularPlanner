@@ -7,16 +7,35 @@
 angular.module('expenses', ['auth', 'app', 'resources'])
   .config(['$routeProvider', 'authCheckerProvider', function($routeProvider, authCheckerProvider) {
     $routeProvider
-      .when('/expenses/add', {
-        templateUrl: '/App/expenses/expenses-add.html',
-        controller: 'ExpensesAddCtrl',
+      .when('/expenses/edit', {
+        templateUrl: '/App/expenses/expenses-edit.html',
+        controller: 'ExpensesEditCtrl',
         resolve: {
           currentUser: authCheckerProvider.require
         }
+      })
+      .when('/expenses', {
+        templateUrl: '/App/expenses/expenses-list.html',
+        controller: 'ExpensesListCtrl',
+        resolve: {
+          currentUser: authCheckerProvider.require,
+          expenses: ['Expenses', function(Expenses) {
+            return Expenses.query().$promise;
+          }]
+        }
+      })
+      .when('/expenses/list', {
+        templateUrl: '/App/expenses/expenses-list.html',
+        controller: 'ExpensesListCtrl',
+        resolve: {
+          currentUser: authCheckerProvider.require,
+          expenses: ['Expenses', function(Expenses) {
+            return Expenses.query().$promise;
+          }]
+        }
       });
   }])
-  .controller('ExpensesAddCtrl', ['$scope', 'Expenses', '$route', 'currentUser', function($scope, Expenses, $route, currentUser) {
-    Expenses.query(function(list) {
-      console.log(list);
-    });
-  }]);
+  .controller('ExpensesListCtrl', ['$scope', 'expenses', '$route', 'currentUser',
+    function($scope, expenses, $route, currentUser) {
+      $scope.expenses = expenses;
+    }]);
