@@ -1,0 +1,5 @@
+<div>
+  <button type="button" ng-click="toggle($index)" class="btn btn-default btn-xs" ng-class="{'btn-primary': checked[$index]}" ng-repeat="tag in tagsList">{{tag.name}}
+    <span class="glyphicon glyphicon-remove" ng-click="delete($index)"></span>
+  </button>
+</div>

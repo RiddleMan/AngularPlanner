@@ -4,7 +4,7 @@
 *
 * Module for expenses
 */
-angular.module('expenses', ['auth', 'app', 'resources'])
+angular.module('expenses', ['auth', 'app', 'resources', 'tagsPicker'])
   .config(['$routeProvider', 'authCheckerProvider', function($routeProvider, authCheckerProvider) {
     $routeProvider
       .when('/expenses/edit', {
@@ -35,7 +35,35 @@ angular.module('expenses', ['auth', 'app', 'resources'])
         }
       });
   }])
-  .controller('ExpensesListCtrl', ['$scope', 'expenses', '$route', 'currentUser',
-    function($scope, expenses, $route, currentUser) {
+  .controller('ExpensesListCtrl', ['$scope', 'expenses', 'Expenses', '$route', 'currentUser',
+    function($scope, expenses, Expenses, $route, currentUser) {
+      $scope.$on('expenses-invalidate', function() {
+        Expenses.query(function(expenses) {
+          $scope.expenses = expenses;
+        });
+      });
+
       $scope.expenses = expenses;
-    }]);
+    }])
+  .controller('ExpenseAddCtrl', ['$scope', 'Expenses', '$rootScope', function($scope, Expenses, $rootScope){
+    $scope.more = false;
+    $scope.tagsList = [{id:1}, {id:2}];
+
+    $scope.add = function() {
+      var expense = new Expenses({
+        dateOfExpense: $scope.expense.date,
+        title: $scope.expense.title,
+        cost: $scope.expense.cost,
+        comment: $scope.expense.comment,
+        tags: $scope.expense.tags
+      });
+
+      delete $scope.expense;
+
+      $scope.form.$setPristine(true);
+
+      expense.$save(function() {
+        $rootScope.$broadcast('expenses-invalidate');
+      });
+    };
+  }]);

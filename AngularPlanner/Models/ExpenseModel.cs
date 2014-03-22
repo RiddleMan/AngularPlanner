@@ -1,6 +1,7 @@
 ﻿using System;
 using System.CodeDom;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
@@ -17,7 +18,7 @@ namespace AngularPlanner.Models
         public string Comment { get; set; }
         public decimal Cost { get; set; }
         public string UserId { get; set; }
-        public DateTime DateAdded { get; set; }
-        public DateTime DateOfExpense { get; set; }
+        public Nullable<DateTime> DateAdded { get; set; }
+        public Nullable<DateTime> DateOfExpense { get; set; }
     }
 }

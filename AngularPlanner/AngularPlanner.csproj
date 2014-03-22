@@ -244,12 +244,17 @@
     <Compile Include="Migrations\201403202228315_ExpensesAndTags3.Designer.cs">
       <DependentUpon>201403202228315_ExpensesAndTags3.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201403221401221_ExpensesAndTags4.cs" />
+    <Compile Include="Migrations\201403221401221_ExpensesAndTags4.Designer.cs">
+      <DependentUpon>201403221401221_ExpensesAndTags4.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountBindingModels.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AngularPlannerContext.cs" />
     <Compile Include="Models\ExpenseModel.cs" />
     <Compile Include="Models\TagModel.cs" />
+    <Compile Include="Models\TagsController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Providers\ApplicationOAuthProvider.cs" />
     <Compile Include="Results\ChallengeResult.cs" />
@@ -627,6 +632,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201403202228315_ExpensesAndTags3.resx">
       <DependentUpon>201403202228315_ExpensesAndTags3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201403221401221_ExpensesAndTags4.resx">
+      <DependentUpon>201403221401221_ExpensesAndTags4.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

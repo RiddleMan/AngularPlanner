@@ -9,8 +9,6 @@ angular.module('resources.expenses', [])
     return $resource('/api/expenses/:id',
       {id: '@id'},
       {
-        'update': {
-          method: 'PUT'
-        }
+        'update': { method: 'PUT' }
       });
   }]);

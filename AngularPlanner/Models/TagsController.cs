@@ -8,46 +8,41 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Http;
-using AngularPlanner.Models;
-using Elmah.Contrib.WebApi;
-using Elmah.Mvc;
 using Microsoft.AspNet.Identity;
 
-namespace AngularPlanner.Controllers
+namespace AngularPlanner.Models
 {
-    [Authorize]
-    [ElmahHandleErrorApi]
-    public class ExpensesController : ApiController
+    public class TagsController : ApiController
     {
         private readonly AngularPlannerContext _db;
 
-        public ExpensesController()
+        public TagsController()
         {
             _db = new AngularPlannerContext();
         }
 
-        public async Task<List<ExpenseModel>> Get()
+        public async Task<List<TagModel>> Get()
         {
             var userId = User.Identity.GetUserId();
 
-            return await _db.Expenses.Where(i => i.UserId == userId).ToListAsync();
+            return await _db.Tags.Where(i => i.UserId == userId).ToListAsync();
         }
 
-        public async Task<ExpenseModel> Get(int id)
-        {
-            var userId = User.Identity.GetUserId();
-            return await _db.Expenses.Where(i => i.UserId == userId && i.Id == id).FirstOrDefaultAsync();
-        }
+        //Not needed
+        //public async Task<TagModel> Get(int id)
+        //{
+        //    var userId = User.Identity.GetUserId();
+        //    return await _db.Tags.Where(i => i.UserId == userId && i.Id == id).FirstOrDefaultAsync();
+        //}
 
-        public async Task<HttpResponseMessage> Post([FromBody]ExpenseModel expense)
+        public async Task<HttpResponseMessage> Post([FromBody]TagModel tag)
         {
             if (ModelState.IsValid)
             {
                 try
                 {
-                    _db.Expenses.Add(expense);
-                    expense.DateAdded = DateTime.Now;
-                    expense.UserId = User.Identity.GetUserId();
+                    _db.Tags.Add(tag);
+                    tag.UserId = User.Identity.GetUserId();
 
                     await _db.SaveChangesAsync();
                 }
@@ -61,24 +56,25 @@ namespace AngularPlanner.Controllers
             return Request.CreateResponse(HttpStatusCode.BadRequest);
         }
 
-        public async Task<HttpResponseMessage> Put([FromBody]ExpenseModel expense)
-        {
-            if (ModelState.IsValid)
-            {
-                try
-                {
-                    _db.Expenses.AddOrUpdate(expense);
-                    await _db.SaveChangesAsync();
-                }
-                catch (Exception e)
-                {
-                    return Request.CreateResponse(HttpStatusCode.InternalServerError);
-                }
-                return Request.CreateResponse(HttpStatusCode.Created);
-            }
+        //Not needed
+        //public async Task<HttpResponseMessage> Put([FromBody]ExpenseModel tag)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        try
+        //        {
+        //            _db.Expenses.AddOrUpdate(tag);
+        //            await _db.SaveChangesAsync();
+        //        }
+        //        catch (Exception e)
+        //        {
+        //            return Request.CreateResponse(HttpStatusCode.InternalServerError);
+        //        }
+        //        return Request.CreateResponse(HttpStatusCode.Created);
+        //    }
 
-            return Request.CreateResponse(HttpStatusCode.BadRequest);
-        }
+        //    return Request.CreateResponse(HttpStatusCode.BadRequest);
+        //}
 
         public async Task<HttpResponseMessage> Delete(int id)
         {

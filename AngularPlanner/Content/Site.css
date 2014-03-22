@@ -6,3 +6,11 @@
   font-size: 30px;
   font-weight: bold;
 }
+
+.expense-add-title {
+  width: 300px !important;
+}
+
+.offset {
+  margin-top: 20px;
+}
