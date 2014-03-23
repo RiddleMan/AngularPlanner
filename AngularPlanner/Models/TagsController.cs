@@ -50,7 +50,7 @@ namespace AngularPlanner.Models
                 {
                     return Request.CreateResponse(HttpStatusCode.InternalServerError);
                 }
-                return Request.CreateResponse(HttpStatusCode.Created);
+                return Request.CreateResponse(HttpStatusCode.Created, tag);
             }
 
             return Request.CreateResponse(HttpStatusCode.BadRequest);
@@ -81,12 +81,12 @@ namespace AngularPlanner.Models
             var userId = User.Identity.GetUserId();
             try
             {
-                var expense = await _db.Expenses.Where(i => i.UserId == userId && i.Id == id).FirstOrDefaultAsync();
-                if (expense == null)
+                var tag = await _db.Tags.Where(i => i.UserId == userId && i.Id == id).FirstOrDefaultAsync();
+                if (tag == null)
                 {
                     return Request.CreateResponse(HttpStatusCode.NotFound);
                 }
-                _db.Expenses.Remove(expense);
+                _db.Tags.Remove(tag);
                 await _db.SaveChangesAsync();
 
                 return Request.CreateResponse(HttpStatusCode.OK);

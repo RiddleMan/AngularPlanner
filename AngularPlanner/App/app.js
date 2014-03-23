@@ -25,6 +25,6 @@ angular.module('app')
       $locationProvider.html5Mode(true);
 
       $routeProvider
-        .otherwise({redirectTo: '/'});
+        .otherwise({redirectTo: '/expenses'});
     }])
   .constant('d3', d3);

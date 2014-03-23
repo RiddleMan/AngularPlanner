@@ -26,14 +26,32 @@ namespace AngularPlanner.Controllers
             _db = new AngularPlannerContext();
         }
 
-        public async Task<List<ExpenseModel>> Get()
+        [HttpGet]
+        [ActionName("Get")]
+        public async Task<List<ExpenseModel>> GetList(int page = 1)
         {
             var userId = User.Identity.GetUserId();
 
-            return await _db.Expenses.Where(i => i.UserId == userId).ToListAsync();
+            try
+            {
+                return await _db.Expenses
+                    .Where(i => i.UserId == userId)
+                    .OrderByDescending(i => i.DateOfExpense)
+                    .Skip((page - 1) * 20)
+                    .Take(20)
+                    .ToListAsync();
+            }
+            catch (Exception e)
+            {
+                Elmah.ErrorSignal.FromCurrentContext().Raise(e);
+            }
+
+            return new List<ExpenseModel>();
         }
 
-        public async Task<ExpenseModel> Get(int id)
+        [HttpGet]
+        [ActionName("Get")]
+        public async Task<ExpenseModel> GetSingle(int id)
         {
             var userId = User.Identity.GetUserId();
             return await _db.Expenses.Where(i => i.UserId == userId && i.Id == id).FirstOrDefaultAsync();
@@ -45,9 +63,12 @@ namespace AngularPlanner.Controllers
             {
                 try
                 {
-                    _db.Expenses.Add(expense);
+                    var tagIds = expense.Tags.Select(i => i.Id);
+
+                    expense.Tags = await _db.Tags.Where(i => tagIds.Contains(i.Id)).ToListAsync();
                     expense.DateAdded = DateTime.Now;
                     expense.UserId = User.Identity.GetUserId();
+                    _db.Expenses.Add(expense);
 
                     await _db.SaveChangesAsync();
                 }
@@ -67,6 +88,9 @@ namespace AngularPlanner.Controllers
             {
                 try
                 {
+                    var tagIds = expense.Tags.Select(i => i.Id);
+
+                    expense.Tags = await _db.Tags.Where(i => tagIds.Contains(i.Id)).ToListAsync();
                     _db.Expenses.AddOrUpdate(expense);
                     await _db.SaveChangesAsync();
                 }

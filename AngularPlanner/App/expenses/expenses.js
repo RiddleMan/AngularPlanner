@@ -24,27 +24,62 @@ angular.module('expenses', ['auth', 'app', 'resources', 'tagsPicker'])
           }]
         }
       })
-      .when('/expenses/list', {
+      .when('/expenses/list/:page', {
         templateUrl: '/App/expenses/expenses-list.html',
         controller: 'ExpensesListCtrl',
         resolve: {
           currentUser: authCheckerProvider.require,
-          expenses: ['Expenses', function(Expenses) {
-            return Expenses.query().$promise;
+          expenses: ['Expenses', '$route', function(Expenses, $route) {
+            return Expenses.query({page: $route.current.params.page}).$promise;
           }]
         }
       });
   }])
-  .controller('ExpensesListCtrl', ['$scope', 'expenses', 'Expenses', '$route', 'currentUser',
-    function($scope, expenses, Expenses, $route, currentUser) {
-      $scope.$on('expenses-invalidate', function() {
-        Expenses.query(function(expenses) {
-          $scope.expenses = expenses;
-        });
-      });
+  .controller('ExpensesListCtrl', ['$scope', 'expenses', 'Expenses', '$route', '$location',
+    function($scope, expenses, Expenses, $route, $location) {
+      if(!$route.current.params.page) {
+        $route.current.params.page = 1;
+      }
 
       $scope.expenses = expenses;
+
+      $scope.page = $route.current.params.page;
+
+      $scope.$on('expenses-invalidate', function() {
+        $location.path('/expenses');
+      });
+
+      $scope.$on('expenses:editor:close', function() {
+        $scope.editor = false;
+      });
+
+      $scope.edit = function($index) {
+        $scope.editor = true;
+        $scope.editorIndex = $index;
+        $scope.$broadcast('expenses:editor:open', $scope.expenses[$index]);
+      };
+
+      $scope.next = function() {
+        $location.path('/expenses/list/' + (parseInt($route.current.params.page) + 1));
+      };
+
+      $scope.prev = function() {
+        $location.path('/expenses/list/' + (parseInt($route.current.params.page) - 1));
+      };
     }])
+  .controller('ExpensesListEditCtrl', ['$scope', function($scope){
+    $scope.$on('expenses:editor:open', function(e, expense) {
+      $scope.expense = expense;
+    });
+
+    $scope.save = function() {
+      $scope.expense.$update();
+    };
+
+    $scope.close = function() {
+      $scope.$emit('expenses:editor:close');
+    };
+  }])
   .controller('ExpenseAddCtrl', ['$scope', 'Expenses', '$rootScope', function($scope, Expenses, $rootScope){
     $scope.more = false;
     $scope.tagsList = [{id:1}, {id:2}];

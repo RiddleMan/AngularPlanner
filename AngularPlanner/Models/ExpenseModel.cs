@@ -19,6 +19,7 @@ namespace AngularPlanner.Models
         public decimal Cost { get; set; }
         public string UserId { get; set; }
         public Nullable<DateTime> DateAdded { get; set; }
+        public Nullable<DateTime> DateModified { get; set; }
         public Nullable<DateTime> DateOfExpense { get; set; }
     }
 }

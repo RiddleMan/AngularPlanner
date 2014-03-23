@@ -29,7 +29,7 @@ angular.module('tagsPicker', ['resources'])
     $scope.delete = function($index) {
       var tmp = $scope.tagsList[$index];
       $scope.tagsList.splice($index, 1);
-      tmp.delete();
+      tmp.$delete();
     };
 
     $scope.toggle = function($index) {
@@ -49,6 +49,11 @@ angular.module('tagsPicker', ['resources'])
       }
     };
 
+    $scope.$on('tagsPicker:push', function(e, tag) {
+      $scope.tagsList.push(tag);
+      $scope.tags.push(tag);
+    });
+
     $scope.$watchCollection('tags', updateChecked);
 
     (function() {
@@ -57,6 +62,26 @@ angular.module('tagsPicker', ['resources'])
         updateChecked();
       });
     })();
+  }])
+  .controller('TagsPickerAddCtrl', ['Tags', '$scope', '$rootScope', function(Tags, $scope, $rootScope){
+    $scope.show = false;
+    $scope.clear = function() {
+      $scope.show = false;
+      delete $scope.tag;
+      $scope.form.$setPristine(true);
+    };
+
+    $scope.add = function() {
+      var tag = new Tags($scope.tag);
+
+      $scope.show = false;
+      delete $scope.tag;
+      $scope.form.$setPristine(true);
+
+      tag.$save(function(tag) {
+        $rootScope.$broadcast('tagsPicker:push', tag);
+      });
+    };
   }])
   .directive('tagsPicker', function(){
     return {

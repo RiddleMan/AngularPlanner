@@ -22,6 +22,7 @@ namespace AngularPlanner
                 "expenses/add",
                 "expenses",
                 "expenses/list",
+                "expenses/list/{id}",
                 "expenses/edit",
                 "account"
             }, new { controller = "Home", action = "Index" });
