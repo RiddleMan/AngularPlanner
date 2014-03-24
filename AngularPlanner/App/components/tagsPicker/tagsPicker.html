@@ -1,0 +1,17 @@
+<div>
+  <h4>Tagi:</h4>
+  <button type="button" ng-click="toggle($index)" class="btn btn-default btn-xs pull-left" ng-class="{'btn-primary': checked[$index]}" ng-repeat="tag in tagsList">{{tag.name}}
+    <span class="glyphicon glyphicon-remove" ng-click="delete($index)"></span>
+  </button>
+  <form class="form-xs pull-left" role="form" name="form" ng-submit="add()" ng-controller="TagsPickerAddCtrl">
+    <div class="form-group has-feedback input-xs" ng-class="{'has-success': form.tagName.$valid, 'has-error': form.tagName.$dirty && form.tagName.$invalid}">
+      <label for="tagName" class="control-label sr-only">Nazwa</label>
+      <input ng-show="show" ng-model="tag.name" type="text" name="tagName" id="tagName" class="form-control" value="" required placeholder="Nazwa" />
+      <span ng-show="form.tagName.$dirty && form.tagName.$invalid" class="glyphicon glyphicon-remove form-control-feedback"></span>
+      <span ng-show="form.tagName.$valid" class="glyphicon glyphicon-ok form-control-feedback"></span>
+    </div>
+    <button type="submit" class="submit-hidden"></button>
+    <button ng-show="show" ng-click="clear()" type="button" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-remove"></span></button>
+    <button ng-show="!show" ng-click="show = true" type="button" class="btn btn-success btn-xs"><span class="glyphicon glyphicon-plus-sign"></span></button>
+  </form>
+</div>
