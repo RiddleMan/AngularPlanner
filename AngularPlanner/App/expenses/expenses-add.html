@@ -1,0 +1,35 @@
+<div class="well text-center" ng-controller="ExpenseAddCtrl">
+  <form class="form-inline" role="form" name="form" novalidate>
+    <div class="form-group has-feedback" ng-class="{'has-success': form.date.$valid, 'has-error': form.date.$dirty && form.date.$invalid}">
+      <label class="sr-only" for="expenseDate">Data</label>
+      <input ng-model="expense.date" name="date" type="date" class="form-control expense-add-date" id="expenseDate" required>
+      <span ng-show="form.date.$dirty && form.date.$invalid" class="glyphicon glyphicon-remove form-control-feedback"></span>
+      <span ng-show="form.date.$valid" class="glyphicon glyphicon-ok form-control-feedback"></span>
+    </div>
+    <div class="form-group has-feedback" ng-class="{'has-success': form.title.$valid, 'has-error': form.title.$dirty && form.title.$invalid}">
+      <label class="sr-only"
+      for="expenseTitle">Tytuł</label>
+      <input ng-model="expense.title" type="text" name="title" class="form-control expense-add-title" id="expenseTitle" placeholder="Tytuł" required>
+      <span ng-show="form.title.$dirty && form.title.$invalid" class="glyphicon glyphicon-remove form-control-feedback"></span>
+      <span ng-show="form.title.$valid" class="glyphicon glyphicon-ok form-control-feedback"></span>
+    </div>
+    <div class="form-group has-feedback" ng-class="{'has-success': form.cost.$valid, 'has-error': form.cost.$dirty && form.cost.$invalid}">
+      <label for="expensePrice" class="sr-only">Kwota</label>
+      <input ng-model="expense.cost" type="number" name="cost" class="form-control expense-add-price" id="expensePrice" placeholder="Kwota" required>
+      <span ng-show="form.cost.$dirty && form.cost.$invalid" class="glyphicon glyphicon-remove form-control-feedback"></span>
+      <span ng-show="form.cost.$valid" class="glyphicon glyphicon-ok form-control-feedback"></span>
+    </div>
+    <button ng-click="add()" type="submit" class="btn btn-primary">Dodaj <span class="glyphicon glyphicon-plus-sign"></span></button>
+    <button ng-click="more = !more" type="button" class="btn btn-default">Więcej
+      <span ng-show="!more" class="glyphicon glyphicon-chevron-down"></span>
+      <span ng-show="more" class="glyphicon glyphicon-chevron-up"></span>
+    </button>
+    <div ng-show="more" class="container text-left">
+      <div tags-picker tags="expense.tags"></div>
+      <div class="clear offset">
+        <h5>Komentarz:</h5>
+        <textarea class="form-control" id="expenseComment" ng-model="expense.comment"></textarea>
+      </div>
+    </div>
+  </form>
+</div>

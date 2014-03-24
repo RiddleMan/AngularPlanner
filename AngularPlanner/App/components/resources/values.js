@@ -6,7 +6,7 @@
 */
 
 //TODO: wypierdolić
-angular.module('resources.values', ['auth.interceptor'])
-  .factory('Values', ['$resource', 'authInterceptor', function($resource, authInterceptor){
+angular.module('resources.values', [])
+  .factory('Values', ['$resource', function($resource){
     return $resource('/api/values/:id', null);
   }]);

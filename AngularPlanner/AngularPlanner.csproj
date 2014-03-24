@@ -222,13 +222,43 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\ExpensesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201403191959477_ExpensesAndTags.cs" />
+    <Compile Include="Migrations\201403191959477_ExpensesAndTags.Designer.cs">
+      <DependentUpon>201403191959477_ExpensesAndTags.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201403192211235_ExpensesAndTags1.cs" />
+    <Compile Include="Migrations\201403192211235_ExpensesAndTags1.Designer.cs">
+      <DependentUpon>201403192211235_ExpensesAndTags1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201403202217261_ExpensesAndTags2.cs" />
+    <Compile Include="Migrations\201403202217261_ExpensesAndTags2.Designer.cs">
+      <DependentUpon>201403202217261_ExpensesAndTags2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201403202228315_ExpensesAndTags3.cs" />
+    <Compile Include="Migrations\201403202228315_ExpensesAndTags3.Designer.cs">
+      <DependentUpon>201403202228315_ExpensesAndTags3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201403221401221_ExpensesAndTags4.cs" />
+    <Compile Include="Migrations\201403221401221_ExpensesAndTags4.Designer.cs">
+      <DependentUpon>201403221401221_ExpensesAndTags4.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201403231020575_ExpensesAndTags5.cs" />
+    <Compile Include="Migrations\201403231020575_ExpensesAndTags5.Designer.cs">
+      <DependentUpon>201403231020575_ExpensesAndTags5.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountBindingModels.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\AngularPlannerContext.cs" />
+    <Compile Include="Models\ExpenseModel.cs" />
+    <Compile Include="Models\TagModel.cs" />
+    <Compile Include="Controllers\TagsController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Providers\ApplicationOAuthProvider.cs" />
     <Compile Include="Results\ChallengeResult.cs" />
@@ -277,6 +307,7 @@
     <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\CollectionModelDescription.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ApiGroup.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\Api.cshtml" />
+    <Content Include="LICENSE.txt" />
     <Content Include="Scripts\angular-animate.js" />
     <Content Include="Scripts\angular-animate.min.js" />
     <Content Include="Scripts\angular-cookies.js" />
@@ -296,6 +327,8 @@
     <Content Include="Scripts\angular-touch.min.js" />
     <Content Include="Scripts\angular.js" />
     <Content Include="Scripts\angular.min.js" />
+    <Content Include="Scripts\d3.v3.js" />
+    <Content Include="Scripts\d3.v3.min.js" />
     <Content Include="Scripts\errors.json" />
     <Content Include="Scripts\angular-touch.min.js.map" />
     <Content Include="Scripts\angular-sanitize.min.js.map" />
@@ -590,6 +623,26 @@
       <Project>{b58b3760-05e0-4372-8160-5e4f3cf9bb7f}</Project>
       <Name>AngularPlanner.Extensions</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201403191959477_ExpensesAndTags.resx">
+      <DependentUpon>201403191959477_ExpensesAndTags.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201403192211235_ExpensesAndTags1.resx">
+      <DependentUpon>201403192211235_ExpensesAndTags1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201403202217261_ExpensesAndTags2.resx">
+      <DependentUpon>201403202217261_ExpensesAndTags2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201403202228315_ExpensesAndTags3.resx">
+      <DependentUpon>201403202228315_ExpensesAndTags3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201403221401221_ExpensesAndTags4.resx">
+      <DependentUpon>201403221401221_ExpensesAndTags4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201403231020575_ExpensesAndTags5.resx">
+      <DependentUpon>201403231020575_ExpensesAndTags5.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

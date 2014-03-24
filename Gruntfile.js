@@ -23,14 +23,14 @@ module.exports = function (grunt) {
     // Watches files for changes and runs tasks based on the changed files
     watch: {
       js: {
-        files: ['<%= yeoman.app %>/{,*/}*.js'],
+        files: ['<%= yeoman.app %>/**/*.js'],
         tasks: ['newer:jshint:all'],
         options: {
           livereload: true
         }
       },
       jsTest: {
-        files: ['<%= yeoman.testSpec %>/{,*/}*.js'],
+        files: ['<%= yeoman.testSpec %>/**/*.js'],
         tasks: ['newer:jshint:test', 'karma']
       },
       gruntfile: {
@@ -41,10 +41,10 @@ module.exports = function (grunt) {
           livereload: 35729
         },
         files: [
-          '<%= yeoman.views %>/{,*/}*.cshtml',
-          '<%= yeoman.app %>/{,*/}*.html',
-          '<%= yeoman.css %>/{,*/}*.css',
-          '<%= yeoman.images %>/{,*/}*.{png,jpg,jpeg,gif,webp,svg}'
+          '<%= yeoman.views %>/**/*.cshtml',
+          '<%= yeoman.app %>/**/*.html',
+          '<%= yeoman.css %>/**/*.css',
+          '<%= yeoman.images %>/**/*.{png,jpg,jpeg,gif,webp,svg}'
         ]
       }
     },
@@ -57,13 +57,13 @@ module.exports = function (grunt) {
       },
       all: [
         'Gruntfile.js',
-        '<%= yeoman.app %>/{,*/}*.js'
+        '<%= yeoman.app %>/**/*.js'
       ],
       test: {
         options: {
           jshintrc: 'test/.jshintrc'
         },
-        src: ['<%= yeoman.testSpec %>/{,*/}*.js']
+        src: ['<%= yeoman.testSpec %>/**/*.js']
       }
     },
 

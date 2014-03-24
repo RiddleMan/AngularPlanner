@@ -13,7 +13,10 @@ angular.module('app', [
   'http',
   'login',
   'register',
-  'index'
+  'index',
+  'expenses',
+  'navbar',
+  'nav'
 ]);
 
 angular.module('app')
@@ -22,8 +25,6 @@ angular.module('app')
       $locationProvider.html5Mode(true);
 
       $routeProvider
-        .otherwise({redirectTo: '/'});
-    }]);
-
-angular.module('app')
-  .constant('TEMPLATE_PREFIX', '/App');
+        .otherwise({redirectTo: '/expenses'});
+    }])
+  .constant('d3', d3);

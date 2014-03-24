@@ -6,3 +6,39 @@
   font-size: 30px;
   font-weight: bold;
 }
+
+.expense-add-title {
+  width: 300px !important;
+}
+
+.offset {
+  margin-top: 20px;
+}
+
+.submit-hidden {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+}
+
+.input-xs .form-control {
+  height:22px !important;
+  font-size: 12px !important;
+}
+
+.input-xs .form-control-feedback {
+  top: -6px !important;
+}
+
+.form-xs {
+  width: 209px;
+}
+
+.clear {
+  clear: both;
+}
+
+.block {
+  display: block;
+}
