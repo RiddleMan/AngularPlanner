@@ -5,7 +5,7 @@
 * Pick tags
 */
 angular.module('tagsPicker', ['resources'])
-  .controller('TagsPickerCtrl', ['$scope', 'Tags', function($scope, Tags){
+  .controller('TagsPickerCtrl', ['$scope', 'Tags', '$rootScope', function($scope, Tags, $rootScope){
     $scope.checked = [];
     $scope.tagsList = [];
 
@@ -27,9 +27,8 @@ angular.module('tagsPicker', ['resources'])
     }
 
     $scope.delete = function($index) {
-      var tmp = $scope.tagsList[$index];
-      $scope.tagsList.splice($index, 1);
-      tmp.$delete();
+      $scope.tagsList[$index].$delete();
+      $rootScope.$broadcast('tagsPicker:splice', $index);
     };
 
     $scope.toggle = function($index) {
@@ -51,7 +50,15 @@ angular.module('tagsPicker', ['resources'])
 
     $scope.$on('tagsPicker:push', function(e, tag) {
       $scope.tagsList.push(tag);
+    });
+
+    $scope.$on('tagsPicker:check', function(e, tag) {
       $scope.tags.push(tag);
+      e.stopPropagation();
+    });
+
+    $scope.$on('tagsPicker:splice', function(e, $index) {
+      $scope.tagsList.splice($index, 1);
     });
 
     $scope.$watchCollection('tags', updateChecked);
@@ -64,7 +71,7 @@ angular.module('tagsPicker', ['resources'])
     })();
   }])
   .controller('TagsPickerAddCtrl', ['Tags', '$scope', '$rootScope', function(Tags, $scope, $rootScope){
-    $scope.show = false;
+    $scope.sahow = false;
     $scope.clear = function() {
       $scope.show = false;
       delete $scope.tag;
@@ -80,6 +87,7 @@ angular.module('tagsPicker', ['resources'])
 
       tag.$save(function(tag) {
         $rootScope.$broadcast('tagsPicker:push', tag);
+        $scope.$emit('tagsPicker:check', tag);
       });
     };
   }])

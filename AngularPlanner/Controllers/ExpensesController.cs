@@ -34,12 +34,16 @@ namespace AngularPlanner.Controllers
 
             try
             {
-                return await _db.Expenses
+                var asdf = await _db.Expenses
                     .Where(i => i.UserId == userId)
+                    .Include("Tags")
+                    .AsNoTracking()
                     .OrderByDescending(i => i.DateOfExpense)
                     .Skip((page - 1) * 20)
                     .Take(20)
                     .ToListAsync();
+
+                return asdf;
             }
             catch (Exception e)
             {
@@ -88,10 +92,12 @@ namespace AngularPlanner.Controllers
             {
                 try
                 {
+                    var userId = User.Identity.GetUserId();
                     var tagIds = expense.Tags.Select(i => i.Id);
+                    var expenseDB =
+                        await _db.Expenses.FirstOrDefaultAsync(i => i.Id == expense.Id && i.UserId == userId);
 
-                    expense.Tags = await _db.Tags.Where(i => tagIds.Contains(i.Id)).ToListAsync();
-                    _db.Expenses.AddOrUpdate(expense);
+                    expenseDB.Tags = await _db.Tags.Where(i => tagIds.Contains(i.Id)).ToListAsync();
                     await _db.SaveChangesAsync();
                 }
                 catch (Exception e)

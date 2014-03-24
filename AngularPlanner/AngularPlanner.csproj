@@ -258,7 +258,7 @@
     <Compile Include="Models\AngularPlannerContext.cs" />
     <Compile Include="Models\ExpenseModel.cs" />
     <Compile Include="Models\TagModel.cs" />
-    <Compile Include="Models\TagsController.cs" />
+    <Compile Include="Controllers\TagsController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Providers\ApplicationOAuthProvider.cs" />
     <Compile Include="Results\ChallengeResult.cs" />

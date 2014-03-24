@@ -17,7 +17,8 @@
             <td>{{expense.dateOfExpense | date:'longDate'}}</td>
             <td>{{expense.title}}</td>
             <td>{{expense.cost}}</td>
-            <td><button ng-click="edit($index)" type="button" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-edit"></span></button></td>
+            <td><button ng-click="edit($index)" type="button" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-edit"></span></button>
+            <button ng-click="delete($index)" type="button" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-remove"></span></button></td>
           </tr>
         </table>
     </div>

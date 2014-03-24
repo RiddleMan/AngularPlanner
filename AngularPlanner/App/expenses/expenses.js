@@ -59,6 +59,12 @@ angular.module('expenses', ['auth', 'app', 'resources', 'tagsPicker'])
         $scope.$broadcast('expenses:editor:open', $scope.expenses[$index]);
       };
 
+      $scope.delete = function($index) {
+        var tmp = $scope.expenses[$index];
+        $scope.expenses.splice($index, 1);
+        tmp.$delete();
+      };
+
       $scope.next = function() {
         $location.path('/expenses/list/' + (parseInt($route.current.params.page) + 1));
       };

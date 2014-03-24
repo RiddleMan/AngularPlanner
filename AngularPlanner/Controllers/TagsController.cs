@@ -8,9 +8,10 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Http;
+using AngularPlanner.Models;
 using Microsoft.AspNet.Identity;
 
-namespace AngularPlanner.Models
+namespace AngularPlanner.Controllers
 {
     public class TagsController : ApiController
     {
