@@ -34,7 +34,7 @@ namespace AngularPlanner.Controllers
 
             try
             {
-                var asdf = await _db.Expenses
+                return await _db.Expenses
                     .Where(i => i.UserId == userId)
                     .Include("Tags")
                     .AsNoTracking()
@@ -42,8 +42,6 @@ namespace AngularPlanner.Controllers
                     .Skip((page - 1) * 20)
                     .Take(20)
                     .ToListAsync();
-
-                return asdf;
             }
             catch (Exception e)
             {
@@ -93,11 +91,14 @@ namespace AngularPlanner.Controllers
                 try
                 {
                     var userId = User.Identity.GetUserId();
-                    var tagIds = expense.Tags.Select(i => i.Id);
                     var expenseDB =
-                        await _db.Expenses.FirstOrDefaultAsync(i => i.Id == expense.Id && i.UserId == userId);
+                        await _db.Expenses.Include(i => i.Tags).FirstOrDefaultAsync(i => i.Id == expense.Id && i.UserId == userId);
 
-                    expenseDB.Tags = await _db.Tags.Where(i => tagIds.Contains(i.Id)).ToListAsync();
+                    var tagExist = expenseDB.Tags.Select(i => i.Id);
+                    var tagIds = expense.Tags.Select(i => i.Id);
+
+                    expenseDB.Tags.AddRange(await _db.Tags.Where(i => tagIds.Contains(i.Id) && !tagExist.Contains(i.Id)).ToListAsync());
+                    expenseDB.Tags.RemoveAll(i => !tagIds.Contains(i.Id));
                     await _db.SaveChangesAsync();
                 }
                 catch (Exception e)
@@ -129,6 +130,15 @@ namespace AngularPlanner.Controllers
             {
                 return Request.CreateResponse(HttpStatusCode.InternalServerError);
             }
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                _db.Dispose();
+            }
+            base.Dispose(disposing);
         }
     }
 }

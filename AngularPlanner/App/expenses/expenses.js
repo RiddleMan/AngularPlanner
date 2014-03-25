@@ -4,7 +4,7 @@
 *
 * Module for expenses
 */
-angular.module('expenses', ['auth', 'app', 'resources', 'tagsPicker'])
+angular.module('expenses', ['auth', 'app', 'resources', 'tagsPicker', 'graphs'])
   .config(['$routeProvider', 'authCheckerProvider', function($routeProvider, authCheckerProvider) {
     $routeProvider
       .when('/expenses/edit', {
