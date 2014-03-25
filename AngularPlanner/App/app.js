@@ -16,7 +16,8 @@ angular.module('app', [
   'index',
   'expenses',
   'navbar',
-  'nav'
+  'nav',
+  'simulations'
 ]);
 
 angular.module('app')
@@ -25,6 +26,5 @@ angular.module('app')
       $locationProvider.html5Mode(true);
 
       $routeProvider
-        .otherwise({redirectTo: '/expenses'});
-    }])
-  .constant('d3', d3);
+        .otherwise({redirectTo: '/statistics'});
+    }]);
