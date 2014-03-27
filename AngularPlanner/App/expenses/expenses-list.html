@@ -3,7 +3,7 @@
   <div ng-include="'/App/components/nav/nav.html'"></div>
   <div ng-include="'/App/expenses/expenses-add.html'" class="offset"></div>
   <div class="row">
-    <div class="offset col-sm-12 pull-left" ng-class="{'col-sm-8': editor}">
+    <div class="offset col-sm-12 pull-left slide" ng-class="{'col-sm-8': editor}">
       <div class="panel panel-default">
         <div class="panel-body">
           <table class="table table-hover">
@@ -26,7 +26,7 @@
         </div>
       </div>
     </div>
-    <div ng-show="editor" ng-include="'/App/expenses/expenses-editor.html'"></div>
+    <div class="slide" ng-show="editor" ng-include="'/App/expenses/expenses-editor.html'"></div>
   </div>
   <ul class="pager">
     <li class="previous" ng-show="page != 1" ng-click="prev()"><a>&larr; Nowsze</a></li>

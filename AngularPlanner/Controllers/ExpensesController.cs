@@ -28,6 +28,35 @@ namespace AngularPlanner.Controllers
 
         [HttpGet]
         [ActionName("Get")]
+        public async Task<List<ExpenseModel>> GetListByTag(string tag, int page = 1)
+        {
+            var userId = User.Identity.GetUserId();
+
+            try
+            {
+                var query = _db.Expenses.AsQueryable();
+
+                query = tag == "notag" 
+                    ? query.Where(i => i.UserId == userId && !i.Tags.Any()) 
+                    : query.Where(i => i.UserId == userId && i.Tags.Any(j => j.Name == tag));
+
+                return await query.Include("Tags")
+                    .AsNoTracking()
+                    .OrderByDescending(i => i.DateOfExpense)
+                    .Skip((page - 1) * 20)
+                    .Take(20)
+                    .ToListAsync();
+            }
+            catch (Exception e)
+            {
+                Elmah.ErrorSignal.FromCurrentContext().Raise(e);
+            }
+
+            return new List<ExpenseModel>();
+        }
+
+        [HttpGet]
+        [ActionName("Get")]
         public async Task<List<ExpenseModel>> GetList(int page = 1)
         {
             var userId = User.Identity.GetUserId();

@@ -24,13 +24,39 @@ angular.module('expenses', ['auth', 'app', 'resources', 'tagsPicker'])
           }]
         }
       })
-      .when('/expenses/list/:page', {
+      .when('/expenses/:page', {
         templateUrl: '/App/expenses/expenses-list.html',
         controller: 'ExpensesListCtrl',
         resolve: {
           currentUser: authCheckerProvider.require,
           expenses: ['Expenses', '$route', function(Expenses, $route) {
             return Expenses.query({page: $route.current.params.page}).$promise;
+          }]
+        }
+      })
+      .when('/expenses/tag/:tag', {
+        templateUrl: '/App/expenses/expenses-list.html',
+        controller: 'ExpensesListCtrl',
+        resolve: {
+          currentUser: authCheckerProvider.require,
+          expenses: ['Expenses', '$route', function(Expenses, $route) {
+            return Expenses.query({
+              tag: $route.current.params.tag,
+              page: $route.current.params.page
+            }).$promise;
+          }]
+        }
+      })
+      .when('/expenses/tag/:tag/:page', {
+        templateUrl: '/App/expenses/expenses-list.html',
+        controller: 'ExpensesListCtrl',
+        resolve: {
+          currentUser: authCheckerProvider.require,
+          expenses: ['Expenses', '$route', function(Expenses, $route) {
+            return Expenses.query({
+              tag: $route.current.params.tag,
+              page: $route.current.params.page
+            }).$promise;
           }]
         }
       });
@@ -45,7 +71,8 @@ angular.module('expenses', ['auth', 'app', 'resources', 'tagsPicker'])
 
       $scope.page = $route.current.params.page;
 
-      $scope.$on('expenses-invalidate', function() {
+      $scope.$on('expenses-invalidate', function(e) {
+        e.stopPropagation();
         $location.path('/expenses');
       });
 
@@ -66,11 +93,11 @@ angular.module('expenses', ['auth', 'app', 'resources', 'tagsPicker'])
       };
 
       $scope.next = function() {
-        $location.path('/expenses/list/' + (parseInt($route.current.params.page) + 1));
+        $location.path('/expenses/' + (parseInt($route.current.params.page) + 1));
       };
 
       $scope.prev = function() {
-        $location.path('/expenses/list/' + (parseInt($route.current.params.page) - 1));
+        $location.path('/expenses/' + (parseInt($route.current.params.page) - 1));
       };
     }])
   .controller('ExpensesListEditCtrl', ['$scope', function($scope){
@@ -86,7 +113,7 @@ angular.module('expenses', ['auth', 'app', 'resources', 'tagsPicker'])
       $scope.$emit('expenses:editor:close');
     };
   }])
-  .controller('ExpenseAddCtrl', ['$scope', 'Expenses', '$rootScope', function($scope, Expenses, $rootScope){
+  .controller('ExpenseAddCtrl', ['$scope', 'Expenses', '$rootScope', function($scope, Expenses){
     $scope.more = false;
     $scope.tagsList = [{id:1}, {id:2}];
 
@@ -104,7 +131,7 @@ angular.module('expenses', ['auth', 'app', 'resources', 'tagsPicker'])
       $scope.form.$setPristine(true);
 
       expense.$save(function() {
-        $rootScope.$broadcast('expenses-invalidate');
+        $scope.$emit('expenses-invalidate');
       });
     };
   }]);

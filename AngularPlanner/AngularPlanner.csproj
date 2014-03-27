@@ -225,7 +225,8 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ExpensesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\TagsGraphController.cs" />
+    <Compile Include="Controllers\IncomesCostsGraphController.cs" />
+    <Compile Include="Controllers\TagsUsageGraphController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Dto\TagsGraphDto.cs" />
     <Compile Include="Dto\TagsGraphsUsingStatisticsDto.cs" />
@@ -613,6 +614,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\IncomesCostsGraph\" />
     <Folder Include="Views\Partials\" />
   </ItemGroup>
   <ItemGroup>

@@ -21,8 +21,9 @@ namespace AngularPlanner
                 "register",
                 "expenses/add",
                 "expenses",
-                "expenses/list",
-                "expenses/list/{id}",
+                "expenses/{id}",
+                "expenses/tag/{tag}",
+                "expenses/tag/{tag}/{id}",
                 "expenses/edit",
                 "account",
                 "statistics"

@@ -42,3 +42,8 @@
 .block {
   display: block;
 }
+
+.slide {
+  -webkit-transition:0.2s linear all;
+  transition:0.2s linear all;
+}
