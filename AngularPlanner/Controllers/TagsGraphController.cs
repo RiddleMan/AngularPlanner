@@ -19,22 +19,47 @@ namespace AngularPlanner.Controllers
 {
     [Authorize]
     [ElmahHandleErrorApi]
-    public class TagsGraphController : ApiController
+    public class TagsGraphsController : ApiController
     {
         private AngularPlannerContext db = new AngularPlannerContext();
         private readonly TagsGraphBuilder _builder;
 
-        public TagsGraphController()
+        public TagsGraphsController()
         {
             _builder = new TagsGraphBuilder(db);
         }
 
         //Get tag stats
         // GET api/TagsGraph
-        public async Task<IEnumerable<TagsGraphDto>> GetTags()
+        // LOW !!!! PERFORMANCE
+        //public async Task<IEnumerable<TagsGraphDto>> GetTags()
+        //{
+        //    var userId = User.Identity.GetUserId();
+        //    return await _builder.Build(userId);
+        //}
+        [ActionName("UsingStatistics")]
+        public async Task<TagsGraphsUsingStatisticsDto> GetUsingStatistics()
         {
             var userId = User.Identity.GetUserId();
-            return await _builder.Build(userId);
+
+            var stats = await db.Tags.Where(i => i.UserId == userId).Select(i => new
+            {
+                Name = i.Name,
+                Count = i.Expenses.Count
+            }).ToListAsync();
+
+            var noTag = await db.Expenses.CountAsync(i => !i.Tags.Any() && i.UserId == userId);
+
+            var ret = new TagsGraphsUsingStatisticsDto
+            {
+                Tags = stats.Select(i => i.Name).ToList(),
+                Usage = stats.Select(i => i.Count).ToList()
+            };
+
+            ret.Tags.Add("Bez taga");
+            ret.Usage.Add(noTag);
+
+            return ret;
         }
 
         //// GET api/TagsGraph/5

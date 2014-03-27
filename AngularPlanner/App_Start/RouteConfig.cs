@@ -24,7 +24,8 @@ namespace AngularPlanner
                 "expenses/list",
                 "expenses/list/{id}",
                 "expenses/edit",
-                "account"
+                "account",
+                "statistics"
             }, new { controller = "Home", action = "Index" });
 
             routes.MapRoute(

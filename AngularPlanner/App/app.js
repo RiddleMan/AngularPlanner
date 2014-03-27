@@ -17,7 +17,8 @@ angular.module('app', [
   'expenses',
   'navbar',
   'nav',
-  'simulations'
+  'simulations',
+  'statistics'
 ]);
 
 angular.module('app')

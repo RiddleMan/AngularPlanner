@@ -4,15 +4,16 @@
 *
 * User stats
 */
-angular.module('statistics', [])
-  .config(['$routeProvider', function($routeProvider) {
+angular.module('statistics', ['graphs', 'auth'])
+  .config(['$routeProvider' , 'authCheckerProvider', function($routeProvider, authCheckerProvider) {
     $routeProvider
       .when('/statistics', {
         templateUrl: '/App/statistics/statistics.html',
-        controller: 'StatisticsCtrl'
-        //resolve
+        controller: 'StatisticsCtrl',
+        resolve: {
+          currentUser: authCheckerProvider.require
+        }
       });
   }])
-  .controller('StatisticsCtrl', ['$scope', function($scope){
-
-  }]);
+  .controller('StatisticsCtrl', [function(){
+}]);
