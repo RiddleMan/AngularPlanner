@@ -31,6 +31,10 @@
   top: -6px !important;
 }
 
+.tag {
+  margin-right:2px;
+}
+
 .form-xs {
   width: 209px;
 }

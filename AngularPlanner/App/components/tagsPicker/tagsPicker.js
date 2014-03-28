@@ -71,7 +71,7 @@ angular.module('tagsPicker', ['resources'])
     })();
   }])
   .controller('TagsPickerAddCtrl', ['Tags', '$scope', '$rootScope', function(Tags, $scope, $rootScope){
-    $scope.sahow = false;
+    $scope.show = false;
     $scope.clear = function() {
       $scope.show = false;
       delete $scope.tag;
@@ -94,7 +94,7 @@ angular.module('tagsPicker', ['resources'])
   .directive('tagsPicker', function(){
     return {
       scope: {
-        tags: '=',
+        tags: '='
       },
       controller: 'TagsPickerCtrl',
       restrict: 'EA',
