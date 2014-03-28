@@ -4,4 +4,4 @@
 *
 * graphs module
 */
-angular.module('graphs', ['graphs.tagsUsage']);
+angular.module('graphs', ['graphs.tagsUsage', 'graphs.incomesCosts']);

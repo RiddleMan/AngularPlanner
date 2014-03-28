@@ -221,18 +221,18 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
-    <Compile Include="Builders\TagsGraphBuilder.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ExpensesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\IncomesCostsGraphController.cs" />
     <Compile Include="Controllers\TagsUsageGraphController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
-    <Compile Include="Dto\TagsGraphDto.cs" />
-    <Compile Include="Dto\TagsGraphsUsingStatisticsDto.cs" />
+    <Compile Include="Dto\IncomesCostsGraphDto.cs" />
+    <Compile Include="Dto\TagsUsageGraphDto.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\TimeSpanHelper.cs" />
     <Compile Include="Migrations\201403191959477_ExpensesAndTags.cs" />
     <Compile Include="Migrations\201403191959477_ExpensesAndTags.Designer.cs">
       <DependentUpon>201403191959477_ExpensesAndTags.cs</DependentUpon>
@@ -614,6 +614,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Builders\" />
     <Folder Include="Views\IncomesCostsGraph\" />
     <Folder Include="Views\Partials\" />
   </ItemGroup>

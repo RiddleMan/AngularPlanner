@@ -6,7 +6,7 @@ using AngularPlanner.Models;
 
 namespace AngularPlanner.Dto
 {
-    public class TagsGraphsUsingStatisticsDto
+    public class TagsUsageGraphDto
     {
         public List<string> Tags { get; set; }
         public List<int> Usage { get; set; } 

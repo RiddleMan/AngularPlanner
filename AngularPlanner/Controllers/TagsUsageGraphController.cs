@@ -9,7 +9,6 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Description;
-using AngularPlanner.Builders;
 using AngularPlanner.Dto;
 using AngularPlanner.Models;
 using Elmah.Contrib.WebApi;
@@ -22,14 +21,8 @@ namespace AngularPlanner.Controllers
     public class TagsUsageGraphController : ApiController
     {
         private AngularPlannerContext db = new AngularPlannerContext();
-        private readonly TagsGraphBuilder _builder;
 
-        public TagsUsageGraphController()
-        {
-            _builder = new TagsGraphBuilder(db);
-        }
-
-        public async Task<TagsGraphsUsingStatisticsDto> GetTagsUsageGraph()
+        public async Task<TagsUsageGraphDto> GetTagsUsageGraph()
         {
             var userId = User.Identity.GetUserId();
 
@@ -41,7 +34,7 @@ namespace AngularPlanner.Controllers
 
             var noTag = await db.Expenses.CountAsync(i => !i.Tags.Any() && i.UserId == userId);
 
-            var ret = new TagsGraphsUsingStatisticsDto
+            var ret = new TagsUsageGraphDto
             {
                 Tags = stats.Select(i => i.Name).ToList(),
                 Usage = stats.Select(i => i.Count).ToList()

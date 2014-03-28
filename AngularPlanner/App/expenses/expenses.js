@@ -59,6 +59,32 @@ angular.module('expenses', ['auth', 'app', 'resources', 'tagsPicker'])
             }).$promise;
           }]
         }
+      })
+      .when('/expenses/date/:date', {
+        templateUrl: '/App/expenses/expenses-list.html',
+        controller: 'ExpensesListCtrl',
+        resolve: {
+          currentUser: authCheckerProvider.require,
+          expenses: ['Expenses', '$route', function(Expenses, $route) {
+            return Expenses.query({
+              date: $route.current.params.date,
+              page: $route.current.params.page
+            }).$promise;
+          }]
+        }
+      })
+      .when('/expenses/date/:date/:page', {
+        templateUrl: '/App/expenses/expenses-list.html',
+        controller: 'ExpensesListCtrl',
+        resolve: {
+          currentUser: authCheckerProvider.require,
+          expenses: ['Expenses', '$route', function(Expenses, $route) {
+            return Expenses.query({
+              date: $route.current.params.date,
+              page: $route.current.params.page
+            }).$promise;
+          }]
+        }
       });
   }])
   .controller('ExpensesListCtrl', ['$scope', 'expenses', 'Expenses', '$route', '$location',

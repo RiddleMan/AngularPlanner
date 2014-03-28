@@ -24,6 +24,8 @@ namespace AngularPlanner
                 "expenses/{id}",
                 "expenses/tag/{tag}",
                 "expenses/tag/{tag}/{id}",
+                "expenses/date/{date}",
+                "expenses/date/{date}/{id}",
                 "expenses/edit",
                 "account",
                 "statistics"

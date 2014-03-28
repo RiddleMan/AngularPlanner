@@ -8,6 +8,7 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Http;
+using AngularPlanner.Helpers;
 using AngularPlanner.Models;
 using Elmah.Contrib.WebApi;
 using Elmah.Mvc;
@@ -24,6 +25,33 @@ namespace AngularPlanner.Controllers
         public ExpensesController()
         {
             _db = new AngularPlannerContext();
+        }
+
+        [HttpGet]
+        [ActionName("Get")]
+        public async Task<List<ExpenseModel>> GetListByDate(string date, int page = 1)
+        {
+            var userId = User.Identity.GetUserId();
+
+            var timespan = TimeSpanHelper.GetTimeSpan(date);
+
+            try
+            {
+                return await _db.Expenses
+                    .Where(i => i.UserId == userId && i.DateOfExpense >= timespan.Lower && i.DateOfExpense <= timespan.Higher)
+                    .Include("Tags")
+                    .AsNoTracking()
+                    .OrderByDescending(i => i.DateOfExpense)
+                    .Skip((page - 1) * 20)
+                    .Take(20)
+                    .ToListAsync();
+            }
+            catch (Exception e)
+            {
+                Elmah.ErrorSignal.FromCurrentContext().Raise(e);
+            }
+
+            return new List<ExpenseModel>();
         }
 
         [HttpGet]
