@@ -99,8 +99,6 @@ angular.module('tagsPicker', ['resources'])
       controller: 'TagsPickerCtrl',
       restrict: 'EA',
       templateUrl: '/App/components/tagsPicker/tagsPicker.html',
-      replace: true,
-      link: function($scope, iElm, iAttrs, controller) {
-      }
+      replace: true
     };
   });
