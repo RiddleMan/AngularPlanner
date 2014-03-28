@@ -1,6 +1,5 @@
-<div>
-  <h4>Tagi:</h4>
-  <button type="button" ng-click="toggle($index)" class="btn btn-default btn-xs pull-left" ng-class="{'btn-primary': checked[$index]}" ng-repeat="tag in tagsList">{{tag.name}}
+<div class="row">
+  <button type="button" ng-click="toggle($index)" class="btn btn-default btn-xs pull-left tag" ng-class="{'btn-primary': checked[$index]}" ng-repeat="tag in tagsList">{{tag.name}}
     <span class="glyphicon glyphicon-remove" ng-click="delete($index)"></span>
   </button>
   <form class="form-xs pull-left" role="form" name="form" ng-submit="add()" ng-controller="TagsPickerAddCtrl">
@@ -11,7 +10,7 @@
       <span ng-show="form.tagName.$valid" class="glyphicon glyphicon-ok form-control-feedback"></span>
     </div>
     <button type="submit" class="submit-hidden"></button>
-    <button ng-show="show" ng-click="clear()" type="button" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-remove"></span></button>
-    <button ng-show="!show" ng-click="show = true" type="button" class="btn btn-success btn-xs"><span class="glyphicon glyphicon-plus-sign"></span></button>
+    <button ng-show="show && !readonly" ng-click="clear()" type="button" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-remove"></span></button>
+    <button ng-show="!show && !readonly" ng-click="show = true" type="button" class="btn btn-success btn-xs"><span class="glyphicon glyphicon-plus-sign"></span></button>
   </form>
 </div>

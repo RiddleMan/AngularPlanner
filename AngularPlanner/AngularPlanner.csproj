@@ -223,11 +223,20 @@
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ExpensesController.cs" />
+    <Compile Include="Controllers\Graphs\IncomesCostsMonthScopeGraphController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\Graphs\IncomesCostsBilanceGraphController.cs" />
+    <Compile Include="Controllers\Graphs\IncomesCostsGraphController.cs" />
+    <Compile Include="Controllers\Graphs\TagsUsageGraphController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
+    <Compile Include="Dto\IncomesCostsBilanceGraphDto.cs" />
+    <Compile Include="Dto\IncomesCostsGraphDto.cs" />
+    <Compile Include="Dto\IncomesCostsMonthScopeDto.cs" />
+    <Compile Include="Dto\TagsUsageGraphDto.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\TimeSpanHelper.cs" />
     <Compile Include="Migrations\201403191959477_ExpensesAndTags.cs" />
     <Compile Include="Migrations\201403191959477_ExpensesAndTags.Designer.cs">
       <DependentUpon>201403191959477_ExpensesAndTags.cs</DependentUpon>
@@ -307,7 +316,6 @@
     <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\CollectionModelDescription.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ApiGroup.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\Api.cshtml" />
-    <Content Include="LICENSE.txt" />
     <Content Include="Scripts\angular-animate.js" />
     <Content Include="Scripts\angular-animate.min.js" />
     <Content Include="Scripts\angular-cookies.js" />
@@ -327,8 +335,6 @@
     <Content Include="Scripts\angular-touch.min.js" />
     <Content Include="Scripts\angular.js" />
     <Content Include="Scripts\angular.min.js" />
-    <Content Include="Scripts\d3.v3.js" />
-    <Content Include="Scripts\d3.v3.min.js" />
     <Content Include="Scripts\errors.json" />
     <Content Include="Scripts\angular-touch.min.js.map" />
     <Content Include="Scripts\angular-sanitize.min.js.map" />
@@ -612,6 +618,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Builders\" />
+    <Folder Include="Views\IncomesCostsGraph\" />
     <Folder Include="Views\Partials\" />
   </ItemGroup>
   <ItemGroup>

@@ -1,0 +1,26 @@
+<div class="col-md-4 col-sm-6 col-xs-12 pull-left offset">
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <highchart config="options"></highchart>
+    </div>
+  </div>
+</div>
+
+<!-- Expense details -->
+<div class="modal incomesCostsExpenseDetails" tabindex="-1" ng-controller="ExpenseDetailsCtrl" role="dialog" aria-labelledby="ExpenseDetailsModal" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" ng-click="modal = false">&times;</button>
+        <h4 class="modal-title" id="ExpenseDetailsModal">{{expense.title}}</h4>
+      </div>
+      <div class="modal-body">
+        <h4>Koszt: <small>{{expense.cost}} zł</small></h4>
+        <h4>Data: <small>{{expense.dateAdded | date:'longDate'}}</small></h4>
+        <tags-picker tags="expense.tags" readonly="true"></tags-picker>
+        <h4>Komentarz:</h4>
+        <p>{{expense.comment}}</p>
+      </div>
+    </div>
+  </div>
+</div>

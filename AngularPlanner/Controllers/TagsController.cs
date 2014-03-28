@@ -9,10 +9,13 @@ using System.Threading.Tasks;
 using System.Web;
 using System.Web.Http;
 using AngularPlanner.Models;
+using Elmah.Contrib.WebApi;
 using Microsoft.AspNet.Identity;
 
 namespace AngularPlanner.Controllers
 {
+    [Authorize]
+    [ElmahHandleErrorApi]
     public class TagsController : ApiController
     {
         private readonly AngularPlannerContext _db;
@@ -96,6 +99,15 @@ namespace AngularPlanner.Controllers
             {
                 return Request.CreateResponse(HttpStatusCode.InternalServerError);
             }
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                _db.Dispose();
+            }
+            base.Dispose(disposing);
         }
     }
 }
