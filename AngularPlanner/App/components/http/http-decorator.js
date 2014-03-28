@@ -6,7 +6,7 @@
 */
 angular.module('http', [])
   .config(['$provide', function($provide){
-    $provide.decorator('$http', function($delegate) {
+    $provide.decorator('$http', ['$delegate', function($delegate) {
       function urlEncode(data) {
         var str = '';
         for(var key in data) {
@@ -27,5 +27,5 @@ angular.module('http', [])
       };
 
       return $delegate;
-    });
+    }]);
   }]);

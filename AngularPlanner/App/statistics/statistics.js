@@ -15,5 +15,5 @@ angular.module('statistics', ['graphs', 'auth'])
         }
       });
   }])
-  .controller('StatisticsCtrl', [function(){
-}]);
+  .controller('StatisticsCtrl', function(){
+});
