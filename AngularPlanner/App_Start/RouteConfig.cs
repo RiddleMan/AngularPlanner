@@ -21,10 +21,14 @@ namespace AngularPlanner
                 "register",
                 "expenses/add",
                 "expenses",
-                "expenses/list",
-                "expenses/list/{id}",
+                "expenses/{id}",
+                "expenses/tag/{tag}",
+                "expenses/tag/{tag}/{id}",
+                "expenses/date/{date}",
+                "expenses/date/{date}/{id}",
                 "expenses/edit",
-                "account"
+                "account",
+                "statistics"
             }, new { controller = "Home", action = "Index" });
 
             routes.MapRoute(

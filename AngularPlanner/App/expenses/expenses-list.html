@@ -3,26 +3,30 @@
   <div ng-include="'/App/components/nav/nav.html'"></div>
   <div ng-include="'/App/expenses/expenses-add.html'" class="offset"></div>
   <div class="row">
-      <div class="well offset" ng-class="{'col-sm-8': editor}">
-        <table class="table table-hover">
-          <thead>
-            <tr>
-              <th>Data</th>
-              <th>Tytuł</th>
-              <th>Kwota</th>
-              <th></th>
+    <div class="offset col-sm-12 pull-left slide" ng-class="{'col-sm-8': editor}">
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th>Data</th>
+                <th>Tytuł</th>
+                <th>Kwota</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tr ng-class="{'info':editor && index === editorIndex}" ng-repeat="(index, expense) in expenses">
+              <td>{{expense.dateOfExpense | date:'longDate'}}</td>
+              <td>{{expense.title}}</td>
+              <td>{{expense.cost}}</td>
+              <td><button ng-click="edit($index)" type="button" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-edit"></span></button>
+              <button ng-click="delete($index)" type="button" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-remove"></span></button></td>
             </tr>
-          </thead>
-          <tr ng-class="{'info':editor && index === editorIndex}" ng-repeat="(index, expense) in expenses">
-            <td>{{expense.dateOfExpense | date:'longDate'}}</td>
-            <td>{{expense.title}}</td>
-            <td>{{expense.cost}}</td>
-            <td><button ng-click="edit($index)" type="button" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-edit"></span></button>
-            <button ng-click="delete($index)" type="button" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-remove"></span></button></td>
-          </tr>
-        </table>
+          </table>
+        </div>
+      </div>
     </div>
-    <div ng-show="editor" ng-include="'/App/expenses/expenses-editor.html'"></div>
+    <div class="slide" ng-show="editor" ng-include="'/App/expenses/expenses-editor.html'"></div>
   </div>
   <ul class="pager">
     <li class="previous" ng-show="page != 1" ng-click="prev()"><a>&larr; Nowsze</a></li>

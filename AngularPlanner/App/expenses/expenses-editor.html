@@ -1,30 +1,37 @@
-<div class="well offset pull-right col-sm-4" ng-controller="ExpensesListEditCtrl">
-  <button ng-click="close()" type="button" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-remove"></span></button>
-  <form role="form" name="form" novalidate>
-    <div class="form-group has-feedback" ng-class="{'has-success': form.date.$valid, 'has-error': form.date.$dirty && form.date.$invalid}">
-      <label for="expenseDate">Data</label>
-      <input ng-model="expense.date" name="date" type="date" class="form-control expense-add-date" id="expenseDate" required>
-      <span ng-show="form.date.$dirty && form.date.$invalid" class="glyphicon glyphicon-remove form-control-feedback"></span>
-      <span ng-show="form.date.$valid" class="glyphicon glyphicon-ok form-control-feedback"></span>
+<div class="offset col-sm-4 pull-left" ng-controller="ExpensesListEditCtrl">
+  <div class="panel panel-warning">
+    <div class="panel-heading">
+      <h3 class="panel-title">Edytuj
+      <span class="glyphicon glyphicon-remove pull-right" ng-click="close()"></span></h3>
     </div>
-    <div class="form-group has-feedback" ng-class="{'has-success': form.title.$valid, 'has-error': form.title.$dirty && form.title.$invalid}">
-      <label
-      for="expenseTitle">Tytuł</label>
-      <input ng-model="expense.title" type="text" name="title" class="form-control" id="expenseTitle" placeholder="Tytuł" required>
-      <span ng-show="form.title.$dirty && form.title.$invalid" class="glyphicon glyphicon-remove form-control-feedback"></span>
-      <span ng-show="form.title.$valid" class="glyphicon glyphicon-ok form-control-feedback"></span>
+    <div class="panel-body">
+      <form role="form" name="form" novalidate>
+        <div class="form-group has-feedback" ng-class="{'has-success': form.date.$valid, 'has-error': form.date.$dirty && form.date.$invalid}">
+          <label for="expenseDate">Data</label>
+          <input ng-model="expense.date" name="date" type="date" class="form-control expense-add-date" id="expenseDate" required>
+          <span ng-show="form.date.$dirty && form.date.$invalid" class="glyphicon glyphicon-remove form-control-feedback"></span>
+          <span ng-show="form.date.$valid" class="glyphicon glyphicon-ok form-control-feedback"></span>
+        </div>
+        <div class="form-group has-feedback" ng-class="{'has-success': form.title.$valid, 'has-error': form.title.$dirty && form.title.$invalid}">
+          <label
+          for="expenseTitle">Tytuł</label>
+          <input ng-model="expense.title" type="text" name="title" class="form-control" id="expenseTitle" placeholder="Tytuł" required>
+          <span ng-show="form.title.$dirty && form.title.$invalid" class="glyphicon glyphicon-remove form-control-feedback"></span>
+          <span ng-show="form.title.$valid" class="glyphicon glyphicon-ok form-control-feedback"></span>
+        </div>
+        <div class="form-group has-feedback" ng-class="{'has-success': form.cost.$valid, 'has-error': form.cost.$dirty && form.cost.$invalid}">
+          <label for="expensePrice">Kwota</label>
+          <input ng-model="expense.cost" type="number" name="cost" class="form-control expense-add-price" id="expensePrice" placeholder="Kwota" required>
+          <span ng-show="form.cost.$dirty && form.cost.$invalid" class="glyphicon glyphicon-remove form-control-feedback"></span>
+          <span ng-show="form.cost.$valid" class="glyphicon glyphicon-ok form-control-feedback"></span>
+        </div>
+        <div tags-picker tags="expense.tags"></div>
+        <div class="clear offset">
+          <h5>Komentarz:</h5>
+          <textarea class="form-control" id="expenseComment" ng-model="expense.comment"></textarea>
+        </div>
+        <button ng-click="save()" type="submit" class="btn btn-primary">Zapisz</button>
+      </form>
     </div>
-    <div class="form-group has-feedback" ng-class="{'has-success': form.cost.$valid, 'has-error': form.cost.$dirty && form.cost.$invalid}">
-      <label for="expensePrice">Kwota</label>
-      <input ng-model="expense.cost" type="number" name="cost" class="form-control expense-add-price" id="expensePrice" placeholder="Kwota" required>
-      <span ng-show="form.cost.$dirty && form.cost.$invalid" class="glyphicon glyphicon-remove form-control-feedback"></span>
-      <span ng-show="form.cost.$valid" class="glyphicon glyphicon-ok form-control-feedback"></span>
-    </div>
-    <div tags-picker tags="expense.tags"></div>
-    <div class="clear offset">
-      <h5>Komentarz:</h5>
-      <textarea class="form-control" id="expenseComment" ng-model="expense.comment"></textarea>
-    </div>
-    <button ng-click="save()" type="submit" class="btn btn-primary">Zapisz</button>
-  </form>
+  </div>
 </div>
