@@ -44,16 +44,14 @@ angular.module('graphs.incomesCostsBilance', ['highcharts-ng'])
             enabled: false
           },
           subtitle: {
-            text: 'ostatni rok',
-            x: -20
+            text: 'ostatni rok'
           },
           credits: {
             enabled: false
           }
         },
         title: {
-          text: 'Bilans przychodów i wydatków',
-          x: -20 //center
+          text: 'Bilans przychodów i wydatków'
         },
         xAxis: {
           categories: []
