@@ -120,21 +120,15 @@ namespace AngularPlanner.Controllers
         {
             if (ModelState.IsValid)
             {
-                try
-                {
-                    var tagIds = expense.Tags.Select(i => i.Id);
+                var tagIds = expense.Tags.Select(i => i.Id);
 
-                    expense.Tags = await _db.Tags.Where(i => tagIds.Contains(i.Id)).ToListAsync();
-                    expense.DateAdded = DateTime.Now;
-                    expense.UserId = User.Identity.GetUserId();
-                    _db.Expenses.Add(expense);
+                expense.Tags = await _db.Tags.Where(i => tagIds.Contains(i.Id)).ToListAsync();
+                expense.DateAdded = DateTime.Now;
+                expense.UserId = User.Identity.GetUserId();
+                _db.Expenses.Add(expense);
 
-                    await _db.SaveChangesAsync();
-                }
-                catch (Exception e)
-                {
-                    return Request.CreateResponse(HttpStatusCode.InternalServerError);
-                }
+                await _db.SaveChangesAsync();
+
                 return Request.CreateResponse(HttpStatusCode.Created);
             }
 
@@ -145,23 +139,17 @@ namespace AngularPlanner.Controllers
         {
             if (ModelState.IsValid)
             {
-                try
-                {
-                    var userId = User.Identity.GetUserId();
-                    var expenseDB =
-                        await _db.Expenses.Include(i => i.Tags).FirstOrDefaultAsync(i => i.Id == expense.Id && i.UserId == userId);
+                var userId = User.Identity.GetUserId();
+                var expenseDB =
+                    await _db.Expenses.Include(i => i.Tags).FirstOrDefaultAsync(i => i.Id == expense.Id && i.UserId == userId);
 
-                    var tagExist = expenseDB.Tags.Select(i => i.Id);
-                    var tagIds = expense.Tags.Select(i => i.Id);
+                var tagExist = expenseDB.Tags.Select(i => i.Id);
+                var tagIds = expense.Tags.Select(i => i.Id);
 
-                    expenseDB.Tags.AddRange(await _db.Tags.Where(i => tagIds.Contains(i.Id) && !tagExist.Contains(i.Id)).ToListAsync());
-                    expenseDB.Tags.RemoveAll(i => !tagIds.Contains(i.Id));
-                    await _db.SaveChangesAsync();
-                }
-                catch (Exception e)
-                {
-                    return Request.CreateResponse(HttpStatusCode.InternalServerError);
-                }
+                expenseDB.Tags.AddRange(await _db.Tags.Where(i => tagIds.Contains(i.Id) && !tagExist.Contains(i.Id)).ToListAsync());
+                expenseDB.Tags.RemoveAll(i => !tagIds.Contains(i.Id));
+                await _db.SaveChangesAsync();
+
                 return Request.CreateResponse(HttpStatusCode.Created);
             }
 
@@ -171,22 +159,15 @@ namespace AngularPlanner.Controllers
         public async Task<HttpResponseMessage> Delete(int id)
         {
             var userId = User.Identity.GetUserId();
-            try
+            var expense = await _db.Expenses.Where(i => i.UserId == userId && i.Id == id).FirstOrDefaultAsync();
+            if (expense == null)
             {
-                var expense = await _db.Expenses.Where(i => i.UserId == userId && i.Id == id).FirstOrDefaultAsync();
-                if (expense == null)
-                {
-                    return Request.CreateResponse(HttpStatusCode.NotFound);
-                }
-                _db.Expenses.Remove(expense);
-                await _db.SaveChangesAsync();
+                return Request.CreateResponse(HttpStatusCode.NotFound);
+            }
+            _db.Expenses.Remove(expense);
+            await _db.SaveChangesAsync();
 
-                return Request.CreateResponse(HttpStatusCode.OK);
-            }
-            catch (Exception e)
-            {
-                return Request.CreateResponse(HttpStatusCode.InternalServerError);
-            }
+            return Request.CreateResponse(HttpStatusCode.OK);
         }
 
         protected override void Dispose(bool disposing)
