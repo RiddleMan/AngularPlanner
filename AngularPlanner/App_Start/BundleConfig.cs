@@ -18,9 +18,9 @@ namespace AngularPlanner
                         ));
 
             bundles.Add(new ScriptBundle("~/bundles/app")
-                .Include("~/App/app.js")
                 .IncludeDirectory(
-                    "~/App", "*.js", true));
+                    "~/App", "*.js", true)
+                .Include("~/App/app.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/compatibility").Include(
                 "~/Scripts/es5-shim.js",

@@ -4,7 +4,7 @@
 *
 * index module
 */
-angular.module('index', ['auth', 'app', 'resources'])
+angular.module('index', ['auth', 'resources'])
   .config(['$routeProvider', 'authCheckerProvider', function($routeProvider, authCheckerProvider) {
     //TODO: dodać jak bedzie strona główna
     // $routeProvider

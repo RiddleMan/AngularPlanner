@@ -4,7 +4,7 @@
 *
 * module for sign up
 */
-angular.module('login', ['auth', 'app'])
+angular.module('login', ['auth'])
   .config(['$routeProvider',function($routeProvider) {
     $routeProvider
       .when('/login', {
