@@ -28,7 +28,8 @@ namespace AngularPlanner
                 "expenses/date/{date}/{id}",
                 "expenses/edit",
                 "account",
-                "statistics"
+                "statistics",
+                "limits"
             }, new { controller = "Home", action = "Index" });
 
             routes.MapRoute(

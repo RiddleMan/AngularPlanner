@@ -13,15 +13,24 @@
     <meta name="viewport" content="width=device-width">
     @Styles.Render("~/Content/css")
 </head>
-<body ng-app="app">
-    <div ng-view>
-        @RenderBody()
-    </div>
-    <!--[if lt IE 9]>
-    @Scripts.Render("~/bundles/compatibility")
-    <![endif]-->
-    @Scripts.Render("~/bundles/vendor")
+    <body ng-app="app">
+        <div class="modal fade" id="connectionChecker" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-body">
+                       Problem z połączeniem. Proszę spróbować później
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div ng-view>
+            @RenderBody()
+        </div>
+        <!--[if lt IE 9]>
+            @Scripts.Render("~/bundles/compatibility")
+        <![endif]-->
+        @Scripts.Render("~/bundles/vendor")
     
-    @Scripts.Render("~/bundles/app")
-</body>
+        @Scripts.Render("~/bundles/app")
+    </body>
 </html>

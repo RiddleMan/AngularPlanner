@@ -18,7 +18,10 @@ angular.module('app', [
   'navbar',
   'nav',
   'simulations',
-  'statistics'
+  'statistics',
+  'limits',
+  'progressbar',
+  'connectionChecker'
 ]);
 
 angular.module('app')

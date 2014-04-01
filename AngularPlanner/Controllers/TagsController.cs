@@ -43,17 +43,10 @@ namespace AngularPlanner.Controllers
         {
             if (ModelState.IsValid)
             {
-                try
-                {
-                    _db.Tags.Add(tag);
-                    tag.UserId = User.Identity.GetUserId();
+                tag.UserId = User.Identity.GetUserId();
+                _db.Tags.Add(tag);
 
-                    await _db.SaveChangesAsync();
-                }
-                catch (Exception e)
-                {
-                    return Request.CreateResponse(HttpStatusCode.InternalServerError);
-                }
+                await _db.SaveChangesAsync();
                 return Request.CreateResponse(HttpStatusCode.Created, tag);
             }
 
@@ -83,22 +76,16 @@ namespace AngularPlanner.Controllers
         public async Task<HttpResponseMessage> Delete(int id)
         {
             var userId = User.Identity.GetUserId();
-            try
-            {
-                var tag = await _db.Tags.Where(i => i.UserId == userId && i.Id == id).FirstOrDefaultAsync();
-                if (tag == null)
-                {
-                    return Request.CreateResponse(HttpStatusCode.NotFound);
-                }
-                _db.Tags.Remove(tag);
-                await _db.SaveChangesAsync();
 
-                return Request.CreateResponse(HttpStatusCode.OK);
-            }
-            catch (Exception e)
+            var tag = await _db.Tags.Where(i => i.UserId == userId && i.Id == id).FirstOrDefaultAsync();
+            if (tag == null)
             {
-                return Request.CreateResponse(HttpStatusCode.InternalServerError);
+                return Request.CreateResponse(HttpStatusCode.NotFound);
             }
+            _db.Tags.Remove(tag);
+            await _db.SaveChangesAsync();
+
+            return Request.CreateResponse(HttpStatusCode.OK);
         }
 
         protected override void Dispose(bool disposing)

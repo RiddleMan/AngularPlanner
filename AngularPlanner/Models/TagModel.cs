@@ -10,5 +10,6 @@ namespace AngularPlanner.Models
         public string Name { get; set; }
         public List<ExpenseModel> Expenses { get; set; }
         public string UserId { get; set; }
+        public List<LimitModel> Limits { get; set; }
     }
 }

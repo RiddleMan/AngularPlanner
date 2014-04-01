@@ -57,7 +57,7 @@ angular.module('highcharts-ng', [])
     };
 
     // immutable
-    var axisNames = [ 'xAxis', 'yAxis' ];
+    var axisNames = [ 'xAxis' ];
 
     var getMergedOptions = function (scope, element, config) {
       var mergedOptions = {};
@@ -154,13 +154,18 @@ angular.module('highcharts-ng', [])
       replace: true,
       template: '<div></div>',
       scope: {
-        config: '='
+        config: '=',
+        more: '@'
       },
       link: function (scope, element, attrs) {
         // We keep some chart-specific variables here as a closure
         // instead of storing them on 'scope'.
 
         // prevSeriesOptions is maintained by processSeries
+        if(scope.more === undefined)  {
+          scope.more = false;
+        }
+
         var prevSeriesOptions = {};
 
         var processSeries = function(series) {
@@ -269,13 +274,16 @@ angular.module('highcharts-ng', [])
             }
           }, true);
         });
-        scope.$watch('config.options', function (newOptions, oldOptions, scope) {
-          //do nothing when called on registration
-          if (newOptions === oldOptions) return;
-          initChart();
-          processSeries(scope.config.series);
-          chart.redraw();
-        }, true);
+
+        if(!scope.more) {
+          scope.$watch('config.options', function (newOptions, oldOptions, scope) {
+            //do nothing when called on registration
+            if (JSON.stringify(newOptions) === JSON.stringify(oldOptions)) return;
+            initChart();
+            processSeries(scope.config.series);
+            chart.redraw();
+          }, true);
+        }
 
         scope.$watch('config.size', function (newSize, oldSize) {
           if(newSize === oldSize) return;
