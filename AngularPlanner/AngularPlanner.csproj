@@ -294,6 +294,7 @@
     <Content Include="App\components\auth\authChecker.js" />
     <Content Include="App\components\auth\index.js" />
     <Content Include="App\components\auth\interceptor.js" />
+    <Content Include="App\components\connectionChecker\index.js" />
     <Content Include="App\components\graphs\incomesCostsBilance\incomesCostsBilance.html" />
     <Content Include="App\components\graphs\incomesCostsBilance\incomesCostsBilance.js" />
     <Content Include="App\components\graphs\incomesCostsMonthScope\incomesCostsMonthScope.html" />
@@ -312,6 +313,7 @@
     <Content Include="App\components\navbar\navbar.js" />
     <Content Include="App\components\nav\nav.html" />
     <Content Include="App\components\nav\nav.js" />
+    <Content Include="App\components\progressbar\index.js" />
     <Content Include="App\components\resources\expenses.js" />
     <Content Include="App\components\resources\index.js" />
     <Content Include="App\components\resources\tags.js" />
