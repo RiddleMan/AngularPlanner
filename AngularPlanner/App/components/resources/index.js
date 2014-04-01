@@ -3,4 +3,8 @@
 *
 * Load all modules to one
 */
-angular.module('resources', ['resources.values', 'resources.expenses', 'resources.tags']);
+angular.module('resources', [
+  'resources.expenses',
+  'resources.tags',
+  'resources.limits'
+]);

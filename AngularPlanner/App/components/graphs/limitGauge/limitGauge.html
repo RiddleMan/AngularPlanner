@@ -1,0 +1,12 @@
+<div ng-show="editShow" ng-include="'/App/components/graphs/limitGauge/limitGauge-edit.html'"></div>
+<div ng-show="!editShow" class="col-md-4 col-sm-6 col-xs-12 pull-left offset">
+  <div class="panel panel-default">
+    <div class="panel-heading text-right">
+      <button type="button" ng-click="editToggle()" class="btn btn-primary"><span class="glyphicon glyphicon-edit"></span></button>
+      <button type="button" ng-click="delete()" class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span></button>
+    </div>
+    <div class="panel-body tile  text-center">
+      <highchart config="options" more="true"></highchart>
+    </div>
+  </div>
+</div>

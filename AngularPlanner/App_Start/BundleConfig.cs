@@ -10,8 +10,10 @@ namespace AngularPlanner
         {
             bundles.Add(new ScriptBundle("~/bundles/vendor").Include(
                         "~/Scripts/jquery-{version}.js",
+                        "~/Scripts/nprogress.js",
                         "~/Scripts/bootstrap.js",
                         "~/Scripts/highcharts.js",
+                        "~/Scripts/highcharts-more.js",
                         "~/Scripts/angular.js",
                         "~/Scripts/angular-*",
                         "~/Scripts/highcharts-ng.js"
