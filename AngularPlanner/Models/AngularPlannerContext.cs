@@ -17,5 +17,6 @@ namespace AngularPlanner.Models
 
         public DbSet<ExpenseModel> Expenses { get; set; }
         public DbSet<TagModel> Tags { get; set; }
+        public DbSet<LimitModel> Limits { get; set; }
     }
 }

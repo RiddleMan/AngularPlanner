@@ -224,13 +224,16 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ExpensesController.cs" />
     <Compile Include="Controllers\Graphs\IncomesCostsMonthScopeGraphController.cs" />
+    <Compile Include="Controllers\Graphs\LimitsGraphController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\Graphs\IncomesCostsBilanceGraphController.cs" />
     <Compile Include="Controllers\Graphs\IncomesCostsGraphController.cs" />
     <Compile Include="Controllers\Graphs\TagsUsageGraphController.cs" />
+    <Compile Include="Controllers\LimitsController.cs" />
     <Compile Include="Dto\IncomesCostsBilanceGraphDto.cs" />
     <Compile Include="Dto\IncomesCostsGraphDto.cs" />
     <Compile Include="Dto\IncomesCostsMonthScopeDto.cs" />
+    <Compile Include="Dto\LimitsGraphDto.cs" />
     <Compile Include="Dto\TagsUsageGraphDto.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -260,11 +263,24 @@
     <Compile Include="Migrations\201403231020575_ExpensesAndTags5.Designer.cs">
       <DependentUpon>201403231020575_ExpensesAndTags5.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201403291741168_Test.cs" />
+    <Compile Include="Migrations\201403291741168_Test.Designer.cs">
+      <DependentUpon>201403291741168_Test.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201403291820080_Limits.cs" />
+    <Compile Include="Migrations\201403291820080_Limits.Designer.cs">
+      <DependentUpon>201403291820080_Limits.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201403291823396_Limits1.cs" />
+    <Compile Include="Migrations\201403291823396_Limits1.Designer.cs">
+      <DependentUpon>201403291823396_Limits1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountBindingModels.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AngularPlannerContext.cs" />
     <Compile Include="Models\ExpenseModel.cs" />
+    <Compile Include="Models\LimitModel.cs" />
     <Compile Include="Models\TagModel.cs" />
     <Compile Include="Controllers\TagsController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -278,6 +294,7 @@
     <Content Include="App\components\auth\authChecker.js" />
     <Content Include="App\components\auth\index.js" />
     <Content Include="App\components\auth\interceptor.js" />
+    <Content Include="App\components\connectionChecker\index.js" />
     <Content Include="App\components\graphs\incomesCostsBilance\incomesCostsBilance.html" />
     <Content Include="App\components\graphs\incomesCostsBilance\incomesCostsBilance.js" />
     <Content Include="App\components\graphs\incomesCostsMonthScope\incomesCostsMonthScope.html" />
@@ -285,6 +302,9 @@
     <Content Include="App\components\graphs\incomesCosts\incomesCosts.html" />
     <Content Include="App\components\graphs\incomesCosts\incomesCosts.js" />
     <Content Include="App\components\graphs\index.js" />
+    <Content Include="App\components\graphs\limitGauge\limitGauge-edit.html" />
+    <Content Include="App\components\graphs\limitGauge\limitGauge.html" />
+    <Content Include="App\components\graphs\limitGauge\limitGauge.js" />
     <Content Include="App\components\graphs\tagsUsage\tagsUsage.html" />
     <Content Include="App\components\graphs\tagsUsage\tagsUsage.js" />
     <Content Include="App\components\http\http-decorator.js" />
@@ -293,10 +313,10 @@
     <Content Include="App\components\navbar\navbar.js" />
     <Content Include="App\components\nav\nav.html" />
     <Content Include="App\components\nav\nav.js" />
+    <Content Include="App\components\progressbar\index.js" />
     <Content Include="App\components\resources\expenses.js" />
     <Content Include="App\components\resources\index.js" />
     <Content Include="App\components\resources\tags.js" />
-    <Content Include="App\components\resources\values.js" />
     <Content Include="App\components\tagsPicker\tagsPicker.html" />
     <Content Include="App\components\tagsPicker\tagsPicker.js" />
     <Content Include="App\expenses\expenses-add.html" />
@@ -306,6 +326,9 @@
     <Content Include="App\index\index.html" />
     <Content Include="App\index\index.js" />
     <Content Include="App\index\index_test.js" />
+    <Content Include="App\limits\limits-add.html" />
+    <Content Include="App\limits\limits.html" />
+    <Content Include="App\limits\limits.js" />
     <Content Include="App\login\login.html" />
     <Content Include="App\login\login.js" />
     <Content Include="App\login\login_test.js" />
@@ -321,6 +344,7 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\nprogress.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -376,11 +400,15 @@
     <Content Include="Scripts\angular-cookies.min.js.map" />
     <Content Include="Scripts\angular-animate.min.js.map" />
     <Content Include="Scripts\angular.min.js.map" />
+    <Content Include="App_Readme\NProgressjs_README.md" />
+    <Content Include="App_Readme\NProgressjs_LICENSE" />
     <None Include="Scripts\jquery-2.1.0.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\es5-shim.js" />
     <Content Include="Scripts\es5-shim.min.js" />
+    <Content Include="Scripts\highcharts-more.js" />
+    <Content Include="Scripts\highcharts-more.min.js" />
     <Content Include="Scripts\highcharts-ng.js" />
     <Content Include="Scripts\highcharts.js" />
     <Content Include="Scripts\highcharts.min.js" />
@@ -634,6 +662,8 @@
     <Content Include="Scripts\jquery-2.1.0.min.map" />
     <Content Include="Scripts\json3.js" />
     <Content Include="Scripts\json3.min.js" />
+    <Content Include="Scripts\nprogress.js" />
+    <Content Include="Scripts\nprogress.min.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -687,6 +717,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201403231020575_ExpensesAndTags5.resx">
       <DependentUpon>201403231020575_ExpensesAndTags5.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201403291741168_Test.resx">
+      <DependentUpon>201403291741168_Test.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201403291820080_Limits.resx">
+      <DependentUpon>201403291820080_Limits.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201403291823396_Limits1.resx">
+      <DependentUpon>201403291823396_Limits1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

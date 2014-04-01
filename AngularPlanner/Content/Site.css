@@ -51,3 +51,14 @@
   -webkit-transition:0.2s linear all;
   transition:0.2s linear all;
 }
+
+.tile {
+  height: 430px;
+}
+
+.tile-icon {
+  font-size: 158px;
+  position: relative;
+  top: 108px;
+  color: #f2f2f2;
+}
