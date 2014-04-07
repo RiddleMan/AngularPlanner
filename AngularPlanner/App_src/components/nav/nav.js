@@ -5,7 +5,7 @@
 * Site navigation module
 */
 angular.module('nav', [])
-  .controller('NavCtrl', ['$scope', '$location', function($scope, $location){
+  .controller('NavCtrl', function($scope, $location){
     var path = $location.path();
 
     if(path.indexOf('expenses') !== -1) {
@@ -23,4 +23,4 @@ angular.module('nav', [])
     } else {
       $scope.start = true;
     }
-  }]);
+  });

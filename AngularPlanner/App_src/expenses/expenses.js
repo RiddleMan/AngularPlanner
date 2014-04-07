@@ -5,7 +5,7 @@
 * Module for expenses
 */
 angular.module('expenses', ['auth', 'resources', 'tagsPicker'])
-  .config(['$routeProvider', 'authCheckerProvider', function($routeProvider, authCheckerProvider) {
+  .config(function($routeProvider, authCheckerProvider) {
     $routeProvider
       .when('/expenses/edit', {
         templateUrl: '/App/expenses/expenses-edit.html',
@@ -19,9 +19,9 @@ angular.module('expenses', ['auth', 'resources', 'tagsPicker'])
         controller: 'ExpensesListCtrl',
         resolve: {
           currentUser: authCheckerProvider.require,
-          expenses: ['Expenses', function(Expenses) {
+          expenses: function(Expenses) {
             return Expenses.query().$promise;
-          }]
+          }
         }
       })
       .when('/expenses/:page', {
@@ -29,9 +29,9 @@ angular.module('expenses', ['auth', 'resources', 'tagsPicker'])
         controller: 'ExpensesListCtrl',
         resolve: {
           currentUser: authCheckerProvider.require,
-          expenses: ['Expenses', '$route', function(Expenses, $route) {
+          expenses: function(Expenses, $route) {
             return Expenses.query({page: $route.current.params.page}).$promise;
-          }]
+          }
         }
       })
       .when('/expenses/tag/:tag', {
@@ -39,12 +39,12 @@ angular.module('expenses', ['auth', 'resources', 'tagsPicker'])
         controller: 'ExpensesListCtrl',
         resolve: {
           currentUser: authCheckerProvider.require,
-          expenses: ['Expenses', '$route', function(Expenses, $route) {
+          expenses: function(Expenses, $route) {
             return Expenses.query({
               tag: $route.current.params.tag,
               page: $route.current.params.page
             }).$promise;
-          }]
+          }
         }
       })
       .when('/expenses/tag/:tag/:page', {
@@ -52,12 +52,12 @@ angular.module('expenses', ['auth', 'resources', 'tagsPicker'])
         controller: 'ExpensesListCtrl',
         resolve: {
           currentUser: authCheckerProvider.require,
-          expenses: ['Expenses', '$route', function(Expenses, $route) {
+          expenses: function(Expenses, $route) {
             return Expenses.query({
               tag: $route.current.params.tag,
               page: $route.current.params.page
             }).$promise;
-          }]
+          }
         }
       })
       .when('/expenses/date/:date', {
@@ -65,12 +65,12 @@ angular.module('expenses', ['auth', 'resources', 'tagsPicker'])
         controller: 'ExpensesListCtrl',
         resolve: {
           currentUser: authCheckerProvider.require,
-          expenses: ['Expenses', '$route', function(Expenses, $route) {
+          expenses: function(Expenses, $route) {
             return Expenses.query({
               date: $route.current.params.date,
               page: $route.current.params.page
             }).$promise;
-          }]
+          }
         }
       })
       .when('/expenses/date/:date/:page', {
@@ -78,17 +78,16 @@ angular.module('expenses', ['auth', 'resources', 'tagsPicker'])
         controller: 'ExpensesListCtrl',
         resolve: {
           currentUser: authCheckerProvider.require,
-          expenses: ['Expenses', '$route', function(Expenses, $route) {
+          expenses: function(Expenses, $route) {
             return Expenses.query({
               date: $route.current.params.date,
               page: $route.current.params.page
             }).$promise;
-          }]
+          }
         }
       });
-  }])
-  .controller('ExpensesListCtrl', ['$scope', 'expenses', 'Expenses', '$route', '$location',
-    function($scope, expenses, Expenses, $route, $location) {
+  })
+  .controller('ExpensesListCtrl', function($scope, expenses, Expenses, $route, $location) {
       if(!$route.current.params.page) {
         $route.current.params.page = 1;
       }
@@ -125,8 +124,8 @@ angular.module('expenses', ['auth', 'resources', 'tagsPicker'])
       $scope.prev = function() {
         $location.path('/expenses/' + (parseInt($route.current.params.page) - 1));
       };
-    }])
-  .controller('ExpensesListEditCtrl', ['$scope', function($scope){
+    })
+  .controller('ExpensesListEditCtrl', function($scope){
     $scope.$on('expenses:editor:open', function(e, expense) {
       $scope.expense = expense;
     });
@@ -138,8 +137,8 @@ angular.module('expenses', ['auth', 'resources', 'tagsPicker'])
     $scope.close = function() {
       $scope.$emit('expenses:editor:close');
     };
-  }])
-  .controller('ExpenseAddCtrl', ['$scope', 'Expenses', '$rootScope', function($scope, Expenses){
+  })
+  .controller('ExpenseAddCtrl', function($scope, Expenses){
     $scope.more = false;
     $scope.tagsList = [{id:1}, {id:2}];
 
@@ -160,4 +159,4 @@ angular.module('expenses', ['auth', 'resources', 'tagsPicker'])
         $scope.$emit('expenses-invalidate');
       });
     };
-  }]);
+  });

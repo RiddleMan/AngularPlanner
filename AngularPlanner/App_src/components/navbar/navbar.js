@@ -5,7 +5,7 @@
 * Ctrl for navbar
 */
 angular.module('navbar', ['auth'])
-  .controller('NavBarCtrl', ['$scope','auth', '$location', function($scope, auth, $location){
+  .controller('NavBarCtrl', function($scope, auth, $location){
     auth.isAuthenticated().then(function(userInfo) {
       $scope.user = userInfo;
       $scope.logout = function() {
@@ -13,4 +13,4 @@ angular.module('navbar', ['auth'])
         $location.path('/');
       };
     });
-  }]);
+  });

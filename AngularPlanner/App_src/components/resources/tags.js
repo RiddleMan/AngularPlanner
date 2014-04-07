@@ -5,9 +5,9 @@
 * tags resource
 */
 angular.module('resources.tags', [])
-  .factory('Tags', ['$resource', function($resource){
+  .factory('Tags', function($resource){
     return $resource('/api/tags/:id', {id: '@id'},
       {
         'update': { method: 'PUT'}
       });
-  }]);
+  });

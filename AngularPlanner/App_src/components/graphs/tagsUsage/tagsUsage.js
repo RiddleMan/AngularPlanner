@@ -5,7 +5,7 @@
 * Tags usage graph
 */
 angular.module('graphs.tagsUsage', ['highcharts-ng'])
-  .factory('TagsUsageData', ['$http', '$q', function($http, $q){
+  .factory('TagsUsageData', function($http, $q){
     var defer = $q.defer();
 
     $http.get('/api/tagsUsageGraph')
@@ -17,8 +17,8 @@ angular.module('graphs.tagsUsage', ['highcharts-ng'])
       });
 
     return defer.promise;
-  }])
-  .controller('TagsUsageCtrl', ['$scope', 'TagsUsageData', '$location', function($scope, TagsUsageData, $location){
+  })
+  .controller('TagsUsageCtrl', function($scope, TagsUsageData, $location){
     function openExpensesList () {
       var tag = this.name === 'Bez taga' ? 'notag' : this.name;
       $scope.$apply(function() {
@@ -84,7 +84,7 @@ angular.module('graphs.tagsUsage', ['highcharts-ng'])
         });
       });
     })();
-  }])
+  })
   .directive('tagsUsage', function(){
     return {
       scope: {},

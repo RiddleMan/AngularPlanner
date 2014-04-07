@@ -3,7 +3,7 @@
 * graphs.incomesCostsMonthScope Module
 */
 angular.module('graphs.incomesCostsMonthScope', ['highcharts-ng', 'resources'])
-  .factory('IncomesCostsMonthScopeData', ['$http', '$q', function($http, $q){
+  .factory('IncomesCostsMonthScopeData', function($http, $q){
     var defer = $q.defer();
 
     $http.get('/api/IncomesCostsMonthScopeGraph')
@@ -15,8 +15,8 @@ angular.module('graphs.incomesCostsMonthScope', ['highcharts-ng', 'resources'])
       });
 
     return defer.promise;
-  }])
-  .controller('ExpenseDetailsCtrl', ['$scope', 'Expenses', function($scope, Expenses) {
+  })
+  .controller('ExpenseDetailsCtrl', function($scope, Expenses) {
     $scope.$on('incomesCostsExpenseDetails:open', function(e, id) {
       angular.element('.incomesCostsExpenseDetails').modal('show');
       $scope.expense = {};
@@ -26,8 +26,8 @@ angular.module('graphs.incomesCostsMonthScope', ['highcharts-ng', 'resources'])
         $scope.expense = expense;
       });
     });
-  }])
-  .controller('IncomesCostsMonthScopeCtrl', ['$scope', 'IncomesCostsMonthScopeData', '$location', function($scope, IncomesCostsMonthScopeData, $location) {
+  })
+  .controller('IncomesCostsMonthScopeCtrl', function($scope, IncomesCostsMonthScopeData, $location) {
     function openExpenses() {
       var id = this.id;
       $scope.$broadcast('incomesCostsExpenseDetails:open', id);
@@ -90,7 +90,7 @@ angular.module('graphs.incomesCostsMonthScope', ['highcharts-ng', 'resources'])
         $scope.options.loading = false;
       });
     })();
-  }])
+  })
   .directive('incomesCostsMonthScope', function(){
     return {
       scope: {},

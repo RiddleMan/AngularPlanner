@@ -6,7 +6,7 @@
 * Service for logging etc
 */
 angular.module('auth.service', [])
-  .factory('auth', ['$http', '$q', '$window', function($http, $q, $window){
+  .factory('auth', function($http, $q, $window){
     var service = {
       register: function(username, password, password2) {
         if(!username || !password || !password2) {
@@ -63,4 +63,4 @@ angular.module('auth.service', [])
     };
 
     return service;
-  }]);
+  });

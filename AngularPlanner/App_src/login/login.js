@@ -5,7 +5,7 @@
 * module for sign up
 */
 angular.module('login', ['auth'])
-  .config(['$routeProvider',function($routeProvider) {
+  .config(function($routeProvider) {
     $routeProvider
       .when('/login', {
         templateUrl: '/App/login/login.html',
@@ -15,9 +15,8 @@ angular.module('login', ['auth'])
         templateUrl: '/App/login/login.html',
         controller: 'LoginCtrl'
       });
-  }])
-  .controller('LoginCtrl', ['$scope', 'auth', '$location', '$route',
-    function($scope, auth, $location, $route){
+  })
+  .controller('LoginCtrl', function($scope, auth, $location, $route){
       $scope.user = {};
       $scope.authError = false;
 
@@ -34,4 +33,4 @@ angular.module('login', ['auth'])
             $scope.authError = true;
           });
       };
-    }]);
+    });

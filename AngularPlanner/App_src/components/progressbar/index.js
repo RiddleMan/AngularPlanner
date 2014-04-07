@@ -6,7 +6,7 @@
 */
 angular.module('progressbar', [])
   .constant('NProgress', NProgress)
-  .factory('progressbarInterceptor', ['NProgress', function(NProgress){
+  .factory('progressbarInterceptor', function(NProgress){
     return {
       'request': function(config) {
         NProgress.start();
@@ -21,7 +21,7 @@ angular.module('progressbar', [])
         return config;
       }
     };
-  }])
-  .config(['$httpProvider', function($httpProvider) {
+  })
+  .config(function($httpProvider) {
     $httpProvider.interceptors.push('progressbarInterceptor');
-  }]);
+  });

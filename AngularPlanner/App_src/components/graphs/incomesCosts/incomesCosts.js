@@ -3,7 +3,7 @@
 * graphs.incomesCosts Module
 */
 angular.module('graphs.incomesCosts', ['highcharts-ng'])
-  .factory('IncomesCostsData', ['$http', '$q', function($http, $q){
+  .factory('IncomesCostsData', function($http, $q){
     var defer = $q.defer();
 
     $http.get('/api/IncomesCostsGraph')
@@ -15,8 +15,8 @@ angular.module('graphs.incomesCosts', ['highcharts-ng'])
       });
 
     return defer.promise;
-  }])
-  .controller('IncomesCostsCtrl', ['$scope', 'IncomesCostsData', '$location', function($scope, IncomesCostsData, $location) {
+  })
+  .controller('IncomesCostsCtrl', function($scope, IncomesCostsData, $location) {
     function openExpenses() {
       var date = this.category;
       $scope.$apply(function() {
@@ -94,7 +94,7 @@ angular.module('graphs.incomesCosts', ['highcharts-ng'])
         $scope.options.loading = false;
       });
     })();
-  }])
+  })
   .directive('incomesCosts', function(){
     return {
       scope: {},

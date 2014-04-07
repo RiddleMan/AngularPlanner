@@ -5,14 +5,14 @@
 * Module for user registration
 */
 angular.module('register', ['auth'])
-  .config(['$routeProvider',function($routeProvider) {
+  .config(function($routeProvider) {
     $routeProvider
       .when('/register', {
         controller: 'RegisterCtrl',
         templateUrl: 'App/register/register.html'
       });
-  }])
-  .controller('RegisterCtrl', ['auth', '$scope', function(auth, $scope){
+  })
+  .controller('RegisterCtrl', function(auth, $scope){
     $scope.user = {};
 
     $scope.register = function() {
@@ -27,4 +27,4 @@ angular.module('register', ['auth'])
           console.error(data);
         });
     };
-  }]);
+  });

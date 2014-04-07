@@ -4,7 +4,7 @@
 *
 * Module for handling authentication errors
 */
-angular.module('auth.interceptor', []).factory('authInterceptor', ['$window', '$location', function($window, $location){
+angular.module('auth.interceptor', []).factory('authInterceptor', function($window, $location){
   return {
     'request': function(config) {
       config.headers = config.headers || {};
@@ -20,7 +20,7 @@ angular.module('auth.interceptor', []).factory('authInterceptor', ['$window', '$
       return config;
     }
   };
-}])
-.config(['$httpProvider', function($httpProvider) {
+})
+.config(function($httpProvider) {
   $httpProvider.interceptors.push('authInterceptor');
-}]);
+});

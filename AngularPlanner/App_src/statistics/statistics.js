@@ -5,7 +5,7 @@
 * User stats
 */
 angular.module('statistics', ['graphs', 'auth'])
-  .config(['$routeProvider' , 'authCheckerProvider', function($routeProvider, authCheckerProvider) {
+  .config(function($routeProvider, authCheckerProvider) {
     $routeProvider
       .when('/statistics', {
         templateUrl: '/App/statistics/statistics.html',
@@ -14,6 +14,6 @@ angular.module('statistics', ['graphs', 'auth'])
           currentUser: authCheckerProvider.require
         }
       });
-  }])
+  })
   .controller('StatisticsCtrl', function(){
 });

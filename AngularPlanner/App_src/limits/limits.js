@@ -5,20 +5,20 @@
 * limits
 */
 angular.module('limits', ['ngRoute', 'auth', 'tagsPicker', 'resources'])
-  .config(['$routeProvider', 'authCheckerProvider', function($routeProvider, authCheckerProvider) {
+  .config(function($routeProvider, authCheckerProvider) {
     $routeProvider
       .when('/limits', {
         templateUrl: '/App/limits/limits.html',
         controller: 'LimitsCtrl',
         resolve: {
           currentUser: authCheckerProvider.require,
-          limits: ['Limits', function(Limits) {
+          limits: function(Limits) {
             return Limits.query().$promise;
-          }]
+          }
         }
       });
-  }])
-  .controller('LimitsAddCtrl', ['$scope', 'Limits', function($scope, Limits){
+  })
+  .controller('LimitsAddCtrl', function($scope, Limits){
     $scope.addicon = true;
     $scope.toggle = function() {
       $scope.addicon = !$scope.addicon;
@@ -41,8 +41,8 @@ angular.module('limits', ['ngRoute', 'auth', 'tagsPicker', 'resources'])
         $scope.$emit('limits:push', limit);
       });
     };
-  }])
-  .controller('LimitsCtrl', ['$scope', 'limits', function($scope, limits){
+  })
+  .controller('LimitsCtrl', function($scope, limits){
     $scope.$on('limit:delete', function(e, limit) {
       e.stopPropagation();
       var i = $scope.limits.indexOf(limit);
@@ -61,4 +61,4 @@ angular.module('limits', ['ngRoute', 'auth', 'tagsPicker', 'resources'])
     });
 
     $scope.limits = limits;
-  }]);
+  });

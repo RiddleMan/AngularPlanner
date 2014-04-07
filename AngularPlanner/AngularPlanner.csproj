@@ -254,6 +254,10 @@
     <Compile Include="Migrations\201404051400435_Summaries.Designer.cs">
       <DependentUpon>201404051400435_Summaries.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201404071742077_tada.cs" />
+    <Compile Include="Migrations\201404071742077_tada.Designer.cs">
+      <DependentUpon>201404071742077_tada.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountBindingModels.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -306,6 +310,7 @@
     <Content Include="App\index\index.html" />
     <Content Include="App\index\index.js" />
     <Content Include="App\index\index_test.js" />
+    <Content Include="App\libs\highcharts-ng.js" />
     <Content Include="App\limits\limits-add.html" />
     <Content Include="App\limits\limits.html" />
     <Content Include="App\limits\limits.js" />
@@ -369,9 +374,8 @@
     <Content Include="Scripts\es5-shim.min.js" />
     <Content Include="Scripts\highcharts-more.js" />
     <Content Include="Scripts\highcharts-more.min.js" />
-    <Content Include="Scripts\highcharts-ng.js" />
-    <Content Include="Scripts\highcharts.js" />
     <Content Include="Scripts\highcharts.min.js" />
+    <Content Include="Scripts\highcharts.js" />
     <Content Include="Scripts\i18n\angular-locale_af-na.js" />
     <Content Include="Scripts\i18n\angular-locale_af-za.js" />
     <Content Include="Scripts\i18n\angular-locale_af.js" />
@@ -644,6 +648,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="App_src\" />
     <Folder Include="Builders\" />
     <Folder Include="Views\IncomesCostsGraph\" />
     <Folder Include="Views\Partials\" />
@@ -688,6 +693,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201404051400435_Summaries.resx">
       <DependentUpon>201404051400435_Summaries.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201404071742077_tada.resx">
+      <DependentUpon>201404071742077_tada.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

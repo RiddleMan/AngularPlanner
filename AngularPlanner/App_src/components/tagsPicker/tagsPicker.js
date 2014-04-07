@@ -5,7 +5,7 @@
 * Pick tags
 */
 angular.module('tagsPicker', ['resources'])
-  .controller('TagsPickerCtrl', ['$scope', 'Tags', '$rootScope', function($scope, Tags, $rootScope){
+  .controller('TagsPickerCtrl', function($scope, Tags, $rootScope){
     $scope.checked = [];
     $scope.tagsList = [];
 
@@ -69,8 +69,8 @@ angular.module('tagsPicker', ['resources'])
         updateChecked();
       });
     })();
-  }])
-  .controller('TagsPickerAddCtrl', ['Tags', '$scope', '$rootScope', function(Tags, $scope, $rootScope){
+  })
+  .controller('TagsPickerAddCtrl', function(Tags, $scope, $rootScope){
     $scope.show = false;
     $scope.clear = function() {
       $scope.show = false;
@@ -90,7 +90,7 @@ angular.module('tagsPicker', ['resources'])
         $scope.$emit('tagsPicker:check', tag);
       });
     };
-  }])
+  })
   .directive('tagsPicker', function(){
     return {
       scope: {

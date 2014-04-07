@@ -5,7 +5,7 @@
 * Limit gauge
 */
 angular.module('graphs.limitGauge', ['highcharts-ng'])
-  .factory('LimitGaugeData', ['$http', '$q', function($http, $q){
+  .factory('LimitGaugeData', function($http, $q){
     return function(id) {
       var defer = $q.defer();
 
@@ -19,8 +19,8 @@ angular.module('graphs.limitGauge', ['highcharts-ng'])
 
       return defer.promise;
     };
-  }])
-  .controller('LimitGaugeCtrl', ['$scope', 'LimitGaugeData', '$filter', function($scope, LimitGaugeData, $filter){
+  })
+  .controller('LimitGaugeCtrl', function($scope, LimitGaugeData, $filter){
     function buildSubtitle(from, to) {
       return 'Od: ' + $filter('date')(from) +
           ' Do: ' + $filter('date')(to);
@@ -140,7 +140,7 @@ angular.module('graphs.limitGauge', ['highcharts-ng'])
         $scope.options.loading = false;
       });
     })();
-  }])
+  })
   .directive('limitGauge', function(){
     return {
       scope: {
