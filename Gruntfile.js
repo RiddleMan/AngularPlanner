@@ -13,18 +13,18 @@ module.exports = function (grunt) {
     // Project settings
     yeoman: {
       // configurable paths
-      app: 'AngularPlanner/App',
+      appSrc: 'AngularPlanner/App_src',
+      appDest: 'AngularPlanner/App',
       testSpec: 'AngularPlanner.Tests/App/Spec',
       css: 'AngularPlanner/Content',
       images: 'AngularPlanner/Images',
       views: 'AngularPlanner/Views'
     },
-
     // Watches files for changes and runs tasks based on the changed files
     watch: {
       js: {
-        files: ['<%= yeoman.app %>/**/*.js'],
-        tasks: ['newer:jshint:all'],
+        files: ['<%= yeoman.appSrc %>/**/*.js'],
+        tasks: ['newer:concurrent:app', 'newer:jshint:all'],
         options: {
           livereload: true
         }
@@ -42,11 +42,33 @@ module.exports = function (grunt) {
         },
         files: [
           '<%= yeoman.views %>/**/*.cshtml',
-          '<%= yeoman.app %>/**/*.html',
+          '<%= yeoman.appSrc %>/**/*.html',
           '<%= yeoman.css %>/**/*.css',
           '<%= yeoman.images %>/**/*.{png,jpg,jpeg,gif,webp,svg}'
         ]
       }
+    },
+
+    ngmin: {
+      app: {
+        cwd: '<%= yeoman.appSrc %>',
+        expand: true,
+        src: ['**/*.js'],
+        dest: '<%= yeoman.appDest %>'
+      }
+    },
+
+    copy: {
+      views: {
+        cwd: '<%= yeoman.appSrc %>',
+        expand: true,
+        src: '**/*.html',
+        dest: '<%= yeoman.appDest %>'
+      }
+    },
+
+    concurrent: {
+      app: ['copy:views', 'ngmin:app']
     },
 
     // Make sure code styles are up to par and there are no obvious mistakes
@@ -57,7 +79,7 @@ module.exports = function (grunt) {
       },
       all: [
         'Gruntfile.js',
-        '<%= yeoman.app %>/**/*.js'
+        '<%= yeoman.appSrc %>/**/*.js'
       ],
       test: {
         options: {

@@ -195,6 +195,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ExpensesController.cs" />
+    <Compile Include="Controllers\Graphs\SummariesGraphController.cs" />
     <Compile Include="Controllers\Graphs\IncomesCostsMonthScopeGraphController.cs" />
     <Compile Include="Controllers\Graphs\LimitsGraphController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -202,10 +203,12 @@
     <Compile Include="Controllers\Graphs\IncomesCostsGraphController.cs" />
     <Compile Include="Controllers\Graphs\TagsUsageGraphController.cs" />
     <Compile Include="Controllers\LimitsController.cs" />
+    <Compile Include="Controllers\SummarieController.cs" />
     <Compile Include="Dto\IncomesCostsBilanceGraphDto.cs" />
     <Compile Include="Dto\IncomesCostsGraphDto.cs" />
     <Compile Include="Dto\IncomesCostsMonthScopeDto.cs" />
     <Compile Include="Dto\LimitsGraphDto.cs" />
+    <Compile Include="Dto\SummariesGraphDto.cs" />
     <Compile Include="Dto\TagsUsageGraphDto.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -247,12 +250,17 @@
     <Compile Include="Migrations\201403291823396_Limits1.Designer.cs">
       <DependentUpon>201403291823396_Limits1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201404051400435_Summaries.cs" />
+    <Compile Include="Migrations\201404051400435_Summaries.Designer.cs">
+      <DependentUpon>201404051400435_Summaries.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountBindingModels.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AngularPlannerContext.cs" />
     <Compile Include="Models\ExpenseModel.cs" />
     <Compile Include="Models\LimitModel.cs" />
+    <Compile Include="Models\SummaryModel.cs" />
     <Compile Include="Models\TagModel.cs" />
     <Compile Include="Controllers\TagsController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -677,6 +685,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201403291823396_Limits1.resx">
       <DependentUpon>201403291823396_Limits1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201404051400435_Summaries.resx">
+      <DependentUpon>201404051400435_Summaries.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

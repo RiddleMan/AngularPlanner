@@ -1,0 +1,43 @@
+<div class="col-md-4 col-sm-6 col-xs-12 pull-left offset" ng-controller="LimitsAddCtrl">
+  <div class="panel panel-default">
+    <div ng-show="!addicon" class="panel-heading">Nowe wyzwanie <span ng-click="toggle()" class="glyphicon glyphicon-remove pull-right"></span></div>
+    <div class="panel-body tile  text-center">
+      <div ng-show="addicon">
+        <span  ng-click="toggle()" class="glyphicon glyphicon-plus tile-icon"></span>
+      </div>
+      <div ng-show="!addicon">
+        <form class="text-left" role="form" name="form" novalidate ng-submit="add()">
+          <div class="form-group has-feedback" ng-class="{'has-success': form.name.$valid, 'has-error': form.name.$dirty && form.name.$invalid}">
+            <label for="limitsname">Nazwa</label>
+            <input ng-model="limit.name" name="name" type="text" class="form-control" id="limitsname" required>
+            <span ng-show="form.name.$dirty && form.name.$invalid" class="glyphicon glyphicon-remove form-control-feedback"></span>
+            <span ng-show="form.name.$valid" class="glyphicon glyphicon-ok form-control-feedback"></span>
+          </div>
+          <div class="form-group has-feedback" ng-class="{'has-success': form.from.$valid, 'has-error': form.from.$dirty && form.from.$invalid}">
+            <label for="limitsFrom">Od</label>
+            <input ng-model="limit.from" name="from" type="date" class="form-control" id="limitsFrom" required>
+            <span ng-show="form.from.$dirty && form.from.$invalid" class="glyphicon glyphicon-remove form-control-feedback"></span>
+            <span ng-show="form.from.$valid" class="glyphicon glyphicon-ok form-control-feedback"></span>
+          </div>
+          <div class="form-group has-feedback" ng-class="{'has-success': form.to.$valid, 'has-error': form.to.$dirty && form.to.$invalid}">
+            <label for="limitsto">Do</label>
+            <input ng-model="limit.to" name="to" type="date" class="form-control" id="limitsto" required>
+            <span ng-show="form.to.$dirty && form.to.$invalid" class="glyphicon glyphicon-remove form-control-feedback"></span>
+            <span ng-show="form.to.$valid" class="glyphicon glyphicon-ok form-control-feedback"></span>
+          </div>
+          <div class="form-group">
+            <label for="limitsTags">Tagi</label>
+            <tags-picker id="limitsTags" tags="limit.tags"></tags-picker>
+          </div>
+          <div class="form-group has-feedback" ng-class="{'has-success': form.amount.$valid, 'has-error': form.amount.$dirty && form.amount.$invalid}">
+            <label for="limitsamount">Kwota wyzwania</label>
+            <input ng-model="limit.amount" name="amount" type="number" class="form-control" id="limitsamount" required>
+            <span ng-show="form.amount.$dirty && form.amount.$invalid" class="glyphicon glyphicon-remove form-control-feedback"></span>
+            <span ng-show="form.amount.$valid" class="glyphicon glyphicon-ok form-control-feedback"></span>
+          </div>
+          <button type="submit" class="btn btn-primary">Dodaj <span class="glyphicon glyphicon-plus-sign"></span></button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
