@@ -203,7 +203,7 @@
     <Compile Include="Controllers\Graphs\IncomesCostsGraphController.cs" />
     <Compile Include="Controllers\Graphs\TagsUsageGraphController.cs" />
     <Compile Include="Controllers\LimitsController.cs" />
-    <Compile Include="Controllers\SummarieController.cs" />
+    <Compile Include="Controllers\SummariesController.cs" />
     <Compile Include="Dto\IncomesCostsBilanceGraphDto.cs" />
     <Compile Include="Dto\IncomesCostsGraphDto.cs" />
     <Compile Include="Dto\IncomesCostsMonthScopeDto.cs" />

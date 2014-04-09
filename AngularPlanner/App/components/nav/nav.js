@@ -17,7 +17,7 @@ angular.module('nav', []).controller('NavCtrl', [
       $scope.statistics = true;
     } else if (path.indexOf('limits') !== -1) {
       $scope.limits = true;
-    } else if (path.indexOf('summary') !== -1) {
+    } else if (path.indexOf('summaries') !== -1) {
       $scope.summary = true;
     } else if (path.indexOf('users') !== -1) {
       $scope.users = true;

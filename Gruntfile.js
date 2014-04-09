@@ -24,7 +24,14 @@ module.exports = function (grunt) {
     watch: {
       js: {
         files: ['<%= yeoman.appSrc %>/**/*.js'],
-        tasks: ['newer:concurrent:app', 'newer:jshint:all'],
+        tasks: ['newer:ngmin:app', 'newer:jshint:all'],
+        options: {
+          livereload: true
+        }
+      },
+      views: {
+        files: ['<%= yeoman.appSrc %>/**/*.html'],
+        tasks: ['newer:copy:views'],
         options: {
           livereload: true
         }
@@ -65,10 +72,6 @@ module.exports = function (grunt) {
         src: '**/*.html',
         dest: '<%= yeoman.appDest %>'
       }
-    },
-
-    concurrent: {
-      app: ['copy:views', 'ngmin:app']
     },
 
     // Make sure code styles are up to par and there are no obvious mistakes

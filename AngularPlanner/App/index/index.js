@@ -7,11 +7,6 @@
 angular.module('index', [
   'auth',
   'resources'
-]).config([
-  '$routeProvider',
-  'authCheckerProvider',
-  function ($routeProvider, authCheckerProvider) {
-  }
 ]).controller('IndexCtrl', [
   '$scope',
   '$route',

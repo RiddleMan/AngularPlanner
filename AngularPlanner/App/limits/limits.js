@@ -18,12 +18,9 @@ angular.module('limits', [
       controller: 'LimitsCtrl',
       resolve: {
         currentUser: authCheckerProvider.require,
-        limits: [
-          'Limits',
-          function (Limits) {
-            return Limits.query().$promise;
-          }
-        ]
+        limits: function (Limits) {
+          return Limits.query().$promise;
+        }
       }
     });
   }

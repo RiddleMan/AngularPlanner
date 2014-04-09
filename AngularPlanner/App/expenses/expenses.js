@@ -21,89 +21,66 @@ angular.module('expenses', [
       controller: 'ExpensesListCtrl',
       resolve: {
         currentUser: authCheckerProvider.require,
-        expenses: [
-          'Expenses',
-          function (Expenses) {
-            return Expenses.query().$promise;
-          }
-        ]
+        expenses: function (Expenses) {
+          return Expenses.query().$promise;
+        }
       }
     }).when('/expenses/:page', {
       templateUrl: '/App/expenses/expenses-list.html',
       controller: 'ExpensesListCtrl',
       resolve: {
         currentUser: authCheckerProvider.require,
-        expenses: [
-          'Expenses',
-          '$route',
-          function (Expenses, $route) {
-            return Expenses.query({ page: $route.current.params.page }).$promise;
-          }
-        ]
+        expenses: function (Expenses, $route) {
+          return Expenses.query({ page: $route.current.params.page }).$promise;
+        }
       }
     }).when('/expenses/tag/:tag', {
       templateUrl: '/App/expenses/expenses-list.html',
       controller: 'ExpensesListCtrl',
       resolve: {
         currentUser: authCheckerProvider.require,
-        expenses: [
-          'Expenses',
-          '$route',
-          function (Expenses, $route) {
-            return Expenses.query({
-              tag: $route.current.params.tag,
-              page: $route.current.params.page
-            }).$promise;
-          }
-        ]
+        expenses: function (Expenses, $route) {
+          return Expenses.query({
+            tag: $route.current.params.tag,
+            page: $route.current.params.page
+          }).$promise;
+        }
       }
     }).when('/expenses/tag/:tag/:page', {
       templateUrl: '/App/expenses/expenses-list.html',
       controller: 'ExpensesListCtrl',
       resolve: {
         currentUser: authCheckerProvider.require,
-        expenses: [
-          'Expenses',
-          '$route',
-          function (Expenses, $route) {
-            return Expenses.query({
-              tag: $route.current.params.tag,
-              page: $route.current.params.page
-            }).$promise;
-          }
-        ]
+        expenses: function (Expenses, $route) {
+          return Expenses.query({
+            tag: $route.current.params.tag,
+            page: $route.current.params.page
+          }).$promise;
+        }
       }
     }).when('/expenses/date/:date', {
       templateUrl: '/App/expenses/expenses-list.html',
       controller: 'ExpensesListCtrl',
       resolve: {
         currentUser: authCheckerProvider.require,
-        expenses: [
-          'Expenses',
-          '$route',
-          function (Expenses, $route) {
-            return Expenses.query({
-              date: $route.current.params.date,
-              page: $route.current.params.page
-            }).$promise;
-          }
-        ]
+        expenses: function (Expenses, $route) {
+          return Expenses.query({
+            date: $route.current.params.date,
+            page: $route.current.params.page
+          }).$promise;
+        }
       }
     }).when('/expenses/date/:date/:page', {
       templateUrl: '/App/expenses/expenses-list.html',
       controller: 'ExpensesListCtrl',
       resolve: {
         currentUser: authCheckerProvider.require,
-        expenses: [
-          'Expenses',
-          '$route',
-          function (Expenses, $route) {
-            return Expenses.query({
-              date: $route.current.params.date,
-              page: $route.current.params.page
-            }).$promise;
-          }
-        ]
+        expenses: function (Expenses, $route) {
+          return Expenses.query({
+            date: $route.current.params.date,
+            page: $route.current.params.page
+          }).$promise;
+        }
       }
     });
   }
@@ -159,7 +136,6 @@ angular.module('expenses', [
 ]).controller('ExpenseAddCtrl', [
   '$scope',
   'Expenses',
-  '$rootScope',
   function ($scope, Expenses) {
     $scope.more = false;
     $scope.tagsList = [

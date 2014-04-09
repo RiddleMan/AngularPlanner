@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
-using System.Net;
-using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Description;
@@ -31,6 +28,10 @@ namespace AngularPlanner.Controllers.Graphs
                 return NotFound();
             }
 
+            await _db.Entry(summary).Collection(i => i.Tags).LoadAsync();
+
+            var tagIds = summary.Tags.Select(i => i.Id);
+
             string format;
 
             switch (summary.Scope)
@@ -46,16 +47,17 @@ namespace AngularPlanner.Controllers.Graphs
                     break;
             }
 
-            var expenses = await _db.Expenses.Where(i => i.DateOfExpense >= summary.From && i.DateOfExpense <= summary.To).ToListAsync();
+            var expenses = await _db.Expenses.Where(i => i.DateOfExpense >= summary.From && i.DateOfExpense <= summary.To && i.Tags.Any(j => tagIds.Contains(j.Id))).Distinct().ToListAsync();
 
-            var grouppedExpenses = expenses.GroupBy(i => String.Format(format, i.DateOfExpense))
-                .Select(i => new
-                {
-                    Date = i.Key,
-                    Bilances = i.Sum(j => j.Cost)
-                });
+            var grouppedExpenses = expenses.GroupBy(i => String.Format(format, i.DateOfExpense)).ToList();
 
-            return Ok(new SummariesGraphDto());
+            var summaryDto = new SummariesGraphDto
+            {
+                Values = grouppedExpenses.Select(i => i.Sum(j => j.Cost)).ToList(),
+                Series = grouppedExpenses.Select(i => i.Key).ToList()
+            };
+
+            return Ok(summaryDto);
         }
 
         protected override void Dispose(bool disposing)

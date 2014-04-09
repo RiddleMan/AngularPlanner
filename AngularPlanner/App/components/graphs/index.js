@@ -9,5 +9,6 @@ angular.module('graphs', [
   'graphs.incomesCosts',
   'graphs.incomesCostsBilance',
   'graphs.incomesCostsMonthScope',
-  'graphs.limitGauge'
+  'graphs.limitGauge',
+  'graphs.summary'
 ]);

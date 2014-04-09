@@ -6,5 +6,6 @@
 angular.module('resources', [
   'resources.expenses',
   'resources.tags',
-  'resources.limits'
+  'resources.limits',
+  'resources.summaries'
 ]);

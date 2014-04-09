@@ -17,7 +17,7 @@ namespace AngularPlanner.Controllers
 {
     [Authorize]
     [ElmahHandleErrorApi]
-    public class Summaries : ApiController
+    public class SummariesController : ApiController
     {
         private readonly AngularPlannerContext _db = new AngularPlannerContext();
 

@@ -21,7 +21,8 @@ angular.module('app', [
   'statistics',
   'limits',
   'progressbar',
-  'connectionChecker'
+  'connectionChecker',
+  'summaries'
 ]);
 
 angular.module('app')
