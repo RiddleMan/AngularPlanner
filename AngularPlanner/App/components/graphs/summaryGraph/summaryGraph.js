@@ -27,6 +27,49 @@ angular.module('graphs.summary', ['highcharts-ng']).factory('SummariesData', [
         $location.path('/expenses/date/' + date);
       });
     }
+    $scope.summaryScopes = [
+      {
+        name: 'Dziennie',
+        value: 3
+      },
+      {
+        name: 'Miesi\u0119cznie',
+        value: 1
+      },
+      {
+        name: 'Rocznie',
+        value: 2
+      }
+    ];
+    function refresh() {
+      $scope.options.loading = true;
+      SummariesData($scope.summary.id).then(function (data) {
+        $scope.options.title.text = $scope.summary.name;
+        $scope.options.xAxis.categories = data.series;
+        $scope.options.series = [{
+            data: data.values.map(function (val) {
+              return {
+                y: val,
+                events: { click: openExpenses }
+              };
+            })
+          }];
+        $scope.options.loading = false;
+      });
+    }
+    $scope.delete = function () {
+      $scope.$emit('summary:delete', $scope.summary);
+      $scope.summary.$delete();
+    };
+    $scope.editToggle = function () {
+      $scope.editShow = !$scope.editShow;
+    };
+    $scope.save = function () {
+      $scope.summary.scope = $scope.summary.scopeHidden.value;
+      $scope.summary.$update(function () {
+        refresh();
+      });
+    };
     (function init() {
       $scope.options = {
         options: {
@@ -42,23 +85,12 @@ angular.module('graphs.summary', ['highcharts-ng']).factory('SummariesData', [
           legend: { enabled: false },
           credits: { enabled: false }
         },
-        title: { text: $scope.summary.name },
+        title: { text: '' },
         xAxis: { categories: [] },
         series: [],
         loading: true
       };
-      SummariesData($scope.summary.id).then(function (data) {
-        $scope.options.xAxis.categories = data.series;
-        $scope.options.series.push({
-          data: data.values.map(function (val) {
-            return {
-              y: val,
-              events: { click: openExpenses }
-            };
-          })
-        });
-        $scope.options.loading = false;
-      });
+      refresh();
     }());
   }
 ]).directive('summaryGraph', function () {

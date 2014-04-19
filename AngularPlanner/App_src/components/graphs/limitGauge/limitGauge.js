@@ -129,8 +129,8 @@ angular.module('graphs.limitGauge', ['highcharts-ng'])
     };
 
     $scope.save = function() {
-      $scope.options.title = $scope.limit.name;
-      $scope.options.subtitle = buildSubtitle($scope.limit.form, $scope.limit.to);
+      $scope.options.title.text = $scope.limit.name;
+      $scope.options.subtitle.text = buildSubtitle($scope.limit.form, $scope.limit.to);
       $scope.limit.$update();
     };
 

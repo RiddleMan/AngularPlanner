@@ -30,7 +30,9 @@ namespace AngularPlanner
                 "account",
                 "statistics",
                 "limits",
-                "summaries"
+                "summaries",
+                "simulations",
+                "users"
             }, new { controller = "Home", action = "Index" });
 
             routes.MapRoute(

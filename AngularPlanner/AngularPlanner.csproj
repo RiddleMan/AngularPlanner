@@ -203,11 +203,13 @@
     <Compile Include="Controllers\Graphs\IncomesCostsGraphController.cs" />
     <Compile Include="Controllers\Graphs\TagsUsageGraphController.cs" />
     <Compile Include="Controllers\LimitsController.cs" />
+    <Compile Include="Controllers\SimulationsController.cs" />
     <Compile Include="Controllers\SummariesController.cs" />
     <Compile Include="Dto\IncomesCostsBilanceGraphDto.cs" />
     <Compile Include="Dto\IncomesCostsGraphDto.cs" />
     <Compile Include="Dto\IncomesCostsMonthScopeDto.cs" />
     <Compile Include="Dto\LimitsGraphDto.cs" />
+    <Compile Include="Dto\SimulationsDto.cs" />
     <Compile Include="Dto\SummariesGraphDto.cs" />
     <Compile Include="Dto\TagsUsageGraphDto.cs" />
     <Compile Include="Global.asax.cs">
@@ -323,6 +325,9 @@
     <Content Include="App\simulations\simulations.js" />
     <Content Include="App\statistics\statistics.html" />
     <Content Include="App\statistics\statistics.js" />
+    <Content Include="App\summaries\summaries-add.html" />
+    <Content Include="App\summaries\summaries.html" />
+    <Content Include="App\summaries\summaries.js" />
     <Content Include="App_Readme\Elmah.txt" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />

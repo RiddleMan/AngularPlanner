@@ -16,7 +16,7 @@ angular.module('auth.interceptor', []).factory('authInterceptor', [
         }
         return config;
       },
-      'responseError': function (config) {
+      'response': function (config) {
         if (config.status === 401) {
           $location.path('/login');
         }

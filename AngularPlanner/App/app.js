@@ -21,7 +21,8 @@ angular.module('app', [
   'limits',
   'progressbar',
   'connectionChecker',
-  'summaries'
+  'summaries',
+  'simulations'
 ]);
 angular.module('app').config([
   '$routeProvider',
