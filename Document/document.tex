@@ -13,33 +13,32 @@
 \usepackage[figuresright]{rotating}
 \usepackage[utf8]{inputenc}
 \usepackage{svg}
-
-
 \usepackage[T1]{fontenc}
 \usepackage[polish]{babel}
-
 \usepackage{geometry}
 \usepackage{pslatex}
 \usepackage{ulem}
-
 \usepackage{lipsum}
-
 \usepackage{listings}
 \usepackage{url}
-
 \usepackage{color}
+\usepackage[ruled,vlined,linesnumbered]{algorithm2e}
+\usepackage{listingsutf8}
 \definecolor{szary}{gray}{0.6}% jasnoszary
 
 \setlength{\textwidth}{400pt}
 \lstset{numbers=left,
-			numberstyle=\tiny,
-			basicstyle=\scriptsize\ttfamily,
-			breaklines=true,
-			captionpos=b,
-			tabsize=2}
+      numberstyle=\tiny,
+      basicstyle=\scriptsize\ttfamily,
+      breaklines=true,
+      captionpos=b,
+      tabsize=2,
+      extendedchars=\true,
+      inputencoding=utf8}
 
-\usepackage[ruled,vlined,linesnumbered]{algorithm2e}
-
+%listing codes definitions
+\lstdefinestyle{sharpc}{language=[Sharp]C}
+\newcommand{\includecode}[2][c]{\lstinputlisting[caption=#2, escapechar=, style=custom#1]{#2}}
 
 \selectlanguage{polish}
 
@@ -216,7 +215,32 @@ Tabela przechowująca tagi
   \item SummaryModelId int (Identyfikator podsumowania)
 \end{itemize}
 Pozostałe tabele są wykorzystywane przez standardowy mechanizm autentykacji ASP.NET MVC.
+\section{Implementacja systemu}
+\subsection{Omówienie kodów źródłowych - Serwer}
+\lstset{style=sharpc}
+\lstinputlisting[caption=Mapowanie ścieżek routingu, label={lst:routeConfig}]{sources/server/routeConfig.cs}
+\par Powyższy kod służy do nauczenia serwera IIS interpretowania ścieżek adresu wpisywanych przez użytkownika. Pierwsza linijka metody \verb|RegisterRoutes| jest wymagana przez rozszerzenie Elmah, które służy do monitorowania aplikacji. Mówi ona, że ten typ adresów ma być przez naszą aplikację ignorowany. Adresy, które spełniają ten warunek to np. \verb|http://domena.pl/elmah.axd| lub \verb|http://domena.pl/elmah.axd/1234|. Kolejna użyta metoda jest to napisana przeze mnie, która linkuje każdy z adresów pasujących do wyrażeń z pierwszego argumentu metody \verb|MapHtml5Routes| na controller podany w drugim parametrze. Zabieg ten jest wymagany przez router Angular'a, który w aplikacji działa w HTML5Mode i daje na dostęp do adresów URL bez poprzedzania każdej ścieżki znakiem \verb|#|. Kod metody przedstawia Listing \ref{lst:mapHtml5Routes} Podobnym plikiem jest \verb|AngularPlanner/AngularPlanner/App_Start/WebApiConfig.cs|, który ustawia ścieżki routingu lecz dla Web Service'u RESTowego.
+\lstinputlisting[caption=Metoda MapHtml5Routes, label={lst:mapHtml5Routes}]{sources/server/mapHtml5Routes.cs}
+\par W pliku \verb|AngularPlanner/AngularPlanner/App_Start/BundleConfig.cs| są tworzone paczki plików JavaScript, które na środowisku produkcyjnym są zmiejszone i zoptymalizowane. Zaletą tego rozwiązania są mniejsze transfery danych i szybszy kod po stronie przeglądarki.\par Plik \verb|AngularPlanner/AngularPlanner/App_Start/Startup.Auth.cs| zawiera konfigurację mechanizmu autentykacji tokenowej dla naszej aplikacji. Zamiarem było także włączenie opcji logowania przez Facebook i Google+ lecz czas na to nie pozwolił.\par Katalog Controllers zawiera klasy kontrollerów są tam przedewszystkim kontrolery Web Api 2, lecz jest tam jeden, który posiada tylko jedną akcję, która z kolei zwraca użytkownikowi widok podany na Listingu \ref{lst:homeIndexView}.
+\lstinputlisting[caption=Widok zwracany przez akcję \texttt{Index} kontrolera \texttt{Home}, label={lst:homeIndexView}, language=HTML]{sources/server/homeIndexView.cshtml}
+\par Pozostałe kontrollery są do siebie podobne, a kod wybranego z nich można zobaczyć poniżej.
+\lstinputlisting[caption=Kontroller ExpensesController, label={lst:expensesController}]{sources/server/expensesController.cs}
+\par Klasa kontrollera dziedziczy po klasie abstrakcyjnej ApiController, by mogłabyć rozpoznana przez mechanizm refleksji jako kontroller Web Api 2 i dodatkowo uzyskać dostęp do kilku przydatnych metod charakterystycznych dla tego typu kontrolerów. Trochę wyżej są 2 atrybuty. \verb|Authorize| oznacza, że dostęp do kontrolera mają jedynie zalogowani użytkownicy, a atrybut \verb|ElmahHandleErrorApi| mówi bibliotece Elmah, że ma przechwytywać wyjątki z tego kontrollera. W konstruktorze mamy tworzenie instacji połączenia z bazą danych przy pomocy Entity Framework. W klasie mamy zaimplementowane wszystkie akcje CRUD, czyli Create (metoda \verb|Post|), Read (metody \verb|GetListByDate|, \verb|GetListByTag|, \verb|GetList|, \verb|GetSingle|), Update (metoda \verb|Put|) i Delete (metoda \verb|Delete|). Linijka nr 100 przedstawia przykładowe zapytanie do bazy. Odpowiada to zapytaniu w SQLu
+\begin{verbatim}
+SELECT TOP 1 * FROM dbo.ExpenseModels WHERE UserId = <UserId> AND Id = <Id>
+\end{verbatim}
+Kolejnym dobrym przykładem zapytania są linie od 78 do 85. Metoda Include robi \verb|LEFT OUTER JOIN| z tabelą \verb|TagsModels|, zaś metoda OrderByDescending dodaje sortowanie po \verb|DateOfExpense| (\verb|ORDER BY DateOfExpense DESC|), \verb|Skip| opuszcza liczbę wpisów podanych w parametrze, a \verb|Take| bierze 20 rekordów. Ważnym elementem tego zapytania jest także \verb|ToListAsync|. Do póki nie użyjemy tej metody zapytanie nie zostanie wykonane, a jedynie przygotowane. Po wykonaniu zapytania (zmaterializowaniu) dane są typu \verb|List|, a wcześniej były \verb|IQueryable|.
 
+\par Pliki w katalogu Models z wyłączeniem \verb|AngularPlannerContext| są to pliki reprezentujące bazę danych. Każda klasa reprezentuje rzeczywistą tabelę w bazie. Dla przykładu została przedstawiony model \verb|Expense| w Listingu \ref{lst:expenseModel}
+\lstinputlisting[caption=Model ExpenseModel, label={lst:expenseModel}]{sources/server/expenseModel.cs}
+Atrybut \verb|Key| oznacza pole, nad którym się znajduje polem \verb|PRIMARY KEY|. Pole \verb|Tags| jest to tak naprawdę odwołanie do tabeli \verb|TagsModels|. Entity Framework sam stwierdza jakiego typu relacjami mają być połączone tabele w bazie danych (jeden-do-wielu, wiele-do-wielu itd.). Pola \verb|Nullable<DateTime>| oznaczają, że to nie są wymagane i mogą mieć wartość \verb|NULL| w bazie.
+\subsection{Omówienie kodów źródłowych - Klient}
+
+\section{Instalacja i wdrożenie}
+Aby wdrożyć aplikację musimy potrzebujemy następujących składników:
+\begin{itemize}
+  \item Systemu Windows
+\end{itemize}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% BIBLIOGRAFIA %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

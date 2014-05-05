@@ -4,7 +4,7 @@
 		{
 			"follow_symlinks": true,
 			"path": ".",
-      "file_exclude_patterns": ["*.aux","*.fls","*.fdb_latexmk","*.glo","*.idx","*.log","*.toc","*.ist","*.acn","*.acr","*.alg","*.bbl","*.blg","*.dvi","*.glg","*.gls","*.ilg","*.ind","*.lof","*.lot","*.maf","*.mtc","*.mtc1","*.out","*.synctex.gz"]
+      "file_exclude_patterns": ["*.aux","*.lol","*.fls","*.fdb_latexmk","*.glo","*.idx","*.log","*.toc","*.ist","*.acn","*.acr","*.alg","*.bbl","*.blg","*.dvi","*.glg","*.gls","*.ilg","*.ind","*.lof","*.lot","*.maf","*.mtc","*.mtc1","*.out","*.synctex.gz"]
 		}
 	]
 }

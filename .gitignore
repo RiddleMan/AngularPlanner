@@ -113,6 +113,7 @@ node_modules
 *.ldf
 
 #Latex
+*.lol
 *.aux
 *.fls
 *.fdb_latexmk
