@@ -163,8 +163,13 @@ Logowanie to działa na podobnej zasadzie jak logowanie przy pomocy ciasteczek, 
 \end{itemize}
 \begin{figure}[htbp]
   \centering
-  \includegraphics[scale=0.5]{tokenAuth.png}
-  \caption{Diagram przepływu dla logowania tradycyjnego i tokenowego}
+  \includegraphics[scale=0.5]{images/tokenAuth1.png}
+  \caption{Diagram przepływu dla logowania tradycyjnego}
+\end{figure}
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[scale=0.5]{images/tokenAuth2.png}
+  \caption{Diagram przepływu dla logowania tokenowego}
 \end{figure}
 \section{Technologie}
 Aplikacja została podzielona na 2 części logiczne, którymi są:
@@ -181,7 +186,21 @@ Klient został w większości przy pomocy biblioteki AngularJS. Jest to narzędz
 Jak wyżej zostało napisane baza danych to Microsoft SQL Server 2012 Express LocalDB
 Poniżej projekt bazy danych.
 \subsection{Diagramy przedstawiające zależności między tabelami}
-
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[scale=0.5]{images/db1.png}
+  \caption{Tabele aplikacji}
+\end{figure}
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[scale=0.5]{images/db2.png}
+  \caption{Tabela migracyjna}
+\end{figure}
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[scale=0.5]{images/db3.png}
+  \caption{Tabele autoryzacyjne}
+\end{figure}
 \subsection{Opis tabel}
 \paragraph[short]{ExpenseModels}
 Przechowuje wydatki i przychody
