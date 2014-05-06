@@ -24,9 +24,31 @@
 \usepackage{color}
 \usepackage[ruled,vlined,linesnumbered]{algorithm2e}
 \usepackage{listingsutf8}
+
+
 \definecolor{szary}{gray}{0.6}% jasnoszary
 
 \setlength{\textwidth}{400pt}
+% JS listing type
+\definecolor{lightgray}{rgb}{.9,.9,.9}
+\definecolor{darkgray}{rgb}{.4,.4,.4}
+\definecolor{purple}{rgb}{0.65, 0.12, 0.82}
+
+\lstdefinelanguage{JavaScript}{
+  keywords={typeof, new, true, false, catch, function, return, null, catch, switch, var, if, in, while, do, else, case, break},
+  keywordstyle=\color{blue}\bfseries,
+  ndkeywords={class, export, boolean, throw, implements, import, this},
+  ndkeywordstyle=\color{darkgray}\bfseries,
+  identifierstyle=\color{black},
+  sensitive=false,
+  comment=[l]{//},
+  morecomment=[s]{/*}{*/},
+  commentstyle=\color{purple}\ttfamily,
+  stringstyle=\color{red}\ttfamily,
+  morestring=[b]',
+  morestring=[b]"
+}
+% end JS listing
 \lstset{numbers=left,
       numberstyle=\tiny,
       basicstyle=\scriptsize\ttfamily,
@@ -59,7 +81,7 @@
 \makeindex
 
 \begin{document}
-
+\nocite{*}
 \pagestyle{empty}
 
 \begin{titlepage}
@@ -235,7 +257,22 @@ Kolejnym dobrym przykładem zapytania są linie od 78 do 85. Metoda Include robi
 \lstinputlisting[caption=Model ExpenseModel, label={lst:expenseModel}]{sources/server/expenseModel.cs}
 Atrybut \verb|Key| oznacza pole, nad którym się znajduje polem \verb|PRIMARY KEY|. Pole \verb|Tags| jest to tak naprawdę odwołanie do tabeli \verb|TagsModels|. Entity Framework sam stwierdza jakiego typu relacjami mają być połączone tabele w bazie danych (jeden-do-wielu, wiele-do-wielu itd.). Pola \verb|Nullable<DateTime>| oznaczają, że to nie są wymagane i mogą mieć wartość \verb|NULL| w bazie.
 \subsection{Omówienie kodów źródłowych - Klient}
-
+\lstset{language=JavaScript}
+\par Cały kod aplikacji został zorganizowany według rekomendowanej przez Angulara struktury katalogów ~\cite{angular:structure}.
+\par Przy asynchronicznych akcjach jest wykorzystywana okrojona biblioteka \verb|Q.js| ~\cite{lib:q} zaimplementowana w Angularze. Implementuje ona ustandaryzowany system obietnic Promises/A+ ~\cite{doc:promises}
+\lstinputlisting[caption=Plik konfiguracyjny systemu budującego Grunt, label={lst:gruntfile}]{sources/client/Gruntfile.js}
+\par Kod przestawiony na powyższym listingu jest plikiem konfiguracyjnym dla systemu do automatyzacji pewnych zadań \verb|Grunt|. Można go porównać do \verb|Makefile|, ponieważ jest to narzędzie tego typu, lecz istnieje do niego wiele rozszerzeń, które ułatwiają prace. Powyżej definiujemy 3 zadania: default, test, dev. Każdy z nich można uruchomić za pomocą polecenia \verb|grunt <nazwa_zadania>|. Dev i default nasłuchują katalogi z plikami \verb|*.js|, \verb|*.css|, \verb|*.html|, a następnie robią wstępną kompilację, aby kod napisany był możliwy do pomniejszenia ~\cite{angular:minSafe} i sprawdzany pod względem poprawności składni. Także informowana jest przeglądarka o zmianach, których następstwem jest automatyczne odświeżenie okna przeglądarki. Jest to czynność, która znacznie przyspiesza proces wytwarzania oprogramowania.
+\par Plik z Listingu \ref{lst:appJs} jest plikiem startowym aplikacji. Definiuje się tutaj jakie moduły wchodzą w skład aplikacji i konfiguruje środowisko do dalszej pracy. W tym przypadku został włączony \verb|html5Mode| i domyślne przekierowanie na stronę \verb|domena.pl/statistics|. W pliku z Listingu \ref{lst:homeIndexView} jest podłączenie aplikacji do drzewa DOM za pomocą \verb|<body ng-app="app">|.
+\lstinputlisting[caption=Plik startowy aplikacji, label={lst:appJs}]{sources/client/app.js}
+Mechanizm autentykacji po stronie klienta został napisany na podstawie książki ~\cite{angular:bookMastering}. Jest on wydzielony na trzy moduły. Pierwszy z nich przedstwiony na Listingu \ref{lst:authInterceptor} pośredniczy przy żadaniach i odpowiedziach dodając \verb|Token| w nagłówkach żądania, jeśli jest on zapisany w \verb|localStorage| przeglądarki. Jeśli \verb|Token| wygaśnie lub jest nieprawidłowy serwer poinformuje klienta statusem kodu \verb|401 - Unauthorized| ~\cite{http:statuscodes}
+\lstinputlisting[caption=Moduł pośredniczący przy żądaniach i odpowiedziach HTTP, label={lst:authInterceptor}]{sources/client/authInterceptor.js}
+Kolejnym jest przedstawiony na Listingu \ref{lst:authJs} moduł udostępniający najważniejsze metody do autentykacji i sprawdzenia zalogowania użytkownika.
+\lstinputlisting[caption=Moduł wystawiający interfejs do autentykacji, label={lst:authJs}]{sources/client/auth.js}
+\par Udostępnia on metody \verb|login|, \verb|logout|, \verb|register|, \verb|isAuthenticated|. W przypadku \verb|login| serwer jest odpytywany czy użytkownik z takimi danymi logowania istnieje w bazie danych, jeżeli tak jest to w odpowiedzi dostajemy \verb|Token| autoryzacyjny, który zostaje zapisany w pamięci przeglądarki.
+\par Ostatnim z modułów odpowiedzialnych za logowanie jest przedstwiony poniżej. Sprawdza jedynie on w trakcie ładowania widoków, czy mogą być pokazane użytkownikowi.
+\lstinputlisting[caption=Moduł sprawdzający czy dany widok jest dostępny dla anonimowego użytkownika, label={lst:authCheckerJs}]{sources/client/authChecker.js}
+\par Do wymiany danych używany jest mechanizm \verb|$resource| ~\cite{angular:$resource}. Przykład implementacji przedstawiony został na Listingu \ref{lst:summaryJs}. Udostępnia on łatwy interfejs do komunikacji z serwerem.
+\lstinputlisting[caption=Summary Resouce, label={lst:summaryJs}]{sources/client/summaries.js}
 \section{Instalacja i wdrożenie}
 Aby wdrożyć aplikację musimy potrzebujemy następujących składników:
 \begin{itemize}
@@ -245,8 +282,8 @@ Aby wdrożyć aplikację musimy potrzebujemy następujących składników:
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% BIBLIOGRAFIA %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%\bibliographystyle{plain}
 
-%\bibliography{bibliography}
+\bibliography{bibl}
+\bibliographystyle{plain}
 
 \end{document}
