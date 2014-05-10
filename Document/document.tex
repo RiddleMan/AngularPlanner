@@ -188,13 +188,13 @@ Poniżej projekt bazy danych.
 \subsection{Diagramy przedstawiające zależności między tabelami}
 \begin{figure}[htbp]
   \centering
-  \includegraphics[scale=0.5]{images/db1.png}
-  \caption{Tabele aplikacji}
+  \includegraphics[scale=0.5]{images/db2.png}
+  \caption{Tabela migracyjna}
 \end{figure}
 \begin{figure}[htbp]
   \centering
-  \includegraphics[scale=0.5]{images/db2.png}
-  \caption{Tabela migracyjna}
+  \includegraphics[scale=0.5]{images/db1.png}
+  \caption{Tabele aplikacji}
 \end{figure}
 \begin{figure}[htbp]
   \centering
@@ -260,7 +260,7 @@ Pozostałe tabele są wykorzystywane przez standardowy mechanizm autentykacji AS
 \subsection{Omówienie kodów źródłowych - Serwer}
 \lstset{style=sharpc}
 \lstinputlisting[caption=Mapowanie ścieżek routingu, label={lst:routeConfig}]{sources/server/routeConfig.cs}
-\par Powyższy kod służy do nauczenia serwera IIS interpretowania ścieżek adresu wpisywanych przez użytkownika. Pierwsza linijka metody \verb|RegisterRoutes| jest wymagana przez rozszerzenie Elmah, które służy do monitorowania aplikacji. Mówi ona, że ten typ adresów ma być przez naszą aplikację ignorowany. Adresy, które spełniają ten warunek to np. \verb|http://domena.pl/elmah.axd| lub \verb|http://domena.pl/elmah.axd/1234|. Kolejna użyta metoda jest to napisana przeze mnie, która linkuje każdy z adresów pasujących do wyrażeń z pierwszego argumentu metody \verb|MapHtml5Routes| na controller podany w drugim parametrze. Zabieg ten jest wymagany przez router Angular'a, który w aplikacji działa w HTML5Mode i daje na dostęp do adresów URL bez poprzedzania każdej ścieżki znakiem \verb|#|. Kod metody przedstawia Listing \ref{lst:mapHtml5Routes} Podobnym plikiem jest \verb|AngularPlanner/AngularPlanner/App_Start/WebApiConfig.cs|, który ustawia ścieżki routingu lecz dla Web Service'u RESTowego.
+\par Powyższy kod służy do nauczenia serwera IIS interpretowania ścieżek adresu wpisywanych przez użytkownika. Pierwsza linijka metody \verb|RegisterRoutes| jest wymagana przez rozszerzenie Elmah, które służy do monitorowania aplikacji. Mówi ona, że ten typ adresów ma być przez naszą aplikację ignorowany. Adresy, które spełniają ten warunek to np. \verb|http://domena.pl/elmah.axd| lub \verb|http://domena.pl/elmah.axd/1234|. Kolejna użyta metoda jest to napisana na potrzeby aplikacji metoda, która linkuje każdy z adresów pasujących do wyrażeń z pierwszego argumentu metody \verb|MapHtml5Routes| na controller podany w drugim parametrze. Zabieg ten jest wymagany przez router Angular'a, który w aplikacji działa w HTML5Mode i daje na dostęp do adresów URL bez poprzedzania każdej ścieżki znakiem \verb|#|. Kod metody przedstawia Listing \ref{lst:mapHtml5Routes} Podobnym plikiem jest \verb|AngularPlanner/AngularPlanner/App_Start/WebApiConfig.cs|, który ustawia ścieżki routingu lecz dla Web Service'u RESTowego.
 \lstinputlisting[caption=Metoda MapHtml5Routes, label={lst:mapHtml5Routes}]{sources/server/mapHtml5Routes.cs}
 \par W pliku \verb|AngularPlanner/AngularPlanner/App_Start/BundleConfig.cs| są tworzone paczki plików JavaScript, które na środowisku produkcyjnym są zmiejszone i zoptymalizowane. Zaletą tego rozwiązania są mniejsze transfery danych i szybszy kod po stronie przeglądarki.\par Plik \verb|AngularPlanner/AngularPlanner/App_Start/Startup.Auth.cs| zawiera konfigurację mechanizmu autentykacji tokenowej dla naszej aplikacji. Zamiarem było także włączenie opcji logowania przez Facebook i Google+ lecz czas na to nie pozwolił.\par Katalog Controllers zawiera klasy kontrollerów są tam przedewszystkim kontrolery Web Api 2, lecz jest tam jeden, który posiada tylko jedną akcję, która z kolei zwraca użytkownikowi widok podany na Listingu \ref{lst:homeIndexView}.
 \lstinputlisting[caption=Widok zwracany przez akcję \texttt{Index} kontrolera \texttt{Home}, label={lst:homeIndexView}, language=HTML]{sources/server/homeIndexView.cshtml}
@@ -288,15 +288,27 @@ Mechanizm autentykacji po stronie klienta został napisany na podstawie książk
 Kolejnym jest przedstawiony na Listingu \ref{lst:authJs} moduł udostępniający najważniejsze metody do autentykacji i sprawdzenia zalogowania użytkownika.
 \lstinputlisting[caption=Moduł wystawiający interfejs do autentykacji, label={lst:authJs}]{sources/client/auth.js}
 \par Udostępnia on metody \verb|login|, \verb|logout|, \verb|register|, \verb|isAuthenticated|. W przypadku \verb|login| serwer jest odpytywany czy użytkownik z takimi danymi logowania istnieje w bazie danych, jeżeli tak jest to w odpowiedzi dostajemy \verb|Token| autoryzacyjny, który zostaje zapisany w pamięci przeglądarki.
-\par Ostatnim z modułów odpowiedzialnych za logowanie jest przedstwiony poniżej. Sprawdza jedynie on w trakcie ładowania widoków, czy mogą być pokazane użytkownikowi.
+\par Ostatnim z modułów odpowiedzialnych za logowanie jest przedstwiony poniżej. Sprawdza jedynie on w trakcie ładowania widoków, czy mogą być pokazane użytkownikowi. Adresy końcowe dla autentykacji zostały zaczęrpnięte z tutoriala ~\cite{server:tokenLogin}.
 \lstinputlisting[caption=Moduł sprawdzający czy dany widok jest dostępny dla anonimowego użytkownika, label={lst:authCheckerJs}]{sources/client/authChecker.js}
 \par Do wymiany danych używany jest mechanizm \verb|$resource| ~\cite{angular:$resource}. Przykład implementacji przedstawiony został na Listingu \ref{lst:summaryJs}. Udostępnia on łatwy interfejs do komunikacji z serwerem.
-\lstinputlisting[caption=Summary Resouce, label={lst:summaryJs}]{sources/client/summaries.js}
+\lstinputlisting[caption=Tags Resouce, label={lst:summaryJs}]{sources/client/summaries.js}
+\par Zastosowanie w/w mechanizmu jest podane w Listingu \ref{lst:tagsPickerJs}. Poprzez \verb|Tags.query(callback)| odpytujemy się serwer o listę wszystkich tagów na serwerze. Poprzez utworzenie nowej instancji tworzymy nowy tag, a wywołując na nim metodę \verb|.$save(callback)| zapisujemy go na serwerze.
+\lstinputlisting[caption=Dyrektywa <tags-picker />, label={lst:tagsPickerJs}]{sources/client/tagsPicker.js}
+\par Warto także wspomnieć, że Listing \ref{lst:tagsPickerJs} tworzy nowy element HTMLa, który jest nazwany \verb|<tags-picker />|. Definicja takiego elementu jest zawarta w liniach od 94 do 104. Parametr \verb|scope| nakazuje utworzyć obiekt podgląd, który jest obiektem dla tego elementu. Danymi źródłowymi są atrybuty dostarczone do elementu. Wartość \verb|'='| nakazuje zachować \verb|2-way data binding| ~\cite{angular:databinding} między widokiem, a kontrolerem dla tej właściwości. \verb|controller| wskazuje, który kontroler ma być wykorzystany. Jest on zaimplementowany wyżej. Parametr \verb|resrict| determinuje jakiego typu ma być dyrektywa ~\cite{angular:restrict}. Więcej konfiguracji można poczytać ~\cite{angular:$compile}.
+\par Metody i właściwości są udostępnianie widokowi przy pomocy \verb|$scope|. W kontrolerze jest kilka przykładów: \verb|$scope.delete = function(){}|, \verb|$scope.tags = []|. Także dla właściwości w \verb|$scope| udostępniony został mechanizm obserwowania zmian w tej własciwości. Jest to klasyczne zastosowanie wzorca \verb|Obserwator|. Istnieje też system wiadomości, w którym możemy nasłuchiwać na konkretną wiadomość (\verb|$scope.$on('tagsPicker:push')|) i je wysyłać w górę drzewa podglądów (\verb|$scope.$emit('tagsPicker:push')|) lub w dół (\verb|$scope.$emit('tagsPicker:push')|).
+\lstinputlisting[caption=Widok dla dyrektywy <tags-picker />, label={lst:tagsPickerHTML}, language={HTML}]{sources/client/tagsPicker.html}
+\par W widoku podpięte są metody na akcje. Dla przykładu można podać \verb|ng-click="delete($index)"| na kliknięcie w element wywołuje tą metodę z kontrolera. Atrybut \verb|ng-repeat="tag in tagsList"| nakazuje powielić element, do którego jest podpięty tyle razy ile jest elementów w tablicy \verb|tagsList|.
+\lstinputlisting[caption=Przykładowy kod podstrony, label={lst:expensesCtrl}]{sources/client/expensesController.js}
+\par Na samej górze mamy definicje adresów, które prowadzą do podstrony. Każdy z nich ma podany widok i kontroler, przez które będzie obsługiwany adres. W właściwości są zależności, które są wymagane do przejścia na podstronę np. \verb|currentUser: authCheckerProvider.require| jest odpowiedzialny za autoryzację. Jeżeli, któraś z tych zależności nie zostanie spełniona to przejście nie zostanie wykonane, a sam \verb|$routeProvider| wyśle komunikat \verb|$routeChangeError| ~\cite{angular:$routeChangeError}. Poniżej mamy definicję samego kontrolera.
 \section{Instalacja i wdrożenie}
 Aby wdrożyć aplikację musimy potrzebujemy następujących składników:
 \begin{itemize}
-  \item Systemu Windows
+  \item Microsoft Windows 2012 Server/7/8 lub wyższe
+  \item .NET Framework 4.5
+  \item Microsoft SQL Server 2012 lub wyższe
 \end{itemize}
+
+\par {\color{red} Tutaj piękna instrukcja instalacji. (Jak zainstaluje nową wirtualną maszynę)}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% BIBLIOGRAFIA %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

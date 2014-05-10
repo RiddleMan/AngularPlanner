@@ -1,14 +1,13 @@
 'use strict';
 /**
-* resources.summaries Module
+* resources.tags Module
 *
-* ExpenseModel
+* tags resource
 */
-angular.module('resources.summaries', [])
-  .factory('Summaries', function($resource) {
-    return $resource('/api/summaries/:id',
-      {id: '@id'},
+angular.module('resources.tags', [])
+  .factory('Tags', function($resource){
+    return $resource('/api/tags/:id', {id: '@id'},
       {
-        'update': { method: 'PUT' }
+        'update': { method: 'PUT'}
       });
   });
