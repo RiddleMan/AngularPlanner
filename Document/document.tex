@@ -24,6 +24,7 @@
 \usepackage{color}
 \usepackage[ruled,vlined,linesnumbered]{algorithm2e}
 \usepackage{listingsutf8}
+\usepackage{float}
 
 
 \definecolor{szary}{gray}{0.6}% jasnoszary
@@ -111,7 +112,16 @@
 \pagestyle{headings}
 
 \section*{Wstęp}
-Praca swoim zakresem obejmuje stworzenie aplikacji do zarządzania wydatkami w gospodarstwie \linebreak i wyświetlanie wielu statystyk z nimi związanymi. Ma ona na celu ułatwienie w takim zarządzaniu poprzez wyświetlanie licznych wykresów. Użytkownikiem docelowym jest każdy zarabiający/studiujący chcący organizować swoje wydatki. Celem pracy zaprojektowanie i oprogramowanie aplikacji o następujących założeniach funkcjonalnych:
+\par Praca swoim zakresem obejmuje stworzenie aplikacji do zarządzania wydatkami
+w gospodarstwie domowym oraz do prezentowania wielu statystyk z nimi związanych. Dzięki zastosowaniu licznych wykresów projekt ma na celu ułatwienie zarządzania przychodami oraz wydatkami. Użytkownikiem docelowym jest każdy zarabiający/studiujący chcący organizować swoje wydatki. Projekt ten wyróżnia od innych to, że ma bardzo intuicyjny wygląd, co ułatwia korzystanie z tego narzędzia. Jest dużo ciekawszy w użyciu i zgodny z konwencją Responsive Web Design.
+
+\par Praca złożona jest z 4 rozdziałów. Rozdział pierwszy przedstawia zakres pracy oraz cel projektu. Zawiera również opis podstawowych funkcjonalności aplikacji, które zostały zrealizowane w pracy dyplomowej. Dodatkowo zaprezentowane są przykładowe, podobnie działające pod względem funkcjonalności.
+W kolejnym rozdziale znajduje się projekt systemu. Przedstawione zostały grupy użytkowników oraz założenia. Umieszczone są diagram przypadków użycia, a także opisany schemat bazy danych oraz omówiono konkretne tabele w niej.
+\par Trzeci rozdział jest poświęcony implementacji systemu. Zaprezentowane zostały użyte technologie, a także poszczególne fragmenty kodów źródłowych z omówieniem ich. Co więcej umieszczone są zrzuty ekranu, pokazujące odrębne widoki, pokazujące odrębne funkcjonalności.
+\par W ostatnim znajduje się podsumowanie z całej zrealizowanej pracy oraz wnioski dotyczące możliwości rozszerzenia aplikacji na potrzeby większego projektu.
+
+\section{Cel i zakres pracy}
+\par Celem pracy dyplomowej było stworzenie aplikacji do zarządzania wydatkami w gospodarstwie oraz wyświetlanie statystyk z nimi związanymi. Jest on dostosowana do poprawnego działania na wszelkich urządzeniach takich jak: komputery, telefony komórkowe czy tablety. Działa ona bez odświeżania strony (SPA, z ang. Single Page Application). Zadaniem było zaprojektowanie oraz oprogramowanie następujących funkcjonalności:
 \begin{itemize}
   \item Dostosowanie interfejsu do szerokiego wachlarzu urządzeń (telefony komórkowe, tablety, komputery)
   \item SPA (Single Page Application) czyli aplikacja działająca bez odświeżenia strony
@@ -140,63 +150,29 @@ Istnieje wiele aplikacji o podobnej funkcjonalności, które zazwyczaj są poł�
   \item Bills
   \item iFinance
 \end{itemize}
-lecz aplikacja będzie w formie strony internetowej, przez co będzie dostępna na wszystkie platformy. Także idea Responsive Web Design będzie zwiększała zasięg platformowy. Aplikacja mBanku i ING jest bardzo mało intuicyjna przez co można trafić do klientów tych aplikacji. Praca składa się z n rozdziałów ...
-
-\section{Zagadnienia}
-W pracy zostały wykorzystane liczne technologie, wzorce i zagadnienia, które poniżej zostaną omówione.
-\subsection{SPA - Single Page Application}
-Jest to koncepcja, która mówi, że strona powinna być załadowana raz, a każde przejście na kolejną stronę ma być wykonywane asynchronicznie. Wszystkie zmiany strony są pokazywane przez modyfikację drzewa DOM w dokumencie HTML. Uzasadnieniem tego typu stron są rosnące doświadczenia użytkownika przy korzystaniu z aplikacji (User Experience), a także zminimalizowanie transferu danych między przeglądarką a serwerem, przez co czas odpowiedzi serwera jest zdecydowanie szybszy i użytkownik szybciej zobaczy efekt. Koncepcja wiele czerpie z najnowszych technologii jakimi są HTML5, CSS3, JavaScript, AJAX.
-\subsection{MVC}
-Złożony wzorzec architektoniczny służący do organizowania struktury aplikacji posiadających interfejsy graficzne. Wykorzystuje on 3 proste wzorce jakimi są Strategia, Obserwator, Kompozyt.\linebreak
-MVC zakłada podzielenie aplikacji na poniżej wymienione częście składowe:
-\begin{itemize}
-  \item Model - dane wymagane do utworzenia Widoku
-  \item Widok - opisuje jak przedstawić część modelu użytkownikowi
-  \item Kontroler - agreguje dane z wielu modeli i przygotowuje je aby przekazać do widoku
-\end{itemize}
-\subsection{Logowanie tokenowe}
-Logowanie to działa na podobnej zasadzie jak logowanie przy pomocy ciasteczek, lecz znosi pewne ograniczenia jakie wcześniej wspomniany i najpopularniejszy w dzisiejszych czasach system identyfikacji sesji posiadał.Użytkownik, który chce się zalogować wpisuje swój login i hasło, na których podstawie jest generowany token (identyfikator sesji), który z kolei podajemy przy każdym wymagającym autentykacji żądaniu do serwera (poprzez dodanie w nagłówku żądania HTTP pola \verb|Authetication: Bearer <token>|). Token jest wydawany jedynie na określony czas i służy do autentykacji tylko dla jednego użytkownika. Jedną z zalet tego logowania jest to, że możemy \linebreak w aplikacjach SPA zalogować się bez odświeżenia strony i dodatkowo aplikacje klienckie możemy ``hostować'' na innej domenie. Nowoczesne strony wykorzystują już tego typu logowanie, idealnym przykładem jest protokół OAuth 2, który wykorzystują liczne strony:
-\begin{itemize}
-  \item Facebook
-  \item Google+
-  \item Twitter
-\end{itemize}
-\begin{figure}[htbp]
+\par Zrealizowana aplikacja jest w formie strony internetowej, przez co jest dostępna na wszystkie platformy. Również idea Responsive Web Design zwiększa zasięg platformowy. Natomiast aplikacje mBanku oraz ING są bardzo mało intuicyjne w użyciu, przez co zrealizowana aplikacji może łatwo trafić do klientów tych programów.
+\section{Projekt systemu}
+\subsection{Diagram przypadków użycia}
+\begin{figure}[H]
   \centering
-  \includegraphics[scale=0.5]{images/tokenAuth1.png}
-  \caption{Diagram przepływu dla logowania tradycyjnego}
+  \includegraphics[scale=0.7]{images/use_case.png}
+  \caption{Diagram przypadków użycia}
 \end{figure}
-\begin{figure}[htbp]
-  \centering
-  \includegraphics[scale=0.5]{images/tokenAuth2.png}
-  \caption{Diagram przepływu dla logowania tokenowego}
-\end{figure}
-\section{Technologie}
-Aplikacja została podzielona na 2 części logiczne, którymi są:
-\begin{itemize}
-  \item Serwer
-  \item Klient
-\end{itemize}
-Każda z nich używa innych technologii, ponieważ działają w różnych środowiskach np. klient pracuje jedynie w przeglądarce.
-\subsection{Serwer}
-Została napisana w języku C\# wykorzystując ASP.NET MVC 5 i ASP.NET Web Api 2. Statyczne pliki są udostępniane przy pomocy MVC, a reszta serwera została udostępniona w formie Web Service'u.\\ Silnik bazy danych, który został wykorzystany jest to Microsoft SQL Server 2012 w wersji Express LocalDB. Cała baza danych została zaprojektowana i wygenerowana przy pomocy Entity Framework 6, który także wspomaga wykonywanie zapytań do bazy danych. Zapytania w tej bibliotece nie wykonuje się bezpośrednio przy pomocy języka strukturalnego SQL, lecz pisząc kod i operując na encjach te zapytania są generowane w locie. Wielką zaletą tego typu rozwiązania jest możliwość przeniesienia aplikacji na inny silnik bazy danych bez zmiany jakiegokolwiek fragmentu kodu. Jedyną rzeczą, którą trzeba będzie wykonać to zmienić parametry połączenia. Jest to typowe rozwiązanie mapowania obiektowo-relacyjnego w skrócie ORM.
-\subsection{Klient}
-Klient został zaimplementowany przy pomocy biblioteki AngularJS. Jest to narzędzie napisane w JavaScript, które umożliwa tworzenie aplikacji za pomocą wzorca projektowego MVC, a także ułatwia tworzenie według koncepcji Single Page Application.\\ Interfejsu graficzny wykorzystuje bibliotekę Bootstrap, która nie tylko ładnie i schludnie wygląda, lecz przy zastosowaniu pewnych reguł zapewnia nam kompatybilność z innymi urządzeniami tj. telefony komórkowe, tablety, czytniki itd. Tego typu zgodność jest nazywana Responsive Web Desing i jest coraz częściej stosowana w internecie.\\ Wykresy są generowane przy pomocy HighCharts.js, który sprawia, że wykresy są proste w generowaniu.\\ Aplikacja została napisana modułowo i każdy takich modułów da się przetestować testami jednostkowymi, a wszystko dzięki narzuconemu schematowi przez AngularJS.
-\section{Baza danych}
+\subsection{Projekt bazy danych}
 Jak wyżej zostało napisane baza danych to Microsoft SQL Server 2012 Express LocalDB
 Poniżej projekt bazy danych.
 \subsection{Diagramy przedstawiające zależności między tabelami}
-\begin{figure}[htbp]
+\begin{figure}[H]
   \centering
   \includegraphics[scale=0.5]{images/db2.png}
   \caption{Tabela migracyjna}
 \end{figure}
-\begin{figure}[htbp]
+\begin{figure}[H]
   \centering
   \includegraphics[scale=0.5]{images/db1.png}
   \caption{Tabele aplikacji}
 \end{figure}
-\begin{figure}[htbp]
+\begin{figure}[H]
   \centering
   \includegraphics[scale=0.5]{images/db3.png}
   \caption{Tabele autoryzacyjne}
@@ -257,7 +233,49 @@ Tabela przechowująca tagi
 \end{itemize}
 Pozostałe tabele są wykorzystywane przez standardowy mechanizm autentykacji ASP.NET MVC.
 \section{Implementacja systemu}
-\subsection{Omówienie kodów źródłowych - Serwer}
+W poniższym rozdziale przedstawione zostały liczne technologie, wzorce oraz zagadnienia. Dodatkowo zawiera on przykładowe kody źródłowe programu, które prezentują różne funkcjonalności. W celu zaprezentowania widoków aplikacji załączone zostały zrzuty ekranów poszczególnych zakładek i wraz z opisem.
+\subsection{Opis technologii}
+\subsubsection{Zagadnienia}
+\paragraph{SPA - Single Page Application}
+Jest to koncepcja, która mówi, że strona powinna być załadowana raz, a każde przejście na kolejną stronę ma być wykonywane asynchronicznie. Wszystkie zmiany strony są pokazywane przez modyfikację drzewa DOM w dokumencie HTML. Uzasadnieniem tego typu stron są rosnące doświadczenia użytkownika przy korzystaniu z aplikacji (User Experience), a także zminimalizowanie transferu danych między przeglądarką a serwerem, przez co czas odpowiedzi serwera jest zdecydowanie szybszy i użytkownik szybciej zobaczy efekt. Koncepcja wiele czerpie z najnowszych technologii jakimi są HTML5, CSS3, JavaScript, AJAX.
+\paragraph{MVC}
+Złożony wzorzec architektoniczny służący do organizowania struktury aplikacji posiadających interfejsy graficzne. Wykorzystuje on 3 proste wzorce jakimi są Strategia, Obserwator, Kompozyt.\linebreak
+MVC zakłada podzielenie aplikacji na poniżej wymienione częście składowe:
+\begin{itemize}
+  \item Model - dane wymagane do utworzenia Widoku
+  \item Widok - opisuje jak przedstawić część modelu użytkownikowi
+  \item Kontroler - agreguje dane z wielu modeli i przygotowuje je aby przekazać do widoku
+\end{itemize}
+\paragraph{Logowanie tokenowe}
+Logowanie to działa na podobnej zasadzie jak logowanie przy pomocy ciasteczek, lecz znosi pewne ograniczenia jakie wcześniej wspomniany i najpopularniejszy w dzisiejszych czasach system identyfikacji sesji posiadał.Użytkownik, który chce się zalogować wpisuje swój login i hasło, na których podstawie jest generowany token (identyfikator sesji), który z kolei podajemy przy każdym wymagającym autentykacji żądaniu do serwera (poprzez dodanie w nagłówku żądania HTTP pola \verb|Authetication: Bearer <token>|). Token jest wydawany jedynie na określony czas i służy do autentykacji tylko dla jednego użytkownika. Jedną z zalet tego logowania jest to, że możemy \linebreak w aplikacjach SPA zalogować się bez odświeżenia strony i dodatkowo aplikacje klienckie możemy ``hostować'' na innej domenie. Nowoczesne strony wykorzystują już tego typu logowanie, idealnym przykładem jest protokół OAuth 2, który wykorzystują liczne strony:
+\begin{itemize}
+  \item Facebook
+  \item Google+
+  \item Twitter
+\end{itemize}
+\begin{figure}[H]
+  \centering
+  \includegraphics[scale=0.355]{images/tokenAuth1.png}
+  \caption{Diagram przepływu dla logowania tradycyjnego}
+\end{figure}
+\begin{figure}[H]
+  \centering
+  \includegraphics[scale=0.355]{images/tokenAuth2.png}
+  \caption{Diagram przepływu dla logowania tokenowego}
+\end{figure}
+\subsubsection{Technologie}
+Aplikacja została podzielona na 2 części logiczne, którymi są:
+\begin{itemize}
+  \item Serwer
+  \item Klient
+\end{itemize}
+Każda z nich używa innych technologii, ponieważ działają w różnych środowiskach np. klient pracuje jedynie w przeglądarce.
+\paragraph{Serwer}
+Została napisana w języku C\# wykorzystując ASP.NET MVC 5 i ASP.NET Web Api 2. Statyczne pliki są udostępniane przy pomocy MVC, a reszta serwera została udostępniona w formie Web Service'u.\\ Silnik bazy danych, który został wykorzystany jest to Microsoft SQL Server 2012 w wersji Express LocalDB. Cała baza danych została zaprojektowana i wygenerowana przy pomocy Entity Framework 6, który także wspomaga wykonywanie zapytań do bazy danych. Zapytania w tej bibliotece nie wykonuje się bezpośrednio przy pomocy języka strukturalnego SQL, lecz pisząc kod i operując na encjach te zapytania są generowane w locie. Wielką zaletą tego typu rozwiązania jest możliwość przeniesienia aplikacji na inny silnik bazy danych bez zmiany jakiegokolwiek fragmentu kodu. Jedyną rzeczą, którą trzeba będzie wykonać to zmienić parametry połączenia. Jest to typowe rozwiązanie mapowania obiektowo-relacyjnego w skrócie ORM.
+\paragraph{Klient}
+Klient został zaimplementowany przy pomocy biblioteki AngularJS. Jest to narzędzie napisane w JavaScript, które umożliwa tworzenie aplikacji za pomocą wzorca projektowego MVC, a także ułatwia tworzenie według koncepcji Single Page Application.\\ Interfejsu graficzny wykorzystuje bibliotekę Bootstrap, która nie tylko ładnie i schludnie wygląda, lecz przy zastosowaniu pewnych reguł zapewnia nam kompatybilność z innymi urządzeniami tj. telefony komórkowe, tablety, czytniki itd. Tego typu zgodność jest nazywana Responsive Web Desing i jest coraz częściej stosowana w internecie.\\ Wykresy są generowane przy pomocy HighCharts.js, który sprawia, że wykresy są proste w generowaniu.\\ Aplikacja została napisana modułowo i każdy takich modułów da się przetestować testami jednostkowymi, a wszystko dzięki narzuconemu schematowi przez AngularJS.
+\subsection{Omówienie kodów źródłowych}
+\subsubsection{Serwer}
 \lstset{style=sharpc}
 \lstinputlisting[caption=Mapowanie ścieżek routingu, label={lst:routeConfig}]{sources/server/routeConfig.cs}
 \par Powyższy kod służy do nauczenia serwera IIS interpretowania ścieżek adresu wpisywanych przez użytkownika. Pierwsza linijka metody \verb|RegisterRoutes| jest wymagana przez rozszerzenie Elmah, które służy do monitorowania aplikacji. Mówi ona, że ten typ adresów ma być przez naszą aplikację ignorowany. Adresy, które spełniają ten warunek to np. \verb|http://domena.pl/elmah.axd| lub \verb|http://domena.pl/elmah.axd/1234|. Kolejna użyta metoda jest to napisana na potrzeby aplikacji metoda, która linkuje każdy z adresów pasujących do wyrażeń z pierwszego argumentu metody \verb|MapHtml5Routes| na controller podany w drugim parametrze. Zabieg ten jest wymagany przez router Angular'a, który w aplikacji działa w HTML5Mode i daje na dostęp do adresów URL bez poprzedzania każdej ścieżki znakiem \verb|#|. Kod metody przedstawia Listing \ref{lst:mapHtml5Routes} Podobnym plikiem jest \verb|AngularPlanner/AngularPlanner/App_Start/WebApiConfig.cs|, który ustawia ścieżki routingu lecz dla Web Service'u RESTowego.
@@ -275,7 +293,7 @@ Kolejnym dobrym przykładem zapytania są linie od 78 do 85. Metoda Include robi
 \par Pliki w katalogu Models z wyłączeniem \verb|AngularPlannerContext| są to pliki reprezentujące bazę danych. Każda klasa reprezentuje rzeczywistą tabelę w bazie. Dla przykładu została przedstawiony model \verb|Expense| w Listingu \ref{lst:expenseModel}
 \lstinputlisting[caption=Model ExpenseModel, label={lst:expenseModel}]{sources/server/expenseModel.cs}
 Atrybut \verb|Key| oznacza pole, nad którym się znajduje polem \verb|PRIMARY KEY|. Pole \verb|Tags| jest to tak naprawdę odwołanie do tabeli \verb|TagsModels|. Entity Framework sam stwierdza jakiego typu relacjami mają być połączone tabele w bazie danych (jeden-do-wielu, wiele-do-wielu itd.). Pola \verb|Nullable<DateTime>| oznaczają, że to nie są wymagane i mogą mieć wartość \verb|NULL| w bazie.
-\subsection{Omówienie kodów źródłowych - Klient}
+\subsubsection{Klient}
 \lstset{language=JavaScript}
 \par Cały kod aplikacji został zorganizowany według rekomendowanej przez Angulara struktury katalogów ~\cite{angular:structure}.
 \par Przy asynchronicznych akcjach jest wykorzystywana okrojona biblioteka \verb|Q.js| ~\cite{lib:q} zaimplementowana w Angularze. Implementuje ona ustandaryzowany system obietnic Promises/A+ ~\cite{doc:promises}
@@ -300,15 +318,160 @@ Kolejnym jest przedstawiony na Listingu \ref{lst:authJs} moduł udostępniający
 \par W widoku podpięte są metody na akcje. Dla przykładu można podać \verb|ng-click="delete($index)"| na kliknięcie w element wywołuje tą metodę z kontrolera. Atrybut \verb|ng-repeat="tag in tagsList"| nakazuje powielić element, do którego jest podpięty tyle razy ile jest elementów w tablicy \verb|tagsList|.
 \lstinputlisting[caption=Przykładowy kod podstrony, label={lst:expensesCtrl}]{sources/client/expensesController.js}
 \par Na samej górze mamy definicje adresów, które prowadzą do podstrony. Każdy z nich ma podany widok i kontroler, przez które będzie obsługiwany adres. W właściwości są zależności, które są wymagane do przejścia na podstronę np. \verb|currentUser: authCheckerProvider.require| jest odpowiedzialny za autoryzację. Jeżeli, któraś z tych zależności nie zostanie spełniona to przejście nie zostanie wykonane, a sam \verb|$routeProvider| wyśle komunikat \verb|$routeChangeError| ~\cite{angular:$routeChangeError}. Poniżej mamy definicję samego kontrolera.
-\section{Instalacja i wdrożenie}
+\subsection{Prezentacja systemu}
+Poniżej został przedstawiony ekran logowania. Jest to także pierwszy ekran widziany przez użytkownika. Po zalogowaniu ma dostęp do swoich wykresów i wydatków. Jeżeli użytkownik nie ma konta może nacisnąć przycisk \verb|Rejestracja| i zostanie przeniesiony do widoku pokazanego na rysunku nr ~\ref{screen:register}.
+\begin{figure}[H]
+  \centering
+  \includegraphics[scale=0.2]{images/screen_logowanie.png}
+  \caption{Ekran logowania}
+\end{figure}
+Na rysunku nr ~\ref{screen:register} jest ekran rejestracji, którego pomocy możemy założyć nowe konto. Przyciskiem \verb|Logowanie| wracamy do ekranu logowania.
+\begin{figure}[H]
+  \centering
+  \includegraphics[scale=0.2]{images/screen_rejestracja.png}
+  \caption{Ekran rejestracji}
+  \label{screen:register}
+\end{figure}
+\par Na liście wszystkich wydatków i przychodów możemy dodawać nowe wydatki i przychody, a także usuwać i edytować istniejące. Aby dodać nowy wydatek trzeba skorzystać z formularza na górze i wprowadzić wszystkie wymagane dane. Dodatkowe dane można uzupełnić klikając na przycisk \verb|Więcej|. Ujawniają się wtedy tagi do wyboru i komentarz do uzupełnienia.
+\par Edycja elementu następuje po naciśnięciu niebieskiego przycisku z ikoną długopisa, po naciśnięciu którego pojawia się panel do edycji przedstawiony na rysunku nr ~\ref{screen:editExpense}. Znajdują się tam wszystkie opcje dostępne przy zakładaniu nowego elementu. Aby zapisać wydatek trzeba potwierdzić zmiany przez naciśnięcie \verb|Zapisz|.
+\par Obok przycisku edycji znajduje się czerwony przycisk do usuwania.
+\begin{figure}[H]
+  \centering
+  \includegraphics[scale=0.2]{images/screen_dodawaniewydatkow.png}
+  \caption{Lista wydatków i dodawanie}
+  \label{screen:listExpense}
+\end{figure}
+\begin{figure}[H]
+  \centering
+  \includegraphics[scale=0.2]{images/screen_edycjaWydatku.png}
+  \caption{Edycja wydatków}
+  \label{screen:editExpense}
+\end{figure}
+\par Poniżej jest ekran do planowania wydatków. W panelu po prawej wprowadzamy planowany przychód i wydatek na przyszłe miesiące/dni/lata i na żywo jest przedstawiana zdolność do realizacji wyżej wymienionego planu. Na wykresie jest przedstawione kilka serii, lecz każdą można wyłączyć przez naciśnięcie serii na legendzie.
+\begin{figure}[H]
+  \centering
+  \includegraphics[scale=0.2]{images/screen_planowanieWydatkow.png}
+  \caption{Planowanie wydatków}
+\end{figure}
+\par Podsumowania służą do tworzenia raportów. Można przykładowo sobie stworzyć raport wydatków za ostatni miesiąc i przedstawić w formie wykresu. Przykład przedstwiony jest poniżej.
+\par Dodawanie wydatku przedstawione na rysunku nr ~\ref{screen:addSummary} pozwala utworzyć podsumowanie. Aby przejść do tego widoku trzeba nacisnąć kafelek z ikoną plusa. Na tym widoku gdy wybierzemy tagi to aplikacja zawęzi wyszukiwanie wydatków do tych właśnie tagów.
+\par Edycja z rysunku ~\ref{screen:editSummary} działa analogicznie jak dodawanie.
+\begin{figure}[H]
+  \centering
+  \includegraphics[scale=0.2]{images/screen_podsumowania.png}
+  \caption{Lista podsumowań}
+\end{figure}
+\begin{figure}[H]
+  \centering
+  \includegraphics[scale=0.2]{images/screen_podsumowaniaDodaj.png}
+  \caption{Dodawanie podsumowań}
+  \label{screen:addSummary}
+\end{figure}
+\begin{figure}[H]
+  \centering
+  \includegraphics[scale=0.2]{images/screen_podsumowaniaEdycja.png}
+  \caption{Edycja podsumowania}
+  \label{screen:editSummary}
+\end{figure}
+\par Wyzwania służą do wyznaczania sobie celów na najbliższe miesiące. Pokazują aktualny stan wydanych pieniędzy na wydatki oznaczone wybranymi tagami. Poniżej zrzuty z listy, edycji i dodawania wyzwania.
+\begin{figure}[H]
+  \centering
+  \includegraphics[scale=0.2]{images/screen_wyzwania.png}
+  \caption{Lista wyzwań}
+\end{figure}
+\begin{figure}[H]
+  \centering
+  \includegraphics[scale=0.2]{images/screen_wyzwaniaDodaj.png}
+  \caption{Dodawanie wyzwania}
+\end{figure}
+\begin{figure}[H]
+  \centering
+  \includegraphics[scale=0.2]{images/screen_wyzwaniaEdycja.png}
+  \caption{Edycja wyzwania}
+\end{figure}
+Na ekranie pokazane są statystyki predefiniowane przez twórcę aplikacji i nie można ich zmienić. Po naciśnięciu jakiegoś elementu na wykresie zostajemy przeniesieni na widok z rysunku nr ~\ref{screen:listExpense} z wyfiltrowanymi wydatkami.
+\begin{figure}[H]
+  \centering
+  \includegraphics[scale=0.2]{images/screen_statystyki.png}
+  \caption{Statystyki}
+\end{figure}
+\subsection{Instalacja i wdrożenie}
 Aby wdrożyć aplikację musimy potrzebujemy następujących składników:
 \begin{itemize}
   \item Microsoft Windows 2012 Server/7/8 lub wyższe
   \item .NET Framework 4.5
   \item Microsoft SQL Server 2012 lub wyższe
+  \item Microsoft IIS Server 7
 \end{itemize}
+Poniżej przedstawiona instalacja została wykonana na systemie Windows 8.1
 
-\par {\color{red} Tutaj piękna instrukcja instalacji. (Jak zainstaluje nową wirtualną maszynę)}
+\par Pierwsze trzeba zainstalować serwer IIS. Aby to zrobić trzeba przejść do \verb|Control Panel|, a następnie do \verb|Programs and features| pokazane na obrazku nr ~\ref{install:programs}.
+\par Tutaj należy kliknąć \verb|Turn Windows features on or off|.
+\begin{figure}[H]
+  \centering
+  \includegraphics[scale=0.35]{images/install1.png}
+  \caption{Programs and features}
+  \label{install:programs}
+\end{figure}
+\par Zaznaczyć \verb|Internet Information Services|, a następnie kliknąć ok, po którym nastąpi instalacja IIS.
+\begin{figure}[H]
+  \centering
+  \includegraphics[scale=0.35]{images/install2.png}
+  \caption{Turn Windows features on or off}
+\end{figure}
+\par Ten ekran prezentuje powodzenie instalacji IIS.
+\begin{figure}[H]
+  \centering
+  \includegraphics[scale=0.35]{images/install3.png}
+  \caption{Powodzenie installacji IIS}
+\end{figure}
+\par Kolejnym krokiem jest skonfigurowanie IIS pod aplikację. Aby to wykonać trzeba przejść do \textbf{Control Panel} > \textbf{Administrative Tools} > \textbf{Internet Information Services (IIS) Manager}
+\begin{figure}[H]
+  \centering
+  \includegraphics[scale=0.35]{images/install4.png}
+  \caption{Internet Information Services (IIS) Manager}
+\end{figure}
+\par W lewej kolumnie wybieramy \verb|Application Pools| i w prawej \verb|Add Application Pool...|
+\begin{figure}[H]
+  \centering
+  \includegraphics[scale=0.35]{images/install5.png}
+  \caption{Internet Information Services (IIS) Manager}
+\end{figure}
+\par Należy wypełnić dane tak jak w okienku poniżej i kliknąć OK.
+\begin{figure}[H]
+  \centering
+  \includegraphics[scale=0.35]{images/install6.png}
+  \caption{Dodawanie nowej puli}
+\end{figure}
+\par Z lewej kolumny należy wybrać \verb|Sites| i w prawej kliknąć \verb|Add Website|.
+\begin{figure}[H]
+  \centering
+  \includegraphics[scale=0.35]{images/install7.png}
+  \caption{Internet Information Services (IIS) Manager}
+\end{figure}
+\begin{figure}[H]
+  \centering
+  \includegraphics[scale=0.35]{images/install8.png}
+  \caption{Dodawanie strony}
+\end{figure}
+\par Należy kliknąć przycisk \verb|Select...| i wybrać pule \verb|AngularPlanner|.
+\begin{figure}[H]
+  \centering
+  \includegraphics[scale=0.35]{images/install9.png}
+  \caption{Wybór puli}
+\end{figure}
+\par Pozostałe pola wypełnić jak poniżej. Jedynie można zmienić ścieżkę do aplikacji. Zatwierdzić wszystko przyciskiem OK.
+\begin{figure}[H]
+  \centering
+  \includegraphics[scale=0.35]{images/install10.png}
+  \caption{Uzupełnianie danych}
+\end{figure}
+\par Przejść do \verb|Application Pools| wybrać pulę \verb|AngularPlanner| i w prawej kolumnie kliknąć \verb|Start|.
+\begin{figure}[H]
+  \centering
+  \includegraphics[scale=0.35]{images/install11.png}
+  \caption{Uruchamianie puli}
+\end{figure}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% BIBLIOGRAFIA %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

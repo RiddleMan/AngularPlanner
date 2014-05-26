@@ -1,0 +1,6 @@
+wstep do wymagań użytkownika
+szerzej rozwinąć funkcjonalnosci wyjaśnić funkcjonalności
+analiza
+diagramy przypadków użycia ( ze scenariuszami)
+czesc technologiczna w jednym rozdziale
+instrukcja użytkowania (jak do pralki)
