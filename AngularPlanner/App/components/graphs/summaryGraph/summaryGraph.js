@@ -64,9 +64,15 @@ angular.module('graphs.summary', ['highcharts-ng']).factory('SummariesData', [
     $scope.editToggle = function () {
       $scope.editShow = !$scope.editShow;
     };
+    $scope.$watch('summary.scope', function (val) {
+      $scope.summary.scopeHidden = $scope.summaryScopes.filter(function (elem) {
+        return elem.value === val;
+      })[0];
+    });
     $scope.save = function () {
       $scope.summary.scope = $scope.summary.scopeHidden.value;
       $scope.summary.$update(function () {
+        $scope.editShow = false;
         refresh();
       });
     };

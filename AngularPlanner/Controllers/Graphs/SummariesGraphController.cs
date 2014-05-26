@@ -21,6 +21,7 @@ namespace AngularPlanner.Controllers.Graphs
         [ResponseType(typeof(SummariesGraphDto))]
         public async Task<IHttpActionResult> Get(int id)
         {
+            var userId = User.Identity.GetUserId();
             var summary = await _db.Summaries.FindAsync(id);
 
             if (summary == null || summary.UserId != User.Identity.GetUserId())
@@ -47,7 +48,16 @@ namespace AngularPlanner.Controllers.Graphs
                     break;
             }
 
-            var expenses = await _db.Expenses.Where(i => i.DateOfExpense >= summary.From && i.DateOfExpense <= summary.To && i.Tags.Any(j => tagIds.Contains(j.Id))).Distinct().ToListAsync();
+            var expenses =
+                await
+                    _db.Expenses.Where(
+                        i =>
+                            i.DateOfExpense >= summary.From &&
+                            i.DateOfExpense <= summary.To &&
+                            i.UserId == userId &&
+                            i.Tags.Any(j => tagIds.Contains(j.Id)))
+                        .Distinct()
+                        .ToListAsync();
 
             var grouppedExpenses = expenses.GroupBy(i => String.Format(format, i.DateOfExpense)).ToList();
 

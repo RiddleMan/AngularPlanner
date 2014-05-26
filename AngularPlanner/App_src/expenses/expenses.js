@@ -92,13 +92,21 @@ angular.module('expenses', ['auth', 'resources', 'tagsPicker'])
         $route.current.params.page = 1;
       }
 
-      $scope.expenses = expenses;
+      $scope.expenses = expenses.map(function(elem) {
+        elem.dateOfExpense = new Date(elem.dateOfExpense);
+        return elem;
+      });
 
       $scope.page = $route.current.params.page;
 
-      $scope.$on('expenses-invalidate', function(e) {
-        e.stopPropagation();
-        $location.path('/expenses');
+      $scope.$on('expenses-invalidate', function() {
+        Expenses.query(function(expenses) {
+          $scope.editor = false;
+          $scope.expenses = expenses.map(function(elem) {
+            elem.dateOfExpense = new Date(elem.dateOfExpense);
+            return elem;
+          });
+        });
       });
 
       $scope.$on('expenses:editor:close', function() {
@@ -138,7 +146,7 @@ angular.module('expenses', ['auth', 'resources', 'tagsPicker'])
       $scope.$emit('expenses:editor:close');
     };
   })
-  .controller('ExpenseAddCtrl', function($scope, Expenses){
+  .controller('ExpenseAddCtrl', function($scope, $rootScope, Expenses){
     $scope.more = false;
     $scope.tagsList = [{id:1}, {id:2}];
 
@@ -156,7 +164,7 @@ angular.module('expenses', ['auth', 'resources', 'tagsPicker'])
       $scope.form.$setPristine(true);
 
       expense.$save(function() {
-        $scope.$emit('expenses-invalidate');
+        $rootScope.$broadcast('expenses-invalidate');
       });
     };
   });

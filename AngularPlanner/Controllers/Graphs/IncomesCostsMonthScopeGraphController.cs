@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using System.Web.Http;
 using AngularPlanner.Dto;
 using AngularPlanner.Models;
+using Microsoft.AspNet.Identity;
 
 namespace AngularPlanner.Controllers.Graphs
 {
@@ -18,8 +19,9 @@ namespace AngularPlanner.Controllers.Graphs
         public async Task<IncomesCostsMonthScopeDto> Get()
         {
             var now = DateTime.Now.AddMonths(-1);
+            var userId = User.Identity.GetUserId();
 
-            var expenses = await _db.Expenses.Where(i => i.DateOfExpense >= now)
+            var expenses = await _db.Expenses.Where(i => i.DateOfExpense >= now && i.UserId == userId)
                 .OrderBy(i => i.DateOfExpense)
                 .ThenBy(i => i.DateAdded)
                 .Select(i => new

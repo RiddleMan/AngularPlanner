@@ -94,11 +94,19 @@ angular.module('expenses', [
     if (!$route.current.params.page) {
       $route.current.params.page = 1;
     }
-    $scope.expenses = expenses;
+    $scope.expenses = expenses.map(function (elem) {
+      elem.dateOfExpense = new Date(elem.dateOfExpense);
+      return elem;
+    });
     $scope.page = $route.current.params.page;
-    $scope.$on('expenses-invalidate', function (e) {
-      e.stopPropagation();
-      $location.path('/expenses');
+    $scope.$on('expenses-invalidate', function () {
+      Expenses.query(function (expenses) {
+        $scope.editor = false;
+        $scope.expenses = expenses.map(function (elem) {
+          elem.dateOfExpense = new Date(elem.dateOfExpense);
+          return elem;
+        });
+      });
     });
     $scope.$on('expenses:editor:close', function () {
       $scope.editor = false;
@@ -135,8 +143,9 @@ angular.module('expenses', [
   }
 ]).controller('ExpenseAddCtrl', [
   '$scope',
+  '$rootScope',
   'Expenses',
-  function ($scope, Expenses) {
+  function ($scope, $rootScope, Expenses) {
     $scope.more = false;
     $scope.tagsList = [
       { id: 1 },
@@ -153,7 +162,7 @@ angular.module('expenses', [
       delete $scope.expense;
       $scope.form.$setPristine(true);
       expense.$save(function () {
-        $scope.$emit('expenses-invalidate');
+        $rootScope.$broadcast('expenses-invalidate');
       });
     };
   }

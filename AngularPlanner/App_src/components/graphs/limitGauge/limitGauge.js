@@ -128,18 +128,23 @@ angular.module('graphs.limitGauge', ['highcharts-ng'])
       $scope.editShow = !$scope.editShow;
     };
 
-    $scope.save = function() {
-      $scope.options.title.text = $scope.limit.name;
-      $scope.options.subtitle.text = buildSubtitle($scope.limit.form, $scope.limit.to);
-      $scope.limit.$update();
-    };
-
-    (function refresh() {
+    function refresh() {
       new LimitGaugeData($scope.limit.id).then(function (data) {
         $scope.options.series[0].data[0] = data.value;
         $scope.options.loading = false;
       });
-    })();
+    }
+
+    $scope.save = function() {
+      $scope.options.title.text = $scope.limit.name;
+      $scope.options.subtitle.text = buildSubtitle($scope.limit.form, $scope.limit.to);
+      $scope.limit.$update(function() {
+        $scope.editShow = false;
+        refresh();
+      });
+    };
+
+    refresh();
   })
   .directive('limitGauge', function(){
     return {

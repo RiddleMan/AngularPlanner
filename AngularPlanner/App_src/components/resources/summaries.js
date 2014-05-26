@@ -8,7 +8,11 @@ angular.module('resources.summaries', [])
   .factory('Summaries', function($resource) {
     return $resource('/api/summaries/:id',
       {id: '@id'},
-      {
-        'update': { method: 'PUT' }
-      });
+      { 'get':    {method:'GET' , cache: false},
+        'save':   {method:'POST' , cache: false},
+        'query':  {method:'GET', isArray:true , cache: false},
+        'remove': {method:'DELETE' , cache: false},
+        'delete': {method:'DELETE' , cache: false},
+        'update': { method: 'PUT' , cache: false}
+    });
   });

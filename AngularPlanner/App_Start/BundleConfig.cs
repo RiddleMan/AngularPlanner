@@ -21,7 +21,8 @@ namespace AngularPlanner
                         "~/Scripts/angular-resource.js",
                         "~/Scripts/angular-route.js",
                         "~/Scripts/angular-sanitize.js",
-                        "~/Scripts/angular-touch.js"
+                        "~/Scripts/angular-touch.js",
+                        "~/Scripts/i18n/angular-locale_pl-pl.js"
                         ));
 
             bundles.Add(new ScriptBundle("~/bundles/app")

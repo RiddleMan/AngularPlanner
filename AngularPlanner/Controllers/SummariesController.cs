@@ -33,7 +33,7 @@ namespace AngularPlanner.Controllers
         public async Task<IHttpActionResult> GetSummaryModel(int id)
         {
             var userId = User.Identity.GetUserId();
-            LimitModel summaryModel = await _db.Limits.FindAsync(id);
+            SummaryModel summaryModel = await _db.Summaries.FindAsync(id);
             if (summaryModel == null || summaryModel.UserId != userId)
             {
                 return NotFound();
@@ -55,9 +55,26 @@ namespace AngularPlanner.Controllers
                 return BadRequest();
             }
 
-            summaryModel.UserId = User.Identity.GetUserId();
-            _db.Entry(summaryModel).State = EntityState.Modified;
+            var summary = _db.Summaries.Find(id);
+            await _db.Entry(summary).Collection(i => i.Tags).LoadAsync();
 
+            if (summary.UserId != User.Identity.GetUserId())
+            {
+                return BadRequest();
+            }
+
+            var tagIds = summaryModel.Tags.Select(i => i.Id);
+            var currentTagIds = summary.Tags.Select(i => i.Id);
+            var toAdd = tagIds.Where(i => !currentTagIds.Contains(i));
+
+            summary.Tags.RemoveAll(i => !tagIds.Contains(i.Id));
+            summary.Tags.AddRange(_db.Tags.Where(i => toAdd.Contains(i.Id)).ToList());
+            summary.Name = summaryModel.Name;
+            summary.Scope = summaryModel.Scope;
+            summary.Type = summaryModel.Type;
+            summary.To = summaryModel.To;
+            summary.From = summaryModel.From;
+            
             try
             {
                 await _db.SaveChangesAsync();

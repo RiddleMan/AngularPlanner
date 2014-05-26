@@ -260,6 +260,10 @@
     <Compile Include="Migrations\201404071742077_tada.Designer.cs">
       <DependentUpon>201404071742077_tada.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201405262044491_Summaries1.cs" />
+    <Compile Include="Migrations\201405262044491_Summaries1.Designer.cs">
+      <DependentUpon>201405262044491_Summaries1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountBindingModels.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -342,13 +346,18 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\angular-csp.css" />
+    <Content Include="App_Readme\NProgressjs_README.md" />
+    <Content Include="App_Readme\NProgressjs_LICENSE" />
     <Content Include="Scripts\angular-animate.js" />
     <Content Include="Scripts\angular-animate.min.js" />
     <Content Include="Scripts\angular-cookies.js" />
     <Content Include="Scripts\angular-cookies.min.js" />
-    <Content Include="Content\angular-csp.css" />
+    <Content Include="Scripts\angular-csp.css" />
     <Content Include="Scripts\angular-loader.js" />
     <Content Include="Scripts\angular-loader.min.js" />
+    <Content Include="Scripts\angular-messages.js" />
+    <Content Include="Scripts\angular-messages.min.js" />
     <Content Include="Scripts\angular-mocks.js" />
     <Content Include="Scripts\angular-resource.js" />
     <Content Include="Scripts\angular-resource.min.js" />
@@ -366,12 +375,11 @@
     <Content Include="Scripts\angular-sanitize.min.js.map" />
     <Content Include="Scripts\angular-route.min.js.map" />
     <Content Include="Scripts\angular-resource.min.js.map" />
+    <Content Include="Scripts\angular-messages.min.js.map" />
     <Content Include="Scripts\angular-loader.min.js.map" />
     <Content Include="Scripts\angular-cookies.min.js.map" />
     <Content Include="Scripts\angular-animate.min.js.map" />
     <Content Include="Scripts\angular.min.js.map" />
-    <Content Include="App_Readme\NProgressjs_README.md" />
-    <Content Include="App_Readme\NProgressjs_LICENSE" />
     <None Include="Scripts\jquery-2.1.0.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -631,6 +639,10 @@
     <Content Include="Scripts\jquery-2.1.0.min.map" />
     <Content Include="Scripts\json3.js" />
     <Content Include="Scripts\json3.min.js" />
+    <Content Include="Scripts\moment-with-langs.js" />
+    <Content Include="Scripts\moment-with-langs.min.js" />
+    <Content Include="Scripts\moment.js" />
+    <Content Include="Scripts\moment.min.js" />
     <Content Include="Scripts\nprogress.js" />
     <Content Include="Scripts\nprogress.min.js" />
     <Content Include="Web.config">
@@ -701,6 +713,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201404071742077_tada.resx">
       <DependentUpon>201404071742077_tada.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201405262044491_Summaries1.resx">
+      <DependentUpon>201405262044491_Summaries1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -1,7 +1,7 @@
 <div ng-include="'/App/components/navbar/navbar.html'"></div>
 <div>
   <div ng-include="'/App/components/nav/nav.html'"></div>
-  <div class="panel panel-default">
+  <div class="panel panel-default" ng-show="!noData">
     <div class="panel-body">
       <div class="col-xs-12 col-sm-8 pull-left">
         <highchart config="options"></highchart>
@@ -10,18 +10,19 @@
         <form role="form" name="form" novalidate>
           <div class="form-group">
             <label for="expectedIncome">Przewidywany przychód</label>
-            <input ng-model="simulation.income" type="number" class="form-control" id="expectedIncome">
+            <input ng-model="simulation.income" type="number" class="form-control" id="expectedIncome" />
           </div>
           <div class="form-group">
             <label for="expectedIncome">Przewidywany wydatek</label>
-            <input ng-model="simulation.outcome" type="number" class="form-control" id="expectedIncome">
+            <input ng-model="simulation.outcome" type="number" class="form-control" id="expectedIncome" />
           </div>
           <div class="form-group">
             <label for="exampleInputPassword1">Zasięg</label>
-            <select ng-model="simulation.scope" ng-options="c.name for c in scopes" type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+            <select ng-model="simulation.scope" ng-options="c.name for c in scopes" type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" />
           </div>
         </form>
       </div>
     </div>
   </div>
+  <h4 ng-show="noData">Nie ma danych na podstawie, których można symulować wydatki.</h4>
 </div>

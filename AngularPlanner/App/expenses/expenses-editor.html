@@ -8,7 +8,7 @@
       <form role="form" name="form" novalidate>
         <div class="form-group has-feedback" ng-class="{'has-success': form.date.$valid, 'has-error': form.date.$dirty && form.date.$invalid}">
           <label for="expenseDate">Data</label>
-          <input ng-model="expense.date" name="date" type="date" class="form-control expense-add-date" id="expenseDate" required>
+          <input ng-model="expense.dateOfExpense" name="date" type="date" class="form-control expense-add-date" id="expenseDate" required>
           <span ng-show="form.date.$dirty && form.date.$invalid" class="glyphicon glyphicon-remove form-control-feedback"></span>
           <span ng-show="form.date.$valid" class="glyphicon glyphicon-ok form-control-feedback"></span>
         </div>

@@ -45,6 +45,7 @@ namespace AngularPlanner.Controllers
         public async Task<IHttpActionResult> Get(SimulationScope scope)
         {
             var result = new SimulationsDto();
+            var userId = User.Identity.GetUserId();
 
             var dateTo = DateTime.Now;
             DateTime dateFrom;
@@ -87,7 +88,7 @@ namespace AngularPlanner.Controllers
                     break;
             }
             
-            var expenses = await _db.Expenses.Where(i => i.DateOfExpense >= dateFrom && i.DateOfExpense <= dateTo).Distinct().ToListAsync();
+            var expenses = await _db.Expenses.Where(i => i.DateOfExpense >= dateFrom && i.DateOfExpense <= dateTo && i.UserId == userId).Distinct().ToListAsync();
 
             var groupedPastIncomes =
                 expenses.Where(i => i.Cost >= 0).GroupBy(i => String.Format(format, i.DateOfExpense)).ToList();
@@ -101,8 +102,8 @@ namespace AngularPlanner.Controllers
             var outcomesSum = new List<decimal>();
             groupedPastOutcomes.ForEach(i => outcomesSum.Add(i.Any() ? i.Sum(j => j.Cost) : 0));
 
-            var estimatedIncome = incomesSum.Average();
-            var estimatedOutcome = outcomesSum.Average();
+            var estimatedIncome = incomesSum.Any() ? incomesSum.Average() : 0;
+            var estimatedOutcome = outcomesSum.Any() ? outcomesSum.Average(): 0;
 
             var summaryDto = new SimulationsDto()
             {

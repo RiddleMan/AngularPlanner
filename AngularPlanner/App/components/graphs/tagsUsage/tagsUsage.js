@@ -8,13 +8,15 @@ angular.module('graphs.tagsUsage', ['highcharts-ng']).factory('TagsUsageData', [
   '$http',
   '$q',
   function ($http, $q) {
-    var defer = $q.defer();
-    $http.get('/api/tagsUsageGraph').success(function (data) {
-      defer.resolve(data);
-    }).error(function (data) {
-      defer.reject(data);
-    });
-    return defer.promise;
+    return function () {
+      var defer = $q.defer();
+      $http.get('/api/tagsUsageGraph').success(function (data) {
+        defer.resolve(data);
+      }).error(function (data) {
+        defer.reject(data);
+      });
+      return defer.promise;
+    };
   }
 ]).controller('TagsUsageCtrl', [
   '$scope',
@@ -63,7 +65,7 @@ angular.module('graphs.tagsUsage', ['highcharts-ng']).factory('TagsUsageData', [
             data: []
           }]
       };
-      TagsUsageData.then(function (data) {
+      TagsUsageData().then(function (data) {
         $scope.expensesList = false;
         $scope.options.loading = false;
         $scope.options.series[0].data = data.usage.map(function (val) {

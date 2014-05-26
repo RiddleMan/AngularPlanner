@@ -12,7 +12,7 @@ angular.module('register', ['auth'])
         templateUrl: 'App/register/register.html'
       });
   })
-  .controller('RegisterCtrl', function(auth, $scope){
+  .controller('RegisterCtrl', function(auth, $scope, $location){
     $scope.user = {};
 
     $scope.register = function() {
@@ -20,8 +20,8 @@ angular.module('register', ['auth'])
         .register($scope.user.name,
           $scope.user.password,
           $scope.user.repassword)
-        .success(function(data) {
-          console.log(data);
+        .success(function() {
+          $location.url('/login');
         })
         .error(function(data) {
           console.error(data);

@@ -121,6 +121,11 @@ angular.module('simulations', [
       }
     }
     function refreshData(data) {
+      if (data.estimatedIncome === 0 && data.estimatedOutcome === 0) {
+        $scope.noData = true;
+        $scope.options.loading = false;
+        return;
+      }
       $scope.options.xAxis.categories = data.dates;
       $scope.options.series = [];
       $scope.options.series.push({

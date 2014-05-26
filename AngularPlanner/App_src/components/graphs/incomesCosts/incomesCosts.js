@@ -4,17 +4,19 @@
 */
 angular.module('graphs.incomesCosts', ['highcharts-ng'])
   .factory('IncomesCostsData', function($http, $q){
-    var defer = $q.defer();
+    return function() {
+      var defer = $q.defer();
 
-    $http.get('/api/IncomesCostsGraph')
-      .success(function(data) {
-        defer.resolve(data);
-      })
-      .error(function(data) {
-        defer.reject(data);
-      });
+      $http.get('/api/IncomesCostsGraph')
+        .success(function(data) {
+          defer.resolve(data);
+        })
+        .error(function(data) {
+          defer.reject(data);
+        });
 
-    return defer.promise;
+      return defer.promise;
+    };
   })
   .controller('IncomesCostsCtrl', function($scope, IncomesCostsData, $location) {
     function openExpenses() {
@@ -66,7 +68,7 @@ angular.module('graphs.incomesCosts', ['highcharts-ng'])
         loading: true
       };
 
-      IncomesCostsData.then(function(data) {
+      IncomesCostsData().then(function(data) {
         $scope.options.xAxis.categories = data.dates;
         $scope.options.series.push({
           name: 'Wydatki',

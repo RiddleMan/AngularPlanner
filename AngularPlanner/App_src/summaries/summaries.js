@@ -19,7 +19,11 @@ angular.module('summaries', ['graphs', 'resources', 'auth'])
       });
   })
   .controller('SummariesCtrl', function($scope, summaries) {
-    $scope.summaries = summaries;
+    $scope.summaries = summaries.map(function(elem) {
+      elem.from = new Date(elem.from);
+      elem.to = new Date(elem.to);
+      return elem;
+    });
 
     $scope.$on('summary:delete', function(e, summary) {
       e.stopPropagation();
@@ -29,6 +33,8 @@ angular.module('summaries', ['graphs', 'resources', 'auth'])
 
     $scope.$on('summary:push', function(e, summary) {
       e.stopPropagation();
+      summary.from = new Date(summary.from);
+      summary.to = new Date(summary.to);
       $scope.summaries.push(summary);
     });
 

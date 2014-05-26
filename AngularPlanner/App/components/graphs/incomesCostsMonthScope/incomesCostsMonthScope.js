@@ -9,13 +9,15 @@ angular.module('graphs.incomesCostsMonthScope', [
   '$http',
   '$q',
   function ($http, $q) {
-    var defer = $q.defer();
-    $http.get('/api/IncomesCostsMonthScopeGraph').success(function (data) {
-      defer.resolve(data);
-    }).error(function (data) {
-      defer.reject(data);
-    });
-    return defer.promise;
+    return function () {
+      var defer = $q.defer();
+      $http.get('/api/IncomesCostsMonthScopeGraph').success(function (data) {
+        defer.resolve(data);
+      }).error(function (data) {
+        defer.reject(data);
+      });
+      return defer.promise;
+    };
   }
 ]).controller('ExpenseDetailsCtrl', [
   '$scope',
@@ -64,7 +66,7 @@ angular.module('graphs.incomesCostsMonthScope', [
         series: [],
         loading: true
       };
-      IncomesCostsMonthScopeData.then(function (data) {
+      IncomesCostsMonthScopeData().then(function (data) {
         $scope.options.xAxis.categories = data.titles;
         $scope.options.series.push({
           name: 'Bilans',

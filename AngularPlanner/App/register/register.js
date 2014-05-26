@@ -15,11 +15,12 @@ angular.module('register', ['auth']).config([
 ]).controller('RegisterCtrl', [
   'auth',
   '$scope',
-  function (auth, $scope) {
+  '$location',
+  function (auth, $scope, $location) {
     $scope.user = {};
     $scope.register = function () {
-      auth.register($scope.user.name, $scope.user.password, $scope.user.repassword).success(function (data) {
-        console.log(data);
+      auth.register($scope.user.name, $scope.user.password, $scope.user.repassword).success(function () {
+        $location.url('/login');
       }).error(function (data) {
         console.error(data);
       });
