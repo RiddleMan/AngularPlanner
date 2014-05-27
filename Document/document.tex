@@ -127,10 +127,10 @@ W kolejnym rozdziale znajduje się projekt systemu. Przedstawione zostały grupy
   \item Logowanie i rejestracja użytkowników
   \item Wprowadzanie i edycja przychodów i wydatków
   \item Wydatki i przychody można oznaczać etykietami np. elektronika, wypłata itp.
-  \item Filtrowanie wydatków (po tagach i po czasie)
+  \item Filtrowanie wydatków (po etykietach i po czasie)
   \item Możliwość sprawdzenia czy można sobie pozwolić na jakiś większy wydatek w przyszłych miesiącach (Symulacja)
-  \item Możliwość tworzenia wyzwań na tagi czyt. ustawienie sobie jakiegoś limitu na konkretną jednostkę czasu
-  \item Możliwość tworzenia wykresów z podsumowaniami wydatków dla tagów
+  \item Możliwość tworzenia wyzwań na etykiety czyt. ustawienie sobie jakiegoś limitu na konkretną jednostkę czasu
+  \item Możliwość tworzenia wykresów z podsumowaniami wydatków dla etykiet
   \item Stworzenie predefiniowanych wykresów
     \begin{itemize}
       \item Wykres kołowy ukazujący wykorzystanie etykiet na przychodach i wydatkach
@@ -167,7 +167,7 @@ Poniżej projekt bazy danych.
 \end{figure}
 \begin{figure}[H]
   \centering
-  \includegraphics[scale=0.5]{images/db1.png}
+  \includegraphics[scale=0.3]{images/db1.png}
   \caption{Tabele aplikacji}
 \end{figure}
 \begin{figure}[H]
@@ -199,10 +199,10 @@ Przechowuje dane wyzwań
   \item UserId nvarchar(max) (Identyfikator użytkownika)
 \end{itemize}
 \paragraph[short]{LimitModelTagModels}
-Tabela łącząca tabele wyzwań z tagami
+Tabela łącząca tabele wyzwań z etykietami
 \begin{itemize}
   \item LimitModelId int (Id wyzwania)
-  \item TagModelId int (Id tagu)
+  \item TagModelId int (Id etykiety)
 \end{itemize}
 \paragraph[short]{SummaryModels}
 Przechowuje dane podsumowań
@@ -215,19 +215,24 @@ Przechowuje dane podsumowań
   \item Scope int (Zasięg podsumowania np. roczne, miesięczne itd.)
   \item UserId nvarchar(max) (Identyfikator użytkownika)
 \end{itemize}
+\paragraph[short]{SummaryModelTagModels}
+Tabela łącząca tabele podsumowań z etykietami
+\begin{itemize}
+  \item SummaryModelId int (Id podsumowania)
+  \item TagModelId int (Id tagu)
+\end{itemize}
 \paragraph[short]{TagModelExpenseModels}
-Tabela łącząca tabele wydatków/przychodów z tagami
+Tabela łącząca tabele wydatków/przychodów z etykietami
 \begin{itemize}
   \item ExpenseModelId int (Id wydatku/przychodu)
   \item TagModelId int (Id tagu)
 \end{itemize}
 \paragraph[short]{TagModels}
-Tabela przechowująca tagi
+Tabela przechowująca etykiety
 \begin{itemize}
   \item Id int IDENTITY (Identyfikator)
-  \item Name nvarchar(max) (Nazwa tagu)
+  \item Name nvarchar(max) (Nazwa etykiety)
   \item UserId nvarchar(max) (Identyfikator użytkownika)
-  \item SummaryModelId int (Identyfikator podsumowania)
 \end{itemize}
 Pozostałe tabele są wykorzystywane przez standardowy mechanizm autentykacji ASP.NET MVC.
 \section{Implementacja systemu}
@@ -308,7 +313,7 @@ Kolejny przedstawiony na Listingu \ref{lst:authJs} moduł to udostępniający na
 \lstinputlisting[caption=Moduł sprawdzający czy dany widok jest dostępny dla anonimowego użytkownika, label={lst:authCheckerJs}]{sources/client/authChecker.js}
 \par Do wymiany danych używany jest mechanizm \verb|$resource| ~\cite{angular:$resource}. Przykład implementacji przedstawiony został na Listingu \ref{lst:summaryJs}. Udostępnia on łatwy interfejs do komunikacji z serwerem.
 \lstinputlisting[caption=Tags Resouce, label={lst:summaryJs}]{sources/client/summaries.js}
-\par Zastosowanie w/w mechanizmu jest podane w Listingu \ref{lst:tagsPickerJs}. Poprzez \verb|Tags.query(callback)| odpytujemy serwer o listę wszystkich tagów na serwerze. Poprzez utworzenie nowej instancji tworzymy nowy tag, a wywołując na nim metodę \verb|.$save(callback)| zapisujemy go na serwerze.
+\par Zastosowanie w/w mechanizmu jest podane w Listingu \ref{lst:tagsPickerJs}. Poprzez \verb|Tags.query(callback)| odpytujemy serwer o listę wszystkich etykiet na serwerze. Poprzez utworzenie nowej instancji tworzymy nową etykietę, a wywołując na nim metodę \verb|.$save(callback)| zapisujemy go na serwerze.
 \lstinputlisting[caption=Dyrektywa <tags-picker />, label={lst:tagsPickerJs}]{sources/client/tagsPicker.js}
 \par Warto także wspomnieć, że Listing \ref{lst:tagsPickerJs} tworzy nowy element HTMLa, który jest nazwany\\ \verb|<tags-picker />|. Definicja takiego elementu jest zawarta w liniach od 94 do 104. Parametr \verb|scope| nakazuje utworzyć obiekt podgląd, który jest obiektem dla tego elementu. Danymi źródłowymi są atrybuty dostarczone do elementu. Wartość \verb|'='| nakazuje zachować \verb|2-way data binding| ~\cite{angular:databinding} między widokiem, a kontrolerem dla tej właściwości. \verb|controller| wskazuje, który kontroler ma być wykorzystany. Jest on zaimplementowany wyżej. Parametr \verb|resrict| determinuje jakiego typu ma być dyrektywa ~\cite{angular:restrict}. Więcej o konfiguracjach można przeczytać ~\cite{angular:$compile}.
 \par Metody i właściwości są udostępnianie widokowi przy pomocy \verb|$scope|. W kontrolerze jest kilka przykładów: \verb|$scope.delete = function(){}|, \verb|$scope.tags = []|. Także dla właściwości w \verb|$scope| udostępniony został mechanizm obserwowania zmian w tej własciwości. Jest to klasyczne zastosowanie wzorca \verb|Obserwator|. Istnieje też system wiadomości, w którym możemy nasłuchiwać na konkretną wiadomość (\verb|$scope.$on('tagsPicker:push')|) i je wysyłać w górę drzewa podglądów (\verb|$scope.$emit('tagsPicker:push')|) lub w dół (\verb|$scope.$emit('tagsPicker:push')|).
@@ -330,7 +335,7 @@ Na rysunku nr ~\ref{screen:register} jest ekran rejestracji, którego pomocy mo�
   \caption{Ekran rejestracji}
   \label{screen:register}
 \end{figure}
-\par Na liście wszystkich wydatków i przychodów możemy dodawać nowe wydatki i przychody, a także usuwać i edytować istniejące. Aby dodać nowy wydatek trzeba skorzystać z formularza na górze i wprowadzić wszystkie wymagane dane. Dodatkowe dane można uzupełnić klikając na przycisk \verb|Więcej|. Ujawniają się wtedy tagi do wyboru i komentarz do uzupełnienia.
+\par Na liście wszystkich wydatków i przychodów możemy dodawać nowe wydatki i przychody, a także usuwać i edytować istniejące. Aby dodać nowy wydatek trzeba skorzystać z formularza na górze i wprowadzić wszystkie wymagane dane. Dodatkowe dane można uzupełnić klikając na przycisk \verb|Więcej|. Ujawniają się wtedy etykiety do wyboru i komentarz do uzupełnienia.
 \par Edycja elementu następuje po naciśnięciu niebieskiego przycisku z ikoną długopisa, po naciśnięciu którego pojawia się panel do edycji przedstawiony na rysunku nr ~\ref{screen:editExpense}. Znajdują się tam wszystkie opcje dostępne przy zakładaniu nowego elementu. Aby zapisać wydatek trzeba potwierdzić zmiany przez naciśnięcie \verb|Zapisz|.
 \par Obok przycisku edycji znajduje się czerwony przycisk do usuwania.
 \begin{figure}[H]
@@ -352,7 +357,7 @@ Na rysunku nr ~\ref{screen:register} jest ekran rejestracji, którego pomocy mo�
   \caption{Planowanie wydatków}
 \end{figure}
 \par Podsumowania służą do tworzenia raportów. Można przykładowo stworzyć raport wydatków za ostatni miesiąc i przedstawić w formie wykresu. Przykład przedstwiony jest poniżej.
-\par Dodawanie wydatku przedstawione na rysunku nr ~\ref{screen:addSummary} pozwala utworzyć podsumowanie. Aby przejść do tego widoku trzeba nacisnąć kafelek z ikoną plusa. Na tym widoku kiedy wybierzemy tagi to aplikacja zawęzi wyszukiwanie wydatków do tych właśnie etykiet.
+\par Dodawanie wydatku przedstawione na rysunku nr ~\ref{screen:addSummary} pozwala utworzyć podsumowanie. Aby przejść do tego widoku trzeba nacisnąć kafelek z ikoną plusa. Na tym widoku kiedy wybierzemy etykiety to aplikacja zawęzi wyszukiwanie wydatków do tych właśnie etykiet.
 \par Edycja z rysunku ~\ref{screen:editSummary} działa analogicznie jak dodawanie.
 \begin{figure}[H]
   \centering
@@ -371,7 +376,7 @@ Na rysunku nr ~\ref{screen:register} jest ekran rejestracji, którego pomocy mo�
   \caption{Edycja podsumowania}
   \label{screen:editSummary}
 \end{figure}
-\par Wyzwania służą do wyznaczania sobie celów na najbliższe miesiące. Pokazują aktualny stan wydanych pieniędzy na wydatki oznaczone wybranymi tagami. Poniżej zrzuty z listy, edycji, dodawania, powodzenia w wykoaniu i niepowodzeniu wyzwania.
+\par Wyzwania służą do wyznaczania sobie celów na najbliższe miesiące. Pokazują aktualny stan wydanych pieniędzy na wydatki oznaczone wybranymi etykietami. Poniżej zrzuty z listy, edycji, dodawania, powodzenia w wykoaniu i niepowodzeniu wyzwania.
 \begin{figure}[H]
   \centering
   \includegraphics[scale=0.2]{images/screen_wyzwania.png}
