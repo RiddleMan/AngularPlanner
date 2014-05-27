@@ -1,12 +1,26 @@
-<div ng-show="editShow" ng-include="'/App/components/graphs/limitGauge/limitGauge-edit.html'"></div>
-<div ng-show="!editShow" class="col-md-4 col-sm-6 col-xs-12 pull-left offset">
-  <div class="panel panel-default">
+<div ng-show="editShow && !endShow" ng-include="'/App/components/graphs/limitGauge/limitGauge-edit.html'"></div>
+<div ng-show="!editShow && !endShow" class="col-md-4 col-sm-6 col-xs-12 pull-left offset">
+  <div class="panel tile panel-default">
     <div class="panel-heading text-right">
       <button type="button" ng-click="editToggle()" class="btn btn-primary"><span class="glyphicon glyphicon-edit"></span></button>
       <button type="button" ng-click="delete()" class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span></button>
     </div>
-    <div class="panel-body tile  text-center">
-      <highchart config="options" more="true"></highchart>
+    <div class="panel-body text-center">
+      <highchart ng-show="!options.loading" config="options" more="true"></highchart>
+    </div>
+  </div>
+</div>
+<div ng-show="endShow" class="col-md-4 col-sm-6 col-xs-12 pull-left offset">
+  <div class="panel tile panel-default">
+    <div class="panel-heading text-right">
+      <button type="button" ng-click="delete()" class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span></button>
+    </div>
+    <div class="panel-body text-center">
+      <h3>{{limit.name}}</h3>
+      <h1 ng-show="success">Sukces</h1>
+      <h1 ng-show="fail">Niepowodzenie</h1>
+      <span ng-show="success" class="limit-tile-icon limit-success glyphicon glyphicon-ok-circle"></span>
+      <span ng-show="fail" class="limit-tile-icon limit-fail glyphicon glyphicon-remove-circle"></span>
     </div>
   </div>
 </div>

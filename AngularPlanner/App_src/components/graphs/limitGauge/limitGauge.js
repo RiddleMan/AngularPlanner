@@ -130,6 +130,19 @@ angular.module('graphs.limitGauge', ['highcharts-ng'])
 
     function refresh() {
       new LimitGaugeData($scope.limit.id).then(function (data) {
+        $scope.endShow = $scope.limit.to < (new Date());
+        if($scope.endShow) {
+          if(data.value < $scope.limit.amount) {
+            $scope.success = true;
+            $scope.fail = false;
+          } else {
+            $scope.success = false;
+            $scope.fail = true;
+          }
+        } else {
+          $scope.success = false;
+          $scope.fail = false;
+        }
         $scope.options.series[0].data[0] = data.value;
         $scope.options.loading = false;
       });

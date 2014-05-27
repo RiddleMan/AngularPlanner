@@ -53,12 +53,27 @@
 }
 
 .tile {
-  height: 430px;
+  height: 550px;
 }
 
 .tile-icon {
   font-size: 158px;
   position: relative;
-  top: 108px;
+  top: 172px;
+  left: 9px;
   color: #f2f2f2;
+}
+
+.limit-tile-icon {
+  font-size: 200px;
+  position: relative;
+  top: 57px;
+}
+
+.limit-success {
+  color: #5cb85c;
+}
+
+.limit-fail {
+  color: #d9534f;
 }
