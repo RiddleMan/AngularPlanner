@@ -114,26 +114,27 @@
 \par Praca swoim zakresem obejmuje stworzenie aplikacji do zarządzania wydatkami
 w gospodarstwie domowym oraz do prezentowania wielu statystyk z nimi związanych. Dzięki zastosowaniu licznych wykresów projekt ma na celu ułatwienie zarządzania przychodami oraz wydatkami. Użytkownikiem docelowym jest każdy zarabiający/studiujący chcący organizować swoje wydatki. Projekt ten wyróżnia od innych to, że ma bardzo intuicyjny wygląd, co ułatwia korzystanie z tego narzędzia. Jest dużo ciekawszy w użyciu i zgodny z konwencją Responsive Web Design.
 
-\par Praca złożona jest z 4 rozdziałów. Rozdział pierwszy przedstawia zakres pracy oraz cel projektu. Zawiera również opis podstawowych funkcjonalności aplikacji, które zostały zrealizowane\\ w pracy dyplomowej. Dodatkowo zaprezentowane są przykładowe, podobnie działające pod względem funkcjonalności.
-W kolejnym rozdziale znajduje się projekt systemu. Przedstawione zostały grupy użytkowników oraz założenia. Umieszczone są diagram przypadków użycia, a także opisany schemat bazy danych oraz omówiono konkretne tabele w niej.
-\par Trzeci rozdział jest poświęcony implementacji systemu. Zaprezentowane zostały użyte technologie, a także poszczególne fragmenty kodów źródłowych z omówieniem ich. Co więcej umieszczone są zrzuty ekranu, pokazujące odrębne widoki, pokazujące odrębne funkcjonalności.
+\par Praca złożona jest z 5 rozdziałów. Rozdział pierwszy przedstawia zakres pracy oraz cel projektu. Zawiera również opis podstawowych funkcjonalności aplikacji, które zostały zrealizowane\\ w pracy dyplomowej. Dodatkowo zaprezentowane są przykładowe, podobnie działające pod względem funkcjonalności.
+\par W kolejnym rozdziale znajduje się projekt systemu. Przedstawione zostały grupy użytkowników oraz założenia. Umieszczone są diagram przypadków użycia, a także opisany schemat bazy danych oraz omówiono konkretne tabele w niej.
+\par Trzeci rozdział jest poświęcony implementacji systemu. Zaprezentowane zostały użyte technologie, a także poszczególne fragmenty kodów źródłowych z omówieniem ich. Co więcej umieszczone są zrzuty ekranu, pokazujące odrębne widoki i funkcjonalności.
+\par Czwarty rozdział zawiera szczegółową instrukcję instalacji wytrzonego oprogramowania.
 \par W ostatnim znajduje się podsumowanie z całej zrealizowanej pracy oraz wnioski dotyczące możliwości rozszerzenia aplikacji na potrzeby większego projektu.
 
 \section{Cel i zakres pracy}
-\par Celem pracy dyplomowej było stworzenie aplikacji do zarządzania wydatkami w gospodarstwie oraz wyświetlanie statystyk z nimi związanymi. Jest on dostosowana do poprawnego działania\\ na wszelkich urządzeniach takich jak: komputery, telefony komórkowe czy tablety. Zadaniem było zaprojektowanie oraz oprogramowanie następujących funkcjonalności:
+\par Celem pracy dyplomowej było stworzenie aplikacji do zarządzania wydatkami w gospodarstwie oraz wyświetlanie statystyk z nimi związanymi. Jest ona dostosowana do poprawnego działania\\ na wszelkich urządzeniach takich jak: komputery, telefony komórkowe czy tablety. Zadaniem było zaprojektowanie oraz oprogramowanie następujących funkcjonalności:
 \begin{itemize}
   \item Dostosowanie interfejsu do szerokiego wachlarzu urządzeń (telefony komórkowe, tablety, komputery)
   \item Prosty i intuicyjny interfejs
   \item Logowanie i rejestracja użytkowników
-  \item Wprowadzanie i edycja przychodów i wydatków
-  \item Wydatki i przychody można oznaczać etykietami np. elektronika, wypłata itp.
+  \item Wprowadzanie i edycja przychodów oraz wydatków
+  \item Wydatki i przychody można oznaczać etykietami tj. elektronika lub wypłata, które służą do rozpoznawania typu wydatku
   \item Filtrowanie wydatków (po etykietach i po czasie)
   \item Możliwość sprawdzenia czy można sobie pozwolić na jakiś większy wydatek w przyszłych miesiącach (Symulacja)
   \item Możliwość tworzenia wyzwań na etykiety czyt. ustawienie sobie jakiegoś limitu na konkretną jednostkę czasu
   \item Możliwość tworzenia wykresów z podsumowaniami wydatków dla etykiet
-  \item Stworzenie predefiniowanych wykresów
+  \item Wyświetlanie predefiniowanych wykresów
     \begin{itemize}
-      \item Wykres kołowy ukazujący wykorzystanie etykiet na przychodach i wydatkach
+      \item Wykres kołowy ukazujący udział procentowy wydatków oznaczonych konkretnymi etykietami
       \item Wykres liniowy ukazujący stosunek przychodów do wydatków w ostatnim roku
       \item Wykres liniowy ukazujący bilans przychodów do wydatków w ostatnim roku
       \item Wykres liniowy ukazujący stosunek przychodów do wydatków w ostatnim miesiącu
@@ -250,7 +251,7 @@ MVC zakłada podzielenie aplikacji na poniżej wymienione częście składowe:
   \item Kontroler - agreguje dane z wielu modeli i przygotowuje je aby przekazać do widoku
 \end{itemize}
 \paragraph{Logowanie tokenowe}
-Logowanie to działa na podobnej zasadzie jak logowanie przy pomocy ciasteczek, lecz znosi pewne ograniczenia jakie wcześniej wspomniany i najpopularniejszy w dzisiejszych czasach system identyfikacji sesji posiadał.Użytkownik, który chce się zalogować wpisuje swój login i hasło, na których podstawie jest generowany token (identyfikator sesji), który z kolei podajemy przy każdym wymagającym autentykacji żądaniu do serwera (poprzez dodanie w nagłówku żądania HTTP pola \verb|Authetication: Bearer <token>|). Token jest wydawany jedynie\\ na określony czas i służy do autentykacji tylko dla jednego użytkownika. Jedną z zalet tego logowania jest to, że możemy w aplikacjach SPA zalogować się bez odświeżenia strony i dodatkowo aplikacje klienckie możemy ``hostować'' na innej domenie. Nowoczesne strony wykorzystują już tego typu logowanie, idealnym przykładem jest protokół OAuth 2, który wykorzystują liczne strony:
+Logowanie to działa na podobnej zasadzie jak logowanie przy pomocy ciasteczek, lecz znosi pewne ograniczenia jakie wcześniej wspomniany i najpopularniejszy w dzisiejszych czasach system identyfikacji sesji posiadał. Użytkownik, który chce się zalogować wpisuje swój login i hasło, na których podstawie jest generowany token (identyfikator sesji), który z kolei podajemy przy każdym wymagającym autentykacji żądaniu do serwera (poprzez dodanie w nagłówku żądania HTTP pola \verb|Authetication: Bearer <token>|). Token jest wydawany jedynie\\ na określony czas i służy do autentykacji tylko dla jednego użytkownika. Jedną z zalet tego logowania jest to, że możemy w aplikacjach SPA zalogować się bez odświeżenia strony i dodatkowo aplikacje klienckie możemy ``hostować'' na innej domenie. Nowoczesne strony wykorzystują już tego typu logowanie, idealnym przykładem jest protokół OAuth 2, który wykorzystują liczne strony:
 \begin{itemize}
   \item Facebook
   \item Google+
@@ -274,14 +275,14 @@ Aplikacja została podzielona na 2 części logiczne, którymi są:
 \end{itemize}
 Każda z nich używa innych technologii, ponieważ działają w różnych środowiskach np. klient pracuje jedynie w przeglądarce.
 \paragraph{Serwer}
-Został napisany w języku C\# wykorzystując ASP.NET MVC 5 i ASP.NET Web Api 2. Statyczne pliki są udostępniane przy pomocy MVC, a reszta serwera została udostępniona w formie Web Service'u.\\ Silnik bazy danych, który został wykorzystany jest to Microsoft SQL Server 2012 w wersji Express LocalDB. Cała baza danych została zaprojektowana i wygenerowana przy pomocy Entity Framework 6, który także wspomaga wykonywanie zapytań do bazy danych. Zapytania w tej bibliotece nie wykonuje się bezpośrednio przy pomocy języka strukturalnego SQL, lecz pisząc kod i operując na encjach, a zapytania zostaną wygenerowane w locie. Wielką zaletą tego typu rozwiązania jest możliwość przeniesienia aplikacji na inny silnik bazy danych bez zmiany jakiegokolwiek fragmentu kodu. Jedyną rzeczą, którą trzeba będzie wykonać to zmienić parametry połączenia. Jest to typowe rozwiązanie mapowania obiektowo-relacyjnego w skrócie ORM.
+Został napisany w języku C\# wykorzystując ASP.NET MVC 5 i ASP.NET Web Api 2. Statyczne pliki są udostępniane przy pomocy MVC, a reszta serwera została udostępniona w formie Web Service'u.\\ Silnik bazy danych, który został wykorzystany jest to Microsoft SQL Server 2012 w wersji Express LocalDB. Cała baza danych została zaprojektowana i wygenerowana przy pomocy Entity Framework 6, który także wspomaga wykonywanie zapytań do bazy danych. Zapytania w tej bibliotece nie wykonuje się bezpośrednio przy pomocy języka strukturalnego SQL, lecz pisząc kod i operując na encjach, a zapytania są generowane w locie. Wielką zaletą tego typu rozwiązania jest możliwość przeniesienia aplikacji na inny silnik bazy danych bez zmiany jakiegokolwiek fragmentu kodu. Jedyną rzeczą, którą trzeba będzie wykonać to zmienić parametry połączenia. Jest to typowe rozwiązanie mapowania obiektowo-relacyjnego w skrócie ORM.
 \paragraph{Klient}
-Klient został zaimplementowany przy pomocy biblioteki AngularJS. Jest to narzędzie napisane w JavaScript, które umożliwa tworzenie aplikacji za pomocą wzorca projektowego MVC,\\ a także ułatwia tworzenie według koncepcji Single Page Application.\\ Interfejs graficzny wykorzystuje bibliotekę Bootstrap, która nie tylko ładnie i schludnie wygląda, lecz przy zastosowaniu pewnych reguł zapewnia nam kompatybilność z innymi urządzeniami tj. telefony komórkowe, tablety, czytniki itd. Tego typu zgodność jest nazywana Responsive Web Desing i jest coraz częściej stosowana w internecie.\\ Wykresy są generowane przy pomocy HighCharts.js, który sprawia, że wykresy są proste w generowaniu.\\ Aplikacja została napisana modułowo i każdy takich modułów da się przetestować testami jednostkowymi, a wszystko dzięki narzuconemu schematowi przez AngularJS.
+Klient został zaimplementowany przy pomocy biblioteki AngularJS. Jest to narzędzie napisane w JavaScript, które umożliwa tworzenie aplikacji za pomocą wzorca projektowego MVC,\\ a także ułatwia tworzenie według koncepcji Single Page Application.\\ Interfejs graficzny wykorzystuje bibliotekę Bootstrap, która nie tylko ładnie i schludnie wygląda, lecz przy zastosowaniu pewnych reguł zapewnia nam kompatybilność z innymi urządzeniami tj. telefony komórkowe, tablety, czytniki itd. Tego typu zgodność jest nazywana Responsive Web Desing i jest coraz częściej stosowana w Internecie.\\ Wykresy są tworzone przy pomocy HighCharts.js, dzięki czemu w łatwy sposób się je generuje.\\ Aplikacja została napisana modułowo i każdy takich modułów da się przetestować testami jednostkowymi, a wszystko dzięki narzuconemu schematowi przez AngularJS.
 \subsection{Omówienie kodów źródłowych}
 \subsubsection{Serwer}
 \lstset{style=sharpc}
 \lstinputlisting[caption=Mapowanie ścieżek routingu, label={lst:routeConfig}]{sources/server/routeConfig.cs}
-\par Powyższy kod służy do nauczenia serwera IIS interpretowania ścieżek adresu wpisywanych przez użytkownika. Pierwsza linijka metody \verb|RegisterRoutes| jest wymagana przez rozszerzenie Elmah, które służy do monitorowania aplikacji. Mówi ona, że ten typ adresów ma być przez naszą aplikację ignorowany. Adresy, które spełniają ten warunek to np. \verb|http://domena.pl/elmah.axd| lub \verb|http://domena.pl/elmah.axd/1234|. Kolejna użyta metoda jest to napisana na potrzeby aplikacji metoda, która linkuje każdy z adresów pasujących do wyrażeń z pierwszego argumentu metody \verb|MapHtml5Routes| na controller podany w drugim parametrze. Zabieg ten jest wymagany przez router Angular'a, który w aplikacji działa w HTML5Mode i daje na dostęp do adresów URL bez poprzedzania każdej ścieżki znakiem \verb|#|. Kod metody przedstawia Listing \ref{lst:mapHtml5Routes}. Podobnym plikiem jest \verb|AngularPlanner/AngularPlanner/App_Start/WebApiConfig.cs|, który ustawia ścieżki routingu dla Web Service'u RESTowego.
+\par Powyższy kod służy do nauczenia serwera IIS interpretowania ścieżek adresu wpisywanych przez użytkownika. Pierwsza linijka metody \verb|RegisterRoutes| jest wymagana przez rozszerzenie Elmah, które służy do monitorowania aplikacji. Mówi ona, że ten typ adresów ma być przez naszą aplikację ignorowany. Adresy, które spełniają ten warunek to np. \verb|http://domena.pl/elmah.axd| lub \verb|http://domena.pl/elmah.axd/1234|. Kolejna użyta metoda jest to napisana na potrzeby aplikacji metoda, która linkuje każdy z adresów pasujących do wyrażeń z pierwszego argumentu metody \verb|MapHtml5Routes| na controller podany w drugim parametrze. Zabieg ten jest wymagany przez router Angular'a, który w aplikacji działa w HTML5Mode i daje dostęp do adresów URL bez poprzedzania każdej ścieżki znakiem \verb|#|. Kod metody przedstawia Listing \ref{lst:mapHtml5Routes}. Podobnym plikiem jest \verb|AngularPlanner/AngularPlanner/App_Start/WebApiConfig.cs|, który ustawia ścieżki routingu dla Web Service'u RESTowego.
 \lstinputlisting[caption=Metoda MapHtml5Routes, label={lst:mapHtml5Routes}]{sources/server/mapHtml5Routes.cs}
 \par W pliku \verb|AngularPlanner/AngularPlanner/App_Start/BundleConfig.cs| są tworzone paczki plików JavaScript, które na środowisku produkcyjnym są zmiejszone i zoptymalizowane. Zaletą tego rozwiązania są mniejsze transfery danych i szybszy kod po stronie przeglądarki.\par Plik \verb|AngularPlanner/AngularPlanner/App_Start/Startup.Auth.cs| zawiera konfigurację mechanizmu autentykacji tokenowej dla naszej aplikacji. Ponadto istnieje możliwość dodania opcji logowania przez Facebook i Google+.\par Katalog \verb|Controllers| zawiera klasy kontrollerów. Przedewszystkim są tam kontrolery Web Api 2, lecz jest tam jeden, który posiada tylko akcję, która z kolei zwraca użytkownikowi widok podany na Listingu \ref{lst:homeIndexView}.
 \lstinputlisting[caption=Widok zwracany przez akcję \texttt{Index} kontrolera \texttt{Home}, label={lst:homeIndexView}, language=HTML]{sources/server/homeIndexView.cshtml}
@@ -376,7 +377,7 @@ Na rysunku nr ~\ref{screen:register} jest ekran rejestracji, którego pomocy mo�
   \caption{Edycja podsumowania}
   \label{screen:editSummary}
 \end{figure}
-\par Wyzwania służą do wyznaczania sobie celów na najbliższe miesiące. Pokazują aktualny stan wydanych pieniędzy na wydatki oznaczone wybranymi etykietami. Poniżej zrzuty z listy, edycji, dodawania, powodzenia w wykoaniu i niepowodzeniu wyzwania.
+\par Wyzwania służą do wyznaczania sobie celów na najbliższe miesiące. Pokazują aktualny stan wydanych pieniędzy na wydatki oznaczone wybranymi etykietami. Poniżej zrzuty z listy, edycji, dodawania, powodzenia w wykonaniu i niepowodzeniu wyzwania.
 \begin{figure}[H]
   \centering
   \includegraphics[scale=0.2]{images/screen_wyzwania.png}
@@ -408,7 +409,7 @@ Na ekranie pokazane są statystyki predefiniowane przez twórcę aplikacji i nie
   \includegraphics[scale=0.2]{images/screen_statystyki.png}
   \caption{Statystyki}
 \end{figure}
-\subsection{Instalacja i wdrożenie}
+\section{Instalacja i wdrożenie}
 Aby wdrożyć aplikację potrzebujemy następujących składników:
 \begin{itemize}
   \item Microsoft Windows 2012 Server/7/8 lub wyższe
@@ -487,8 +488,8 @@ Przedstawiona poniżej instalacja została wykonana na systemie Windows 8.1
 \end{figure}
 
 \section*{Podsumowanie}
-Podczas prac implementacyjnych większość założonych funkcjonalności zostało wykonanych. Nie udało się zrobić zakładki ze statystykami wszystkich użytkowników systemie. Oczywiście byłyby bardzo ogólne, aby dbać o ochronę danych klientów. Także możnaby było rozwinąć funkcję przewidywania wydatków o precyzyjniejsze i bardziej skomplikowane algorytmy. Jeden z najważniejszych celi został osiągnięty, a było nim uproszczenie wszelkich operacji, aby użytkownik bez instrukcji użytkowania wiedział do czego służą funkcje i jak je obsłużyć.
-\par Najwięcej problemów było z biblioteką AngularJS i stworzeniem mechanizmu logowania w tej technologii. Biblioteka ta oferuje bardzo dużo funkcjonalności w prosty sposób, lecz dopiero po dłuższym użytkowaniu. Dla początkujących użytkowników jest ciężka w rozumieniu. Logowanie także nie jest prostą sprawą, ponieważ mało jest materiałów w internecie i literaturze o logowaniu tokenowym.
+Podczas prac implementacyjnych większość założonych funkcjonalności zostało wykonanych. Nie udało się zrobić zakładki ze statystykami wszystkich użytkowników systemie. Oczywiście byłyby one bardzo ogólne, aby dbać o ochronę danych klientów. Także możnaby było rozwinąć funkcję przewidywania wydatków o precyzyjniejsze i bardziej skomplikowane algorytmy. Jeden z najważniejszych celi został osiągnięty, a było nim uproszczenie wszelkich operacji, aby użytkownik bez instrukcji użytkowania wiedział do czego służą funkcje i jak je obsłużyć.
+\par Najwięcej problemów było z biblioteką AngularJS i stworzeniem mechanizmu logowania w tej technologii. Biblioteka ta oferuje bardzo dużo funkcjonalności w prosty sposób, lecz dopiero po dłuższym użytkowaniu. Dla początkujących użytkowników jest ciężka w rozumieniu. Logowanie także nie jest prostą sprawą, ponieważ mało jest materiałów w Internecie i literaturze o logowaniu tokenowym.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% BIBLIOGRAFIA %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
