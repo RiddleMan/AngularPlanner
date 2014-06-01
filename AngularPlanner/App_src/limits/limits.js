@@ -51,6 +51,8 @@ angular.module('limits', ['ngRoute', 'auth', 'tagsPicker', 'resources'])
 
     $scope.$on('limits:push', function(e, limit) {
       e.stopPropagation();
+      limit.from = new Date(limit.from);
+      limit.to = new Date(limit.to);
       $scope.limits.push(limit);
     });
 

@@ -117,7 +117,7 @@ w gospodarstwie domowym oraz do prezentowania wielu statystyk z nimi związanych
 \par Praca złożona jest z 5 rozdziałów. Rozdział pierwszy przedstawia zakres pracy oraz cel projektu. Zawiera również opis podstawowych funkcjonalności aplikacji, które zostały zrealizowane\\ w pracy dyplomowej. Dodatkowo zaprezentowane są przykładowe, podobnie działające pod względem funkcjonalności.
 \par W kolejnym rozdziale znajduje się projekt systemu. Przedstawione zostały grupy użytkowników oraz założenia. Umieszczone są diagram przypadków użycia, a także opisany schemat bazy danych oraz omówiono konkretne tabele w niej.
 \par Trzeci rozdział jest poświęcony implementacji systemu. Zaprezentowane zostały użyte technologie, a także poszczególne fragmenty kodów źródłowych z omówieniem ich. Co więcej umieszczone są zrzuty ekranu, pokazujące odrębne widoki i funkcjonalności.
-\par Czwarty rozdział zawiera szczegółową instrukcję instalacji wytrzonego oprogramowania.
+\par Czwarty rozdział zawiera szczegółową instrukcję instalacji wytworzonego oprogramowania.
 \par W ostatnim znajduje się podsumowanie z całej zrealizowanej pracy oraz wnioski dotyczące możliwości rozszerzenia aplikacji na potrzeby większego projektu.
 
 \section{Cel i zakres pracy}
@@ -237,7 +237,7 @@ Tabela przechowująca etykiety
 \end{itemize}
 Pozostałe tabele są wykorzystywane przez standardowy mechanizm autentykacji ASP.NET MVC.
 \section{Implementacja systemu}
-W poniższym rozdziale przedstawione zostały liczne technologie, wzorce oraz zagadnienia. Dodatkowo zawiera on przykładowe kody źródłowe programu, które prezentują różne funkcjonalności. W celu zaprezentowania widoków aplikacji załączone zostały zrzuty ekranów poszczególnych zakładek wraz z opisem.
+W poniższym rozdziale przedstawione zostały liczne technologie, wzorce oraz zagadnienia. Dodatkowo zawiera on przykładowe kody źródłowe programu, które prezentują różne funkcjonalności.\\ W celu zaprezentowania widoków aplikacji załączone zostały zrzuty ekranów poszczególnych zakładek wraz z opisem.
 \subsection{Opis technologii}
 \subsubsection{Zagadnienia}
 \paragraph{SPA - Single Page Application}
@@ -282,9 +282,9 @@ Klient został zaimplementowany przy pomocy biblioteki AngularJS. Jest to narzę
 \subsubsection{Serwer}
 \lstset{style=sharpc}
 \lstinputlisting[caption=Mapowanie ścieżek routingu, label={lst:routeConfig}]{sources/server/routeConfig.cs}
-\par Powyższy kod służy do nauczenia serwera IIS interpretowania ścieżek adresu wpisywanych przez użytkownika. Pierwsza linijka metody \verb|RegisterRoutes| jest wymagana przez rozszerzenie Elmah, które służy do monitorowania aplikacji. Mówi ona, że ten typ adresów ma być przez naszą aplikację ignorowany. Adresy, które spełniają ten warunek to np. \verb|http://domena.pl/elmah.axd| lub \verb|http://domena.pl/elmah.axd/1234|. Kolejna użyta metoda jest to napisana na potrzeby aplikacji metoda, która linkuje każdy z adresów pasujących do wyrażeń z pierwszego argumentu metody \verb|MapHtml5Routes| na controller podany w drugim parametrze. Zabieg ten jest wymagany przez router Angular'a, który w aplikacji działa w HTML5Mode i daje dostęp do adresów URL bez poprzedzania każdej ścieżki znakiem \verb|#|. Kod metody przedstawia Listing \ref{lst:mapHtml5Routes}. Podobnym plikiem jest \verb|AngularPlanner/AngularPlanner/App_Start/WebApiConfig.cs|, który ustawia ścieżki routingu dla Web Service'u RESTowego.
+\par Powyższy kod służy do nauczenia serwera IIS interpretowania ścieżek adresu wpisywanych przez użytkownika. Pierwsza linijka metody \verb|RegisterRoutes| jest wymagana przez rozszerzenie Elmah, które służy do monitorowania aplikacji. Mówi ona, że ten typ adresów ma być przez naszą aplikację ignorowany. Adresy, które spełniają ten warunek to np. \verb|http://domena.pl/elmah.axd| lub \verb|http://domena.pl/elmah.axd/1234|. Kolejna użyta metoda jest napisana na potrzeby aplikacji metoda, która linkuje każdy z adresów pasujących do wyrażeń z pierwszego argumentu metody \verb|MapHtml5Routes| na controller podany w drugim parametrze. Zabieg ten jest wymagany przez router Angular'a, który w aplikacji działa w HTML5Mode i daje dostęp do adresów URL bez poprzedzania każdej ścieżki znakiem \verb|#|. Kod metody przedstawia Listing \ref{lst:mapHtml5Routes}. Podobnym plikiem jest \verb|AngularPlanner/AngularPlanner/App_Start/WebApiConfig.cs|, który ustawia ścieżki routingu dla Web Service'u RESTowego.
 \lstinputlisting[caption=Metoda MapHtml5Routes, label={lst:mapHtml5Routes}]{sources/server/mapHtml5Routes.cs}
-\par W pliku \verb|AngularPlanner/AngularPlanner/App_Start/BundleConfig.cs| są tworzone paczki plików JavaScript, które na środowisku produkcyjnym są zmiejszone i zoptymalizowane. Zaletą tego rozwiązania są mniejsze transfery danych i szybszy kod po stronie przeglądarki.\par Plik \verb|AngularPlanner/AngularPlanner/App_Start/Startup.Auth.cs| zawiera konfigurację mechanizmu autentykacji tokenowej dla naszej aplikacji. Ponadto istnieje możliwość dodania opcji logowania przez Facebook i Google+.\par Katalog \verb|Controllers| zawiera klasy kontrollerów. Przedewszystkim są tam kontrolery Web Api 2, lecz jest tam jeden, który posiada tylko akcję, która z kolei zwraca użytkownikowi widok podany na Listingu \ref{lst:homeIndexView}.
+\par W pliku \verb|AngularPlanner/AngularPlanner/App_Start/BundleConfig.cs| są tworzone paczki plików JavaScript, które na środowisku produkcyjnym są zmiejszone i zoptymalizowane. Zaletą tego rozwiązania są mniejsze transfery danych i szybszy kod po stronie przeglądarki.\par Plik \verb|AngularPlanner/AngularPlanner/App_Start/Startup.Auth.cs| zawiera konfigurację mechanizmu autentykacji tokenowej dla naszej aplikacji. Ponadto istnieje możliwość dodania opcji logowania przez Facebook i Google+.\par Katalog \verb|Controllers| zawiera klasy kontrollerów. Przedewszystkim są tam kontrolery Web Api\\ 2, lecz jest tam jeden, który posiada tylko akcję, która z kolei zwraca użytkownikowi widok podany na Listingu \ref{lst:homeIndexView}.
 \lstinputlisting[caption=Widok zwracany przez akcję \texttt{Index} kontrolera \texttt{Home}, label={lst:homeIndexView}, language=HTML]{sources/server/homeIndexView.cshtml}
 \par Pozostałe kontrollery są do siebie podobne, a kod wybranego z nich można zobaczyć poniżej.
 \lstinputlisting[caption=Kontroller ExpensesController, label={lst:expensesController}]{sources/server/expensesController.cs}
@@ -351,7 +351,7 @@ Na rysunku nr ~\ref{screen:register} jest ekran rejestracji, którego pomocy mo�
   \caption{Edycja wydatków}
   \label{screen:editExpense}
 \end{figure}
-\par Poniżej jest ekran do planowania wydatków. W panelu po prawej wprowadzamy planowany przychód i wydatek na przyszłe miesiące/dni/lata i na żywo jest przedstawiana zdolność do realizacji wyżej wymienionego planu. Na wykresie jest przedstawione kilka serii, lecz każdą można wyłączyć przez naciśnięcie etykiety serii na legendzie.
+\par Poniżej jest ekran do planowania wydatków. W panelu po prawej wprowadzamy planowany przychód i wydatek na przyszłe miesiące/dni/lata i na żywo jest przedstawiana zdolność do realizacji wyżej wymienionego planu. Na wykresie jest przedstawione kilka serii, lecz każdą można wyłączyć przez naciśnięcie etykiety serii w legendzie.
 \begin{figure}[H]
   \centering
   \includegraphics[scale=0.2]{images/screen_planowanieWydatkow.png}
@@ -403,7 +403,7 @@ Na rysunku nr ~\ref{screen:register} jest ekran rejestracji, którego pomocy mo�
   \includegraphics[scale=0.2]{images/screen_wyzwaniaNiepowodzenie.png}
   \caption{Niepowodzenie w wyzwaniu}
 \end{figure}
-Na ekranie pokazane są statystyki predefiniowane przez twórcę aplikacji i nie można ich zmienić. Po naciśnięciu jakiegoś elementu na wykresie zostajemy przeniesieni na widok z rysunku nr ~\ref{screen:listExpense} z wyfiltrowanymi wydatkami.
+Na ekranie pokazane są statystyki predefiniowane przez twórcę aplikacji i nie można ich zmienić. Po naciśnięciu jakiegoś elementu na wykresie zostajemy przeniesieni na widok z rysunku nr ~\ref{screen:listExpense} \\ z wyfiltrowanymi wydatkami.
 \begin{figure}[H]
   \centering
   \includegraphics[scale=0.2]{images/screen_statystyki.png}
