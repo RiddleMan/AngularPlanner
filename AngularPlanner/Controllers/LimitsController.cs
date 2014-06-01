@@ -55,8 +55,24 @@ namespace AngularPlanner.Controllers
                 return BadRequest();
             }
 
-            limitmodel.UserId = User.Identity.GetUserId();
-            db.Entry(limitmodel).State = EntityState.Modified;
+            var limit = db.Limits.Find(id);
+            await db.Entry(limit).Collection(i => i.Tags).LoadAsync();
+
+            if (limit.UserId != User.Identity.GetUserId())
+            {
+                return BadRequest();
+            }
+
+            var tagIds = limitmodel.Tags.Select(i => i.Id);
+            var currentTagIds = limit.Tags.Select(i => i.Id);
+            var toAdd = tagIds.Where(i => !currentTagIds.Contains(i));
+
+            limit.Tags.RemoveAll(i => !tagIds.Contains(i.Id));
+            limit.Tags.AddRange(db.Tags.Where(i => toAdd.Contains(i.Id)).ToList());
+            limit.Name = limitmodel.Name;
+            limit.To = limitmodel.To;
+            limit.From = limitmodel.From;
+            limit.Amount = limitmodel.Amount;
 
             try
             {

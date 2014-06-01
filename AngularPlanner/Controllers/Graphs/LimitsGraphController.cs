@@ -18,7 +18,7 @@ namespace AngularPlanner.Controllers.Graphs
     [ElmahHandleErrorApi]
     public class LimitsGraphController : ApiController
     {
-        private AngularPlannerContext _db = new AngularPlannerContext();
+        private readonly AngularPlannerContext _db = new AngularPlannerContext();
         //
         // GET: /IncomesCostsGraph/
         [ResponseType(typeof(LimitsGraphDto))]

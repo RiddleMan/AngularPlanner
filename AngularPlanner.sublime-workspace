@@ -4,16 +4,240 @@
 		"selected_items":
 		[
 			[
-				"save",
-				"saveTimeoutPromise"
+				"past",
+				"pastOutcomes"
 			],
 			[
 				"ex",
-				"expression"
+				"expectedOutcome"
+			],
+			[
+				"expe",
+				"expectedIncome"
+			],
+			[
+				"es",
+				"estimatedIncome"
+			],
+			[
+				"sim",
+				"simulation"
+			],
+			[
+				"Sim",
+				"SimulationsData"
+			],
+			[
+				"Si",
+				"SimulationsCtrl"
+			],
+			[
+				"res",
+				"resources"
+			],
+			[
+				"stati",
+				"statisticsGraph"
+			],
+			[
+				"statis",
+				"statistic"
+			],
+			[
+				"connection",
+				"connectionChecker"
+			],
+			[
+				"connectio",
+				"connectionChecker"
+			],
+			[
+				"progr",
+				"progressbarInterceptor"
+			],
+			[
+				"inter",
+				"interceptors"
+			],
+			[
+				"$http",
+				"$httpProvider"
+			],
+			[
+				"reps",
+				"responseError"
+			],
+			[
+				"factory",
+				"factory	AngularJS"
+			],
+			[
+				"stop",
+				"stopPropagation"
 			],
 			[
 				"bs3-but",
 				"bs3-button:danger	bs3-button-danger"
+			],
+			[
+				"Limit",
+				"LimitGaugeData"
+			],
+			[
+				"contr",
+				"controller	AngularJS"
+			],
+			[
+				"fact",
+				"factory	AngularJS"
+			],
+			[
+				"incoem",
+				"incomesCostsMonthScope"
+			],
+			[
+				"ExpenseDe",
+				"ExpenseDetailsCtrl"
+			],
+			[
+				"cons",
+				"console	console.log()"
+			],
+			[
+				"Inc",
+				"IncomesCostsData"
+			],
+			[
+				"incom",
+				"IncomesCostsData"
+			],
+			[
+				"Incom",
+				"incomesCosts"
+			],
+			[
+				"us",
+				"usingStatistics"
+			],
+			[
+				"Tag",
+				"TagsUsageData"
+			],
+			[
+				"tags",
+				"tagsUsage"
+			],
+			[
+				"com",
+				"components"
+			],
+			[
+				"high",
+				"highcharts"
+			],
+			[
+				"fac",
+				"factory	AngularJS"
+			],
+			[
+				"Sta",
+				"StatisticsCtrl"
+			],
+			[
+				"template",
+				"templateUrl  (variable)"
+			],
+			[
+				"$route",
+				"$routeProvider"
+			],
+			[
+				"per",
+				"percentageString"
+			],
+			[
+				"seq",
+				"sequenceArray"
+			],
+			[
+				"unde",
+				"undefined"
+			],
+			[
+				"$root",
+				"$rootScope	AngularJS"
+			],
+			[
+				"bs3-bu",
+				"bs3-button	bs3-button"
+			],
+			[
+				"bs3-in",
+				"bs3-input:text:h	bs3-input-text-h"
+			],
+			[
+				"bu",
+				"bs3-button:success	bs3-button-success"
+			],
+			[
+				"text",
+				"textarea	Tag"
+			],
+			[
+				"inde",
+				"indexOf"
+			],
+			[
+				"$roo",
+				"$rootScope	AngularJS"
+			],
+			[
+				"bs3-butt",
+				"bs3-button:default	bs3-button-default"
+			],
+			[
+				"$rou",
+				"$route	AngularJS"
+			],
+			[
+				"auth",
+				"authCheckerProvider"
+			],
+			[
+				"$loca",
+				"$location	AngularJS(DI)"
+			],
+			[
+				"font",
+				"font-weight"
+			],
+			[
+				"Reg",
+				"RegisterCtrl"
+			],
+			[
+				"pas",
+				"password"
+			],
+			[
+				"url",
+				"urlEncode"
+			],
+			[
+				"Login",
+				"LoginCtrl"
+			],
+			[
+				"modu",
+				"verbose_module	AngularJS"
+			],
+			[
+				"aut",
+				"authChecker"
+			],
+			[
+				"save",
+				"saveTimeoutPromise"
 			],
 			[
 				"bs3-butto",
@@ -80,10 +304,6 @@
 				"bs3-button	bs3-button"
 			],
 			[
-				"bs3-bu",
-				"bs3-button:danger	bs3-button-danger"
-			],
-			[
 				"isO",
 				"angular.isObject	AngularJS"
 			],
@@ -120,10 +340,6 @@
 				"$scope.$watchCollection"
 			],
 			[
-				"$route",
-				"$routeParams"
-			],
-			[
 				"angu",
 				"angular.forEach	AngularJS"
 			],
@@ -144,10 +360,6 @@
 				"$scope.houses"
 			],
 			[
-				"$root",
-				"$rootScope"
-			],
-			[
 				"dbCon",
 				"dbContext"
 			],
@@ -162,14 +374,6 @@
 			[
 				"bs3-inp",
 				"bs3-input:email	bs3-input-email"
-			],
-			[
-				"bs3-butt",
-				"bs3-button:primary	bs3-button-primary"
-			],
-			[
-				"bs3-in",
-				"bs3-input:email:h	bs3-input-email-h"
 			],
 			[
 				"bs3-lis",
@@ -220,10 +424,58 @@
 	"buffers":
 	[
 		{
-			"file": "App/app.js",
+			"file": "AngularPlanner/App_src/app.js",
 			"settings":
 			{
-				"buffer_size": 177,
+				"buffer_size": 539,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "AngularPlanner/App_src/components/auth/authChecker.js",
+			"settings":
+			{
+				"buffer_size": 407,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "AngularPlanner/App_src/components/tagsPicker/tagsPicker.js",
+			"settings":
+			{
+				"buffer_size": 2447,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "AngularPlanner/App_src/components/tagsPicker/tagsPicker.html",
+			"settings":
+			{
+				"buffer_size": 1432,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "AngularPlanner/App_src/components/nav/nav.html",
+			"settings":
+			{
+				"buffer_size": 569,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "AngularPlanner/App_src/limits/limits.js",
+			"settings":
+			{
+				"buffer_size": 1637,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "AngularPlanner/App_src/components/graphs/limitGauge/limitGauge.html",
+			"settings":
+			{
+				"buffer_size": 664,
 				"line_ending": "Unix"
 			}
 		}
@@ -231,9 +483,57 @@
 	"build_system": "",
 	"command_palette":
 	{
-		"height": 67.0,
+		"height": 400.0,
 		"selected_items":
 		[
+			[
+				"i",
+				"Package Control: Install Package"
+			],
+			[
+				"ip",
+				"Package Control: Install Package"
+			],
+			[
+				"fo",
+				"Format Code"
+			],
+			[
+				"for",
+				"Format Code"
+			],
+			[
+				"jso",
+				"Set Syntax: JSON"
+			],
+			[
+				"form",
+				"Format Code"
+			],
+			[
+				"css",
+				"Set Syntax: CSS"
+			],
+			[
+				"htm",
+				"Set Syntax: HTML"
+			],
+			[
+				"wra",
+				"Word Wrap: Toggle"
+			],
+			[
+				"ep",
+				"Package Control: Enable Package"
+			],
+			[
+				"dp",
+				"Package Control: Disable Package"
+			],
+			[
+				"wrap",
+				"Word Wrap: Toggle"
+			],
 			[
 				"sidebar",
 				"View: Toggle Open Files in Side Bar"
@@ -241,18 +541,6 @@
 			[
 				"mini",
 				"View: Toggle Minimap"
-			],
-			[
-				"ip",
-				"Package Control: Install Package"
-			],
-			[
-				"for",
-				"Format Code"
-			],
-			[
-				"form",
-				"Format Code"
 			],
 			[
 				"forma",
@@ -295,10 +583,6 @@
 				"View: Toggle Side Bar"
 			],
 			[
-				"wrap",
-				"Word Wrap: Toggle"
-			],
-			[
 				"text",
 				"Set Syntax: Plain Text"
 			],
@@ -311,16 +595,8 @@
 				"Set Syntax: JSON"
 			],
 			[
-				"dp",
-				"Package Control: Disable Package"
-			],
-			[
 				"lp",
 				"Package Control: List Packages"
-			],
-			[
-				"ep",
-				"Package Control: Enable Package"
 			],
 			[
 				"map",
@@ -332,10 +608,6 @@
 			],
 			[
 				"wap",
-				"Word Wrap: Toggle"
-			],
-			[
-				"wra",
 				"Word Wrap: Toggle"
 			],
 			[
@@ -365,144 +637,146 @@
 	},
 	"file_history":
 	[
-		"/Users/riddler/Projects/AngularPlanner/AngularPlanner/AngularPlanner.sublime-project",
-		"/Users/riddler/Projects/AngularPlanner/AngularPlanner/AngularPlanner.sublime-workspace",
-		"/Users/riddler/Projects/AngularPlanner/AngularPlanner/App/.jshintrc",
-		"/Users/riddler/Projects/AngularPlanner/AngularPlanner.sln",
-		"/Users/riddler/Desktop/windows_f/projekty/SmartPlanner/SmartPlanner/app/controllers/HousePlaceCategories.js",
-		"/Users/riddler/Desktop/windows_f/projekty/SmartPlanner/SmartPlanner/app/controllers/HouseStages.js",
-		"/Users/riddler/Desktop/windows_f/projekty/SmartPlanner/SmartPlanner/app/views/house.stages.html",
-		"/Users/riddler/Desktop/windows_f/projekty/SmartPlanner/SmartPlanner/Content/bootstrap-theme.css",
-		"/Users/riddler/Desktop/windows_f/projekty/SmartPlanner/SmartPlanner/app/models/PlaceCategory.js",
-		"/Users/riddler/Desktop/windows_f/projekty/SmartPlanner/SmartPlanner/app/views/house.place-categories.html",
-		"/Users/riddler/Desktop/windows_f/projekty/SmartPlanner/SmartPlanner/app/models/PlannedExpense.js",
-		"/Users/riddler/Desktop/windows_f/projekty/SmartPlanner/SmartPlanner/app/directives/PlaceCategoryPicker.js",
-		"/Users/riddler/Desktop/windows_f/projekty/SmartPlanner/SmartPlanner/app/SmartPlanner.sublime-project",
-		"/Users/riddler/Desktop/windows_f/projekty/SmartPlanner/SmartPlanner/app/controllers/HousePropertiesCtrl.js",
-		"/Users/riddler/Desktop/windows_f/projekty/SmartPlanner/SmartPlanner/app/models/Stage.js",
-		"/Users/riddler/Desktop/windows_f/projekty/SmartPlanner/SmartPlanner/app/controllers/HouseStageItemCtrl.js",
-		"/Users/riddler/Desktop/windows_f/projekty/SmartPlanner/SmartPlanner/app/controllers/HouseAddStep2Ctrl.js",
-		"/Users/riddler/Desktop/windows_f/projekty/SmartPlanner/SmartPlanner/Content/Site.css",
-		"/Users/riddler/Desktop/windows_f/projekty/SmartPlanner/SmartPlanner/app/views/house.leftMenu.html",
-		"/Users/riddler/Desktop/windows_f/projekty/SmartPlanner/SmartPlanner/app/directives/BootstrapInput.js",
-		"/Users/riddler/Desktop/windows_f/projekty/SmartPlanner/SmartPlanner/app/routes.js",
-		"/Users/riddler/Desktop/windows_f/projekty/SmartPlanner/SmartPlanner/app/views/house.add.step2.html",
-		"/Users/riddler/Desktop/windows_f/projekty/SmartPlanner/SmartPlanner/app/controllers/HouseAddStep1Ctrl.js",
-		"/Users/riddler/Desktop/windows_f/projekty/SmartPlanner/SmartPlanner/app/views/house.html",
-		"/Users/riddler/Desktop/windows_f/projekty/SmartPlanner/SmartPlanner/app/views/house.add.step3.html",
-		"/Users/riddler/Desktop/windows_f/projekty/SmartPlanner/SmartPlanner/app/controllers/HouseCtrl.js",
-		"/Users/riddler/Desktop/windows_f/projekty/SmartPlanner/SmartPlanner/app/views/house.add.step1.html",
-		"/Users/riddler/Desktop/windows_f/projekty/SmartPlanner/SmartPlanner/Content/bootstrap.css",
-		"/Users/riddler/Desktop/windows_f/projekty/SmartPlanner/SmartPlanner/app/views/account.settings.html",
-		"/Users/riddler/Desktop/windows_f/projekty/SmartPlanner/SmartPlanner/app/views/house.planned-expenses.html",
-		"/Users/riddler/Desktop/windows_f/projekty/SmartPlanner/SmartPlanner/app/controllers/NavbarDropdownCtrl.js",
-		"/Users/riddler/Desktop/windows_f/projekty/SmartPlanner/SmartPlanner/app/controllers/HouseRemindersCtrl.js",
-		"/Users/riddler/Desktop/windows_f/projekty/SmartPlanner/SmartPlanner/app/controllers/HousePlannedExpensesCtrl.js",
-		"/Users/riddler/Desktop/windows_f/projekty/SmartPlanner/SmartPlanner/app/controllers/HouseLeftMenuCtrl.js",
-		"/Users/riddler/Desktop/windows_f/projekty/SmartPlanner/SmartPlanner/app/controllers/AccountSettingsCtrl.js",
-		"/Users/riddler/Desktop/windows_f/projekty/SmartPlanner/SmartPlanner/app/misc/dbContext.js",
-		"/Users/riddler/Desktop/windows_f/projekty/SmartPlanner/SmartPlanner/app/controllers/FirstTimeCtrl.js",
-		"/Users/riddler/Desktop/windows_f/projekty/SmartPlanner/SmartPlanner/app/app.js",
-		"/Users/riddler/Desktop/windows_f/projekty/SmartPlanner/SmartPlanner/app/misc/dbTools.js",
-		"/Users/riddler/Desktop/windows_f/projekty/SmartPlanner/SmartPlanner/app/misc/modelFactory.js",
-		"/Users/riddler/Desktop/windows_f/projekty/SmartPlanner/SmartPlanner/Content/bootstrap.min.css",
-		"/Users/riddler/Desktop/windows_f/projekty/SmartPlanner/SmartPlanner/app/models/Example.js",
-		"/Users/riddler/Desktop/windows_f/projekty/SmartPlanner/SmartPlanner/app/views/index.html",
-		"/Users/riddler/Desktop/windows_f/projekty/SmartPlanner/SmartPlanner/app/controllers/FirstTimeStep4Ctrl.js",
-		"/Users/riddler/Desktop/windows_f/projekty/SmartPlanner/SmartPlanner/app/controllers/FirstTimeStep3Ctrl.js",
-		"/Users/riddler/Desktop/windows_f/projekty/SmartPlanner/SmartPlanner/app/controllers/FirstTimeStep2Ctrl.js",
-		"/etc/launchd.conf",
-		"/etc/launchctl.conf",
-		"/Users/riddler/Desktop/windows_f/projekty/SmartPlanner/SmartPlanner/app/models/models.config.js",
-		"/Users/riddler/Desktop/windows_f/projekty/SmartPlanner/SmartPlanner/Content/themes/base/jquery.ui.dialog.css",
-		"/Users/riddler/Desktop/windows_f/projekty/SmartPlanner/SmartPlanner/app/controllers/IndexCtrl.js",
-		"/Users/riddler/Desktop/windows_f/projekty/SmartPlanner/SmartPlanner/app/views/first-time.html",
-		"/Users/riddler/Desktop/windows_f/projekty/SmartPlanner/SmartPlanner/app/models/Expense.js",
-		"/Users/riddler/Desktop/windows_f/projekty/SmartPlanner/SmartPlanner/app/models/ExpenseDescription.js",
-		"/Users/riddler/Desktop/windows_f/projekty/SmartPlanner/SmartPlanner/app/models/House.js",
-		"/Users/riddler/Desktop/windows_f/projekty/SmartPlanner/SmartPlanner/app/models/Localization.js",
-		"/Users/riddler/Desktop/windows_f/projekty/SmartPlanner/SmartPlanner/app/models/MaterialCategory.js",
-		"/Users/riddler/Desktop/windows_f/projekty/SmartPlanner/SmartPlanner/app/models/Reminder.js",
-		"/Users/riddler/Desktop/windows_f/projekty/SmartPlanner/SmartPlanner/app/models/UserData.js",
-		"/Users/riddler/Desktop/windows_f/projekty/SmartPlanner/SmartPlanner/app/directives/EqualValidator.js",
-		"/Users/riddler/Desktop/windows_f/projekty/SmartPlanner/SmartPlanner/app/views/house.properties.html",
-		"/Users/riddler/Desktop/windows_f/projekty/SmartPlanner/SmartPlanner/app/views/home.breadcrumbs.html",
-		"/Users/riddler/Desktop/windows_f/projekty/SmartPlanner/SmartPlanner/app/views/directive.bootstrap-input.input.html",
-		"/Users/riddler/Desktop/windows_f/projekty/SmartPlanner/SmartPlanner/app/controllers/UserInfoCtrl.js",
-		"/Users/riddler/Desktop/windows_f/projekty/SmartPlanner/SmartPlanner/app/views/directive.bootstrap-input.html",
-		"/Users/riddler/Desktop/windows_f/projekty/SmartPlanner/SmartPlanner/app/views/directive.bootstap-input.input.html",
-		"/Users/riddler/Desktop/windows_f/projekty/SmartPlanner/SmartPlanner/app/ajaxlogin.js",
-		"/Users/riddler/Desktop/windows_f/projekty/SmartPlanner/SmartPlanner/app/views/house.reminders.html",
-		"/Users/riddler/Desktop/windows_f/projekty/SmartPlanner/SmartPlanner/app/views/directive.place-category-picker.html",
-		"/Users/riddler/Desktop/windows_f/projekty/SmartPlanner/SmartPlanner/app/services/azure.js",
-		"/Users/riddler/Desktop/windows_f/projekty/SmartPlanner/SmartPlanner/app/animations/azure.js",
-		"/Users/riddler/Desktop/windows_f/projekty/SmartPlanner/SmartPlanner/app/filters/azure.js",
-		"/Users/riddler/Desktop/windows_f/projekty/SmartPlanner/SmartPlanner/app/directives/scrollLoad.js",
-		"//Users/riddler/Desktop/windows_f/projekty/SmartPlanner/SmartPlanner/app/SmartPlanner.sublime-project",
-		"//Users/riddler/Desktop/windows_f/projekty/SmartPlanner/SmartPlanner/app/ajaxlogin.js",
-		"//Users/riddler/Desktop/windows_f/projekty/SmartPlanner/SmartPlanner/app/models/PlaceCategory.js",
-		"//Users/riddler/Desktop/windows_f/projekty/SmartPlanner/SmartPlanner/app/views/house.place-categories.html",
-		"/E/smieci/MvcApplication1/app/todo.main.js",
-		"/E/projekty/SmartPlanner/SmartPlanner/Scripts/ui-bootstrap-0.6.0.js",
-		"/E/projekty/SmartPlanner/Gruntfile.js",
-		"/C/Users/Artur/Downloads/source/src/com/spotify/mobile/android/ui/SpotifyActivity.java",
-		"/H/Game.of.Thrones.S01E06.A.Golden.Crown.480p.HDTV.x264-Sticky83.txt",
-		"/H/Game.of.Thrones.S01E05.The.Wolf.and.the.Lion.480p.HDTV.x264-Sticky83.txt",
-		"/H/Game.of.Thrones.S01E04.Cripples.Bastards.and.Broken.Things.480p.HDTV.x264-Sticky83.txt",
-		"/H/Game.of.Thrones.S01E07.You.Win.or.You.Die.480p.HDTV.x264-Sticky83.txt",
-		"/H/Game.of.Thrones.S01E09.Baelor.480p.HDTV.x264-Sticky83.srt",
-		"/E/projekty/SmartPlanner/SmartPlanner/app/controllers/HousePlaceCategories.js",
-		"/C/Users/Artur/AppData/Roaming/Sublime Text 3/Packages/Default/Default (Windows).sublime-keymap",
-		"/E/projekty/SmartPlanner/SmartPlanner/app/views/house.html",
-		"/E/projekty/SmartPlanner/SmartPlanner/app/controllers/HouseStages.js",
-		"/E/projekty/SmartPlanner/SmartPlanner/app/models/Reminder.js",
-		"/E/projekty/SmartPlanner/SmartPlanner/app/misc/dbContext.js",
-		"/E/projekty/SmartPlanner/SmartPlanner/app/misc/modelFactory.js",
-		"/E/projekty/SmartPlanner/SmartPlanner/app/views/house.reminders.html",
-		"/E/projekty/SmartPlanner/SmartPlanner/app/controllers/HouseRemindersCtrl.js",
-		"/C/Users/Artur/AppData/Local/Temp/_tc_/Web.config",
-		"/E/projekty/SmartPlanner/SmartPlanner/app/models/Example.js",
-		"/E/projekty/SmartPlanner/SmartPlanner/app/directives/scrollLoad.js",
-		"/E/projekty/SmartPlanner/SmartPlanner/app/app.js",
-		"/E/projekty/SmartPlanner/SmartPlanner/app/models/PlaceCategory.js",
-		"/E/projekty/SmartPlanner/SmartPlanner/app/views/house.stages.html",
-		"/E/projekty/SmartPlanner/SmartPlanner/app/views/house.place-categories.html",
-		"/E/projekty/SmartPlanner/SmartPlanner/app/controllers/HousePropertiesCtrl.js",
-		"/E/projekty/SmartPlanner/SmartPlanner/app/controllers/AccountSettingsCtrl.js",
-		"/E/projekty/SmartPlanner/SmartPlanner/app/models/Stage.js",
-		"/E/projekty/SmartPlanner/SmartPlanner/app/routes.js",
-		"/F/Movies/game of thrones/Games Of Thrones Season 1.2.3 x264 Mixed/Game.of.Thrones.S01E04.Cripples.Bastards.and.Broken.Things.480p.HDTV.x264-Sticky83.txt",
-		"/F/Movies/game of thrones/Games Of Thrones Season 1.2.3 x264 Mixed/Game.of.Thrones.S01E05.The.Wolf.and.the.Lion.480p.HDTV.x264-Sticky83.txt",
-		"/F/Movies/game of thrones/Games Of Thrones Season 1.2.3 x264 Mixed/Game.of.Thrones.S01E03.Lord.Snow.480p.HDTV.x264-Sticky83.txt",
-		"/E/smieci/MvcApplication1/app/todo.model.js",
-		"/E/smieci/MvcApplication1/app/todo.datacontext.js",
-		"/E/smieci/MvcApplication1/app/todo.controller.js",
-		"/E/projekty/SmartPlanner/SmartPlanner/app/views/house.properties.html",
-		"/E/projekty/SmartPlanner/SmartPlanner/app/views/house.leftMenu.html",
-		"/C/Users/Artur/AppData/Local/Temp/_tc/eventlog.xml",
-		"/C/Users/Artur/AppData/Local/Temp/_tc/Web.config",
-		"/E/projekty/SmartPlanner/SmartPlanner/app/views/first-time.step2.html",
-		"/F/Movies/game of thrones/Games Of Thrones Season 1.2.3 x264 Mixed/Game.of.Thrones.S01E01.Pilot.480p.HDTV.x264-Sticky83.txt",
-		"/F/Movies/game of thrones/Games Of Thrones Season 1.2.3 x264 Mixed/Game.of.Thrones.S01E02.The Kingsroad.480p.HDTV.x264-Sticky83.txt",
-		"/C/Users/Artur/Desktop/asdfasdfasdfas/rld-lscs.nfo",
-		"/E/projekty/SmartPlanner/SmartPlanner/app/SmartPlanner.sublime-project",
-		"/E/projekty/SmartPlanner/SmartPlanner/app/models/models.config.js",
-		"/E/projekty/SmartPlanner/SmartPlanner/app/models/Localization.js",
-		"/E/projekty/SmartPlanner/SmartPlanner/app/controllers/FirstTimeStep3Ctrl.js",
-		"/E/projekty/SmartPlanner/SmartPlanner/app/views/first-time.step3.html",
-		"/E/projekty/SmartPlanner/SmartPlanner/app/controllers/HouseCtrl.js",
-		"/E/projekty/SmartPlanner/SmartPlanner/app/controllers/HouseLeftMenuCtrl.js",
-		"/E/projekty/SmartPlanner/SmartPlanner/app/controllers/IndexCtrl.js"
+		"/Users/riddler/Projects/AngularPlanner/AngularPlanner/App_src/limits/limits.html",
+		"/Users/riddler/Projects/AngularPlanner/AngularPlanner/App_src/components/graphs/limitGauge/limitGauge.js",
+		"/Users/riddler/Projects/AngularPlanner/AngularPlanner/App_src/libs/highcharts-ng.js",
+		"/Users/riddler/Projects/AngularPlanner/AngularPlanner/App_src/components/nav/nav.html",
+		"/Users/riddler/Projects/AngularPlanner/AngularPlanner/App_src/components/nav/nav.js",
+		"/Users/riddler/Projects/AngularPlanner/AngularPlanner/App_src/components/graphs/incomesCostsMonthScope/incomesCostsMonthScope.js",
+		"/Users/riddler/Projects/AngularPlanner/AngularPlanner/Migrations/201403191959477_ExpensesAndTags.resx",
+		"/Users/riddler/Projects/AngularPlanner/AngularPlanner/App_src/simulations/simulations.html",
+		"/Users/riddler/Projects/AngularPlanner/AngularPlanner/App_src/simulations/simulations.js",
+		"/Users/riddler/Projects/AngularPlanner/AngularPlanner/Content/Site.css",
+		"/Users/riddler/Projects/AngularPlanner/AngularPlanner/App_src/components/graphs/summaryGraph/summaryGraph.js",
+		"/Users/riddler/Projects/AngularPlanner/AngularPlanner/Scripts/i18n/angular-locale_gu-in.js",
+		"/Users/riddler/Projects/AngularPlanner/.gitattributes",
+		"/Users/riddler/Projects/AngularPlanner/AngularPlanner/App_src/app.js",
+		"/Users/riddler/Projects/AngularPlanner/AngularPlanner/App_src/components/graphs/incomesCostsMonthScope/incomesCostsMonthScope.html",
+		"/Users/riddler/Projects/AngularPlanner/AngularPlanner/App_src/summaries/summaries.js",
+		"/Users/riddler/Projects/AngularPlanner/AngularPlanner/App_src/components/graphs/incomesCostsBilance/incomesCostsBilance.html",
+		"/Users/riddler/Projects/AngularPlanner/AngularPlanner/App_src/components/graphs/incomesCosts/incomesCosts.html",
+		"/Users/riddler/Projects/AngularPlanner/AngularPlanner/App_src/index/index.html",
+		"/Users/riddler/Projects/AngularPlanner/AngularPlanner/Scripts/i18n/angular-locale_sr-cyrl-rs.js",
+		"/Users/riddler/Projects/AngularPlanner/AngularPlanner/App_src/components/resources/summaries.js",
+		"/Users/riddler/Projects/AngularPlanner/AngularPlanner/App_src/summaries/summaries-add.html",
+		"/Users/riddler/Projects/AngularPlanner/AngularPlanner/App_src/components/graphs/summaryGraph/summaryGraph.html",
+		"/Users/riddler/Projects/AngularPlanner/AngularPlanner/App_src/components/graphs/limitGauge/limitGauge.html",
+		"/Users/riddler/Projects/AngularPlanner/AngularPlanner/Scripts/i18n/angular-locale_ml.js",
+		"/Users/riddler/Projects/AngularPlanner/AngularPlanner/Scripts/i18n/angular-locale_en-mu.js",
+		"/Users/riddler/Projects/AngularPlanner/AngularPlanner/App_src/components/graphs/limitGauge/limitGauge-edit.html",
+		"/Users/riddler/Projects/AngularPlanner/AngularPlanner/App_src/components/graphs/summaryGraph/summaryGraph-edit.html",
+		"/Users/riddler/Projects/AngularPlanner/AngularPlanner/App_src/statistics/statistics.html",
+		"/Users/riddler/Projects/AngularPlanner/AngularPlanner/App_src/summaries/summaries.html",
+		"/Users/riddler/Projects/AngularPlanner/AngularPlanner/App_src/limits/limits.js",
+		"/Users/riddler/Projects/AngularPlanner/AngularPlanner/App_src/components/auth/interceptor.js",
+		"/Users/riddler/Projects/AngularPlanner/AngularPlanner/App_src/components/tagsPicker/tagsPicker.html",
+		"/Users/riddler/Projects/AngularPlanner/AngularPlanner/App_src/components/auth/auth.js",
+		"/Users/riddler/Projects/AngularPlanner/AngularPlanner/Scripts/i18n/angular-locale_uk.js",
+		"/Users/riddler/Projects/AngularPlanner/AngularPlanner/Scripts/angular-mocks.js",
+		"/Users/riddler/Projects/AngularPlanner/AngularPlanner/App_src/components/resources/limits.js",
+		"/Users/riddler/Projects/AngularPlanner/AngularPlanner/App_src/limits/limits-add.html",
+		"/Users/riddler/Projects/AngularPlanner/AngularPlanner.sublime-project",
+		"/Users/riddler/Projects/AngularPlanner/AngularPlanner_.psess",
+		"/Users/riddler/Projects/AngularPlanner/AngularPlanner/App_src/components/graphs/index.js",
+		"/Users/riddler/Projects/AngularPlanner/Gruntfile.js",
+		"/Users/riddler/Projects/AngularPlanner/AngularPlanner/Content/nprogress.css",
+		"/Users/riddler/Projects/AngularPlanner/AngularPlanner.Tests/app.config",
+		"/Users/riddler/Projects/AngularPlanner/AngularPlanner/App_src/components/resources/index.js",
+		"/Users/riddler/Projects/AngularPlanner/AngularPlanner/Scripts/angular-resource.min.js",
+		"/Users/riddler/Projects/AngularPlanner/AngularPlanner/Scripts/angular-resource.js",
+		"/Users/riddler/Projects/AngularPlanner/README.md",
+		"/Users/riddler/Projects/AngularPlanner/AngularPlanner/Scripts/i18n/angular-locale_id.js",
+		"/Users/riddler/Projects/AngularPlanner/AngularPlanner/App_src/components/graphs/statisticsGraph/statisticsGraph.html",
+		"/Users/riddler/Projects/AngularPlanner/AngularPlanner/App_src/statistics/statistics.js",
+		"/Users/riddler/Projects/AngularPlanner/AngularPlanner/App_src/components/graphs/tagsUsage/tagsUsage.html",
+		"/Users/riddler/Projects/AngularPlanner/AngularPlanner/Migrations/201404051400435_Summaries.resx",
+		"/Users/riddler/Projects/AngularPlanner/AngularPlanner/Scripts/i18n/angular-locale_sw-tz.js",
+		"/Users/riddler/Projects/AngularPlanner/AngularPlanner/App_src/register/register.js",
+		"/Users/riddler/Projects/AngularPlanner/AngularPlanner/App_src/login/login.js",
+		"/Users/riddler/Projects/AngularPlanner/AngularPlanner/App_src/index/index.js",
+		"/Users/riddler/Projects/AngularPlanner/AngularPlanner/App_src/components/tagsPicker/tagsPicker.js",
+		"/Users/riddler/Projects/AngularPlanner/AngularPlanner/App_src/expenses/expenses.js",
+		"/Users/riddler/Projects/AngularPlanner/AngularPlanner/App_src/components/resources/tags.js",
+		"/Users/riddler/Projects/AngularPlanner/AngularPlanner/App_src/components/resources/expenses.js",
+		"/Users/riddler/Projects/AngularPlanner/AngularPlanner/App_src/components/navbar/navbar.js",
+		"/Users/riddler/Projects/AngularPlanner/AngularPlanner/App_src/components/progressbar/index.js",
+		"/Users/riddler/Projects/AngularPlanner/AngularPlanner/App_src/components/http/http-decorator.js",
+		"/Users/riddler/Projects/AngularPlanner/AngularPlanner/App_src/components/graphs/tagsUsage/tagsUsage.js",
+		"/Users/riddler/Projects/AngularPlanner/AngularPlanner/App_src/components/graphs/incomesCostsBilance/incomesCostsBilance.js",
+		"/Users/riddler/Projects/AngularPlanner/AngularPlanner/App_src/components/graphs/incomesCosts/incomesCosts.js",
+		"/Users/riddler/Projects/AngularPlanner/package.json",
+		"/Users/riddler/Projects/AngularPlanner/AngularPlanner/App_src/components/connectionChecker/index.js",
+		"/Users/riddler/Projects/AngularPlanner/AngularPlanner/App_src/components/auth/authChecker.js",
+		"/Users/riddler/Projects/AngularPlanner/AngularPlanner/App/components/graphs/limitGauge/limitGauge.html",
+		"/Users/riddler/Projects/AngularPlanner/.jshintrc",
+		"/Users/riddler/Projects/AngularPlanner/AngularPlanner/App/components/auth/interceptor.js",
+		"/Users/riddler/Projects/AngularPlanner/AngularPlanner/App/app.js",
+		"/Users/riddler/Projects/AngularPlanner/AngularPlanner/Scripts/highcharts-ng.js",
+		"/Users/riddler/Projects/AngularPlanner/AngularPlanner/App/components/progressbar/index.js",
+		"/Users/riddler/Projects/AngularPlanner/AngularPlanner/App/components/connectionChecker/index.js",
+		"/Users/riddler/Projects/AngularPlanner/AngularPlanner/App/limits/limits-add.html",
+		"/Users/riddler/Projects/AngularPlanner/AngularPlanner/App/components/resources/limits.js",
+		"/Users/riddler/Projects/AngularPlanner/AngularPlanner/App/limits/limits.js",
+		"/Users/riddler/Projects/AngularPlanner/AngularPlanner/App/limits/limits.html",
+		"/Users/riddler/Projects/AngularPlanner/AngularPlanner/Scripts/highcharts-more.js",
+		"/Users/riddler/Projects/AngularPlanner/AngularPlanner/Scripts/highcharts.js",
+		"/Users/riddler/Projects/AngularPlanner/AngularPlanner/App/components/graphs/limitGauge/limitGauge-edit.html",
+		"/Users/riddler/Projects/AngularPlanner/AngularPlanner/App/components/graphs/limitGauge/limitGauge.js",
+		"/Users/riddler/Projects/AngularPlanner/AngularPlanner/App/components/graphs/incomesCosts/incomesCosts.js",
+		"/Users/riddler/Projects/AngularPlanner/AngularPlanner/App/components/graphs/index.js",
+		"/Users/riddler/Projects/AngularPlanner/AngularPlanner/Scripts/i18n/angular-locale_he-il.js",
+		"/Users/riddler/Projects/AngularPlanner/AngularPlanner/App/components/nav/nav.html",
+		"/Users/riddler/Projects/AngularPlanner/AngularPlanner/Scripts/json3.js",
+		"/Users/riddler/Projects/AngularPlanner/AngularPlanner/App/expenses/expenses-add.html",
+		"/Users/riddler/Projects/AngularPlanner/AngularPlanner/App/components/tagsPicker/tagsPicker.js",
+		"/Users/riddler/Projects/AngularPlanner/AngularPlanner/App/components/graphs/tagsUsage/tagsUsage.html",
+		"/Users/riddler/Projects/AngularPlanner/AngularPlanner/App/components/resources/expenses.js",
+		"/Users/riddler/Projects/AngularPlanner/AngularPlanner/App/register/register.js",
+		"/Users/riddler/Projects/AngularPlanner/AngularPlanner/App/components/tagsPicker/tagsPicker.html",
+		"/Users/riddler/Projects/AngularPlanner/AngularPlanner/App/components/nav/nav.js",
+		"/Users/riddler/Projects/AngularPlanner/AngularPlanner/App/expenses/expenses.js",
+		"/Users/riddler/Projects/AngularPlanner/AngularPlanner/App/statistics/statistics.html",
+		"/Users/riddler/Projects/AngularPlanner/AngularPlanner/App/statistics/statistics.js",
+		"/Users/riddler/Projects/AngularPlanner/AngularPlanner/App/expenses/expenses-editor.html",
+		"/Users/riddler/Projects/AngularPlanner/AngularPlanner/App/login/login.html",
+		"/Users/riddler/Projects/AngularPlanner/AngularPlanner/App/expenses/expenses-list.html",
+		"/Users/riddler/Projects/AngularPlanner/AngularPlanner/App/components/resources/index.js",
+		"/Users/riddler/Projects/AngularPlanner/AngularPlanner/App/components/resources/tags.js",
+		"/Users/riddler/Projects/AngularPlanner/AngularPlanner/Scripts/angular-resource.min.js.map",
+		"/Users/riddler/Projects/AngularPlanner/AngularPlanner/Scripts/i18n/angular-locale_es-pe.js",
+		"/Users/riddler/Projects/AngularPlanner/AngularPlanner/App/components/resources/values.js",
+		"/Users/riddler/Projects/AngularPlanner/AngularPlanner/App/index/index.js",
+		"/Users/riddler/Projects/AngularPlanner/AngularPlanner/App/login/login.js",
+		"/Users/riddler/Projects/AngularPlanner/AngularPlanner/App/components/http/http-decorator.js",
+		"/Users/riddler/Projects/AngularPlanner/AngularPlanner/App/components/navbar/navbar.html",
+		"/Users/riddler/Projects/AngularPlanner/AngularPlanner/App/components/graphs/incomesCostsMonthScope/incomesCostsMonthScope.html",
+		"/Users/riddler/Projects/AngularPlanner/AngularPlanner/App/components/graphs/incomesCostsMonthScope/incomesCostsMonthScope.js",
+		"/Users/riddler/Projects/AngularPlanner/AngularPlanner/App/components/graphs/incomesCosts/incomesCosts.html",
+		"/Users/riddler/Projects/AngularPlanner/AngularPlanner/App/components/graphs/incomesCostsBilance/incomesCostsBilance.html",
+		"/Users/riddler/Projects/AngularPlanner/AngularPlanner/App/components/graphs/incomesCostsBilance/incomesCostsBilance.js",
+		"/Users/riddler/Projects/AngularPlanner/AngularPlanner/Scripts/i18n/angular-locale_bn-in.js",
+		"/Users/riddler/Projects/AngularPlanner/AngularPlanner/Content/bootstrap.css",
+		"/Users/riddler/Projects/AngularPlanner/AngularPlanner/App/components/graphs/tagsUsage/tagsUsage.js",
+		"/Users/riddler/Projects/AngularPlanner/AngularPlanner/App/components/http/http-decorator_test.js",
+		"/Users/riddler/Projects/AngularPlanner/AngularPlanner/Scripts/errors.json",
+		"/Users/riddler/Projects/AngularPlanner/AngularPlanner/App/components/auth/index.js",
+		"/Users/riddler/Projects/AngularPlanner/AngularPlanner/App/components/resources/tagsGraph.js",
+		"/Users/riddler/Projects/AngularPlanner/AngularPlanner/App/components/graphs/tagsUsage.js",
+		"/Users/riddler/Projects/AngularPlanner/AngularPlanner/Scripts/i18n/angular-locale_he.js",
+		"/Users/riddler/Projects/AngularPlanner/AngularPlanner/App/simulations/simulations.html",
+		"/Users/riddler/Projects/AngularPlanner/AngularPlanner/App/simulations/simulations.js"
 	],
 	"find":
 	{
-		"height": 23.0
+		"height": 38.0
 	},
 	"find_in_files":
 	{
 		"height": 90.0,
 		"where_history":
 		[
+			"/Users/riddler/Projects/AngularPlanner/AngularPlanner/App_src",
+			"/Users/riddler/Projects/AngularPlanner/AngularPlanner/App",
 			""
 		]
 	},
@@ -511,134 +785,134 @@
 		"case_sensitive": false,
 		"find_history":
 		[
-			"Opcje",
-			"stage",
-			"elem",
-			"addStage",
-			"md",
-			"HouseAdd",
-			"a",
-			"div",
-			"methods:",
-			"pull-left",
-			"p",
-			"'",
-			"field",
-			"directive-bootstrap",
-			"old",
-			"new",
-			"\"//",
-			"direct",
-			"div",
-			"content",
-			"reminder",
-			"content",
-			"reminders",
-			"entity",
-			"/>\n",
-			"minDate",
-			"default",
-			"localStorageInit",
-			"query",
-			"Query",
-			"query",
-			"save",
-			"queryOptions",
-			"mierć",
-			"(\\w)żesz",
-			"ko(\\w) ",
-			"ko(.?*) ",
-			"zost",
-			"data",
-			"Stage",
-			"local",
-			"^(.*)$",
-			"elmah",
-			"properties",
-			"categories",
-			"remStage",
-			"()",
-			"addStage",
-			"key",
-			"value",
-			"c1",
-			"stage",
-			"initStages",
-			"Localization",
-			"localization",
-			"ñ",
-			"Ź",
-			"Ÿ",
-			"¯",
-			"ê",
-			"¹",
-			"³",
-			"¿",
-			"æ",
-			"œ",
-			"Ÿ",
-			"æ",
-			"¿",
-			"¹",
-			"³",
-			"ê",
-			"œ",
-			"values",
-			"latitude",
-			"update",
-			"map",
-			"Map",
-			"map",
-			"Map",
-			"map",
-			"MAP",
-			"Map",
-			"map",
-			"Map",
-			"map",
-			"value",
-			"Nazwa domu",
-			"housef",
-			"this",
-			"Stage",
-			"stage",
-			"remStage",
-			"addStage",
-			"Stage",
-			"stage",
-			"Stage",
-			"dbContext.Stage",
-			"Stage",
-			"stages",
-			"updateTimout",
-			"stages",
-			"button",
-			"persons",
-			"button",
-			"$location",
-			"destinationObject",
-			"Przypomnienia",
-			"button",
-			"house",
-			"Reminder",
-			"Localization",
-			"addStage",
-			"submit",
-			"nejm",
-			"name",
-			"sublimeli",
-			"demo",
-			"email",
-			"Email",
-			"email",
-			"onta",
-			"Ustawienia",
-			"create",
-			"ng-init",
+			"left",
+			"wydate",
+			"Income",
+			"income",
+			"exampleInputEmail1",
+			"val",
+			"Income",
+			"limit",
+			"limitGauge",
+			"limit",
+			"summary-graph",
+			"statisticsGraph",
+			"simulations",
+			"to",
+			"Dziennie",
+			"limit",
+			"limits",
+			"limit",
+			"Limits",
+			"expenses",
+			"Simulations",
+			"simulations",
+			"statistic",
+			"StatisticsData",
+			"incomesCosts",
+			"IncomesCostsData",
+			"statistics",
+			"('/',",
+			"}]",
+			"['Expenses', '$route', ",
+			"['Expenses', ",
+			".app",
+			"stop",
+			"from",
+			"ng-show",
+			"addicon",
+			"$scope.limit",
+			"processSeries",
+			"options",
+			"initChart",
+			"config.options",
+			"{\n",
+			"{",
+			"highcharts",
+			"incomesCosts",
+			"from",
+			"From",
+			"from",
+			"From",
+			"from",
+			"to",
+			"h4",
+			"limitsTags",
+			".to",
+			"from",
+			"From",
+			"from",
+			"From",
+			"from",
+			"date",
+			"Date",
+			"date",
+			"Date",
+			"date",
+			"panel-body",
+			"=\"col-md-4",
+			"\">\n",
+			"<highchart config=\"options\"></highchart>",
+			"limits",
+			"simulations",
+			"statistics",
+			"$routePro",
+			"app",
+			"$http",
+			"Symulacje",
+			"myModalLabel",
+			"date",
+			"incomesCosts",
+			"IncomesCosts",
+			"incomesCosts",
+			"IncomesCosts",
+			"incomesCosts",
+			"IncomesCosts",
+			"incomesCosts",
+			"IncomesCosts",
+			"category",
+			"simulations",
+			"expenses",
+			"start",
 			"$route",
-			"navbardrop",
-			"User",
-			"UserProfile"
+			"openTagList",
+			"$http",
+			"err",
+			"3",
+			"$resource",
+			"\"",
+			"arc",
+			"$http",
+			"h4",
+			"class=\"sr-only\"",
+			"class=\"sr-only\" ",
+			"input-xs",
+			"input",
+			"input-xs",
+			"title",
+			"input",
+			"when('/'",
+			"span",
+			"< ",
+			"tagsList",
+			"label",
+			"date",
+			"title",
+			"date",
+			"Price",
+			"Password",
+			"exampleInputPassword2",
+			"exampleInputEmail2",
+			"Koszt",
+			"Data",
+			"sessionStorage",
+			"h4",
+			"inputPassword3",
+			"inputEmail3",
+			"button",
+			"exampleInputPassword1",
+			"email",
+			"exampleInputEmail1"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -646,6 +920,9 @@
 		"regex": false,
 		"replace_history":
 		[
+			"\\r\\n{",
+			"\\n{",
+			"'",
 			"ń",
 			"ź",
 			"Ź",
@@ -674,29 +951,1060 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 6,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "App/app.js",
+					"file": "AngularPlanner/App_src/app.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 177,
+						"buffer_size": 539,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								177,
-								177
+								339,
+								339
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close"
+							],
+							"editorconfig": true,
+							"ensure_newline_at_eof_on_save": true,
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true,
+							"trim_trailing_white_space_on_save": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "AngularPlanner/App_src/components/auth/authChecker.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 407,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								407,
+								407
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close"
+							],
+							"codeintel": true,
+							"codeintel_config":
+							{
+								"JavaScript":
+								{
+									"codeintel_max_recursive_dir_depth": 2,
+									"codeintel_scan_files_in_project": false,
+									"javascriptExtraPaths":
+									[
+									]
+								},
+								"PHP":
+								{
+									"codeintel_max_recursive_dir_depth": 5,
+									"codeintel_scan_files_in_project": false,
+									"phpExtraPaths":
+									[
+									]
+								},
+								"Python":
+								{
+									"env":
+									{
+									}
+								}
+							},
+							"codeintel_enabled_languages":
+							[
+								"JavaScript",
+								"Mason",
+								"XBL",
+								"XUL",
+								"RHTML",
+								"SCSS",
+								"Python",
+								"HTML",
+								"Ruby",
+								"Python3",
+								"XML",
+								"Sass",
+								"XSLT",
+								"Django",
+								"HTML5",
+								"Perl",
+								"CSS",
+								"Twig",
+								"Less",
+								"Smarty",
+								"Node.js",
+								"Tcl",
+								"TemplateToolkit",
+								"PHP"
+							],
+							"codeintel_live": true,
+							"codeintel_live_enabled_languages":
+							[
+								"JavaScript",
+								"Mason",
+								"XBL",
+								"XUL",
+								"RHTML",
+								"SCSS",
+								"Python",
+								"HTML",
+								"Ruby",
+								"Python3",
+								"XML",
+								"Sass",
+								"XSLT",
+								"Django",
+								"HTML5",
+								"Perl",
+								"CSS",
+								"Twig",
+								"Less",
+								"Smarty",
+								"Node.js",
+								"Tcl",
+								"TemplateToolkit",
+								"PHP"
+							],
+							"codeintel_max_recursive_dir_depth": 10,
+							"codeintel_scan_exclude_dir":
+							{
+								"JavaScript":
+								[
+									"/build/",
+									"/min/"
+								]
+							},
+							"codeintel_scan_files_in_project": true,
+							"codeintel_selected_catalogs":
+							[
+								"PyWin32",
+								"jQuery",
+								"Rails"
+							],
+							"codeintel_snippets": true,
+							"codeintel_syntax_map":
+							{
+								"Python Django": "Python"
+							},
+							"codeintel_tooltips": "popup",
+							"editorconfig": true,
+							"ensure_newline_at_eof_on_save": true,
+							"sublime_auto_complete": true,
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true,
+							"trim_trailing_white_space_on_save": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "AngularPlanner/App_src/components/tagsPicker/tagsPicker.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2447,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								557,
+								557
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close"
+							],
+							"codeintel": true,
+							"codeintel_config":
+							{
+								"JavaScript":
+								{
+									"codeintel_max_recursive_dir_depth": 2,
+									"codeintel_scan_files_in_project": false,
+									"javascriptExtraPaths":
+									[
+									]
+								},
+								"PHP":
+								{
+									"codeintel_max_recursive_dir_depth": 5,
+									"codeintel_scan_files_in_project": false,
+									"phpExtraPaths":
+									[
+									]
+								},
+								"Python":
+								{
+									"env":
+									{
+									}
+								}
+							},
+							"codeintel_enabled_languages":
+							[
+								"JavaScript",
+								"Mason",
+								"XBL",
+								"XUL",
+								"RHTML",
+								"SCSS",
+								"Python",
+								"HTML",
+								"Ruby",
+								"Python3",
+								"XML",
+								"Sass",
+								"XSLT",
+								"Django",
+								"HTML5",
+								"Perl",
+								"CSS",
+								"Twig",
+								"Less",
+								"Smarty",
+								"Node.js",
+								"Tcl",
+								"TemplateToolkit",
+								"PHP"
+							],
+							"codeintel_live": true,
+							"codeintel_live_enabled_languages":
+							[
+								"JavaScript",
+								"Mason",
+								"XBL",
+								"XUL",
+								"RHTML",
+								"SCSS",
+								"Python",
+								"HTML",
+								"Ruby",
+								"Python3",
+								"XML",
+								"Sass",
+								"XSLT",
+								"Django",
+								"HTML5",
+								"Perl",
+								"CSS",
+								"Twig",
+								"Less",
+								"Smarty",
+								"Node.js",
+								"Tcl",
+								"TemplateToolkit",
+								"PHP"
+							],
+							"codeintel_max_recursive_dir_depth": 10,
+							"codeintel_scan_exclude_dir":
+							{
+								"JavaScript":
+								[
+									"/build/",
+									"/min/"
+								]
+							},
+							"codeintel_scan_files_in_project": true,
+							"codeintel_selected_catalogs":
+							[
+								"PyWin32",
+								"jQuery",
+								"Rails"
+							],
+							"codeintel_snippets": true,
+							"codeintel_syntax_map":
+							{
+								"Python Django": "Python"
+							},
+							"codeintel_tooltips": "popup",
+							"editorconfig": true,
+							"ensure_newline_at_eof_on_save": true,
+							"sublime_auto_complete": true,
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true,
+							"trim_trailing_white_space_on_save": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 836.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "AngularPlanner/App_src/components/tagsPicker/tagsPicker.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1432,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								1432
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close"
+							],
+							"codeintel": true,
+							"codeintel_config":
+							{
+								"JavaScript":
+								{
+									"codeintel_max_recursive_dir_depth": 2,
+									"codeintel_scan_files_in_project": false,
+									"javascriptExtraPaths":
+									[
+									]
+								},
+								"PHP":
+								{
+									"codeintel_max_recursive_dir_depth": 5,
+									"codeintel_scan_files_in_project": false,
+									"phpExtraPaths":
+									[
+									]
+								},
+								"Python":
+								{
+									"env":
+									{
+									}
+								}
+							},
+							"codeintel_enabled_languages":
+							[
+								"JavaScript",
+								"Mason",
+								"XBL",
+								"XUL",
+								"RHTML",
+								"SCSS",
+								"Python",
+								"HTML",
+								"Ruby",
+								"Python3",
+								"XML",
+								"Sass",
+								"XSLT",
+								"Django",
+								"HTML5",
+								"Perl",
+								"CSS",
+								"Twig",
+								"Less",
+								"Smarty",
+								"Node.js",
+								"Tcl",
+								"TemplateToolkit",
+								"PHP"
+							],
+							"codeintel_live": true,
+							"codeintel_live_enabled_languages":
+							[
+								"JavaScript",
+								"Mason",
+								"XBL",
+								"XUL",
+								"RHTML",
+								"SCSS",
+								"Python",
+								"HTML",
+								"Ruby",
+								"Python3",
+								"XML",
+								"Sass",
+								"XSLT",
+								"Django",
+								"HTML5",
+								"Perl",
+								"CSS",
+								"Twig",
+								"Less",
+								"Smarty",
+								"Node.js",
+								"Tcl",
+								"TemplateToolkit",
+								"PHP"
+							],
+							"codeintel_max_recursive_dir_depth": 10,
+							"codeintel_scan_exclude_dir":
+							{
+								"JavaScript":
+								[
+									"/build/",
+									"/min/"
+								]
+							},
+							"codeintel_scan_files_in_project": true,
+							"codeintel_selected_catalogs":
+							[
+								"PyWin32",
+								"jQuery",
+								"Rails"
+							],
+							"codeintel_snippets": true,
+							"codeintel_syntax_map":
+							{
+								"Python Django": "Python"
+							},
+							"codeintel_tooltips": "popup",
+							"editorconfig": true,
+							"ensure_newline_at_eof_on_save": true,
+							"sublime_auto_complete": true,
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true,
+							"trim_trailing_white_space_on_save": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "AngularPlanner/App_src/components/nav/nav.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 569,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								569,
+								569
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close"
+							],
+							"codeintel": true,
+							"codeintel_config":
+							{
+								"JavaScript":
+								{
+									"codeintel_max_recursive_dir_depth": 2,
+									"codeintel_scan_files_in_project": false,
+									"javascriptExtraPaths":
+									[
+									]
+								},
+								"PHP":
+								{
+									"codeintel_max_recursive_dir_depth": 5,
+									"codeintel_scan_files_in_project": false,
+									"phpExtraPaths":
+									[
+									]
+								},
+								"Python":
+								{
+									"env":
+									{
+									}
+								}
+							},
+							"codeintel_enabled_languages":
+							[
+								"JavaScript",
+								"Mason",
+								"XBL",
+								"XUL",
+								"RHTML",
+								"SCSS",
+								"Python",
+								"HTML",
+								"Ruby",
+								"Python3",
+								"XML",
+								"Sass",
+								"XSLT",
+								"Django",
+								"HTML5",
+								"Perl",
+								"CSS",
+								"Twig",
+								"Less",
+								"Smarty",
+								"Node.js",
+								"Tcl",
+								"TemplateToolkit",
+								"PHP"
+							],
+							"codeintel_live": true,
+							"codeintel_live_enabled_languages":
+							[
+								"JavaScript",
+								"Mason",
+								"XBL",
+								"XUL",
+								"RHTML",
+								"SCSS",
+								"Python",
+								"HTML",
+								"Ruby",
+								"Python3",
+								"XML",
+								"Sass",
+								"XSLT",
+								"Django",
+								"HTML5",
+								"Perl",
+								"CSS",
+								"Twig",
+								"Less",
+								"Smarty",
+								"Node.js",
+								"Tcl",
+								"TemplateToolkit",
+								"PHP"
+							],
+							"codeintel_max_recursive_dir_depth": 10,
+							"codeintel_scan_exclude_dir":
+							{
+								"JavaScript":
+								[
+									"/build/",
+									"/min/"
+								]
+							},
+							"codeintel_scan_files_in_project": true,
+							"codeintel_selected_catalogs":
+							[
+								"PyWin32",
+								"jQuery",
+								"Rails"
+							],
+							"codeintel_snippets": true,
+							"codeintel_syntax_map":
+							{
+								"Python Django": "Python"
+							},
+							"codeintel_tooltips": "popup",
+							"editorconfig": true,
+							"ensure_newline_at_eof_on_save": true,
+							"sublime_auto_complete": true,
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true,
+							"trim_trailing_white_space_on_save": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "AngularPlanner/App_src/limits/limits.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1637,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								983,
+								983
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close"
+							],
+							"codeintel": true,
+							"codeintel_config":
+							{
+								"JavaScript":
+								{
+									"codeintel_max_recursive_dir_depth": 2,
+									"codeintel_scan_files_in_project": false,
+									"javascriptExtraPaths":
+									[
+									]
+								},
+								"PHP":
+								{
+									"codeintel_max_recursive_dir_depth": 5,
+									"codeintel_scan_files_in_project": false,
+									"phpExtraPaths":
+									[
+									]
+								},
+								"Python":
+								{
+									"env":
+									{
+									}
+								}
+							},
+							"codeintel_enabled_languages":
+							[
+								"JavaScript",
+								"Mason",
+								"XBL",
+								"XUL",
+								"RHTML",
+								"SCSS",
+								"Python",
+								"HTML",
+								"Ruby",
+								"Python3",
+								"XML",
+								"Sass",
+								"XSLT",
+								"Django",
+								"HTML5",
+								"Perl",
+								"CSS",
+								"Twig",
+								"Less",
+								"Smarty",
+								"Node.js",
+								"Tcl",
+								"TemplateToolkit",
+								"PHP"
+							],
+							"codeintel_live": true,
+							"codeintel_live_enabled_languages":
+							[
+								"JavaScript",
+								"Mason",
+								"XBL",
+								"XUL",
+								"RHTML",
+								"SCSS",
+								"Python",
+								"HTML",
+								"Ruby",
+								"Python3",
+								"XML",
+								"Sass",
+								"XSLT",
+								"Django",
+								"HTML5",
+								"Perl",
+								"CSS",
+								"Twig",
+								"Less",
+								"Smarty",
+								"Node.js",
+								"Tcl",
+								"TemplateToolkit",
+								"PHP"
+							],
+							"codeintel_max_recursive_dir_depth": 10,
+							"codeintel_scan_exclude_dir":
+							{
+								"JavaScript":
+								[
+									"/build/",
+									"/min/"
+								]
+							},
+							"codeintel_scan_files_in_project": true,
+							"codeintel_selected_catalogs":
+							[
+								"PyWin32",
+								"jQuery",
+								"Rails"
+							],
+							"codeintel_snippets": true,
+							"codeintel_syntax_map":
+							{
+								"Python Django": "Python"
+							},
+							"codeintel_tooltips": "popup",
+							"editorconfig": true,
+							"ensure_newline_at_eof_on_save": true,
+							"sublime_auto_complete": true,
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true,
+							"trim_trailing_white_space_on_save": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 74.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "AngularPlanner/App_src/components/graphs/limitGauge/limitGauge.html",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 664,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								664,
+								664
+							]
+						],
+						"settings":
+						{
+							"BracketHighlighterBusy": false,
+							"bh_regions":
+							[
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close"
+							],
+							"editorconfig": true,
+							"ensure_newline_at_eof_on_save": true,
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true,
+							"trim_trailing_white_space_on_save": true
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -750,7 +2058,7 @@
 	"project": "AngularPlanner.sublime-project",
 	"replace":
 	{
-		"height": 42.0
+		"height": 72.0
 	},
 	"save_all_on_build": true,
 	"select_file":
@@ -758,6 +2066,502 @@
 		"height": 0.0,
 		"selected_items":
 		[
+			[
+				"limit",
+				"AngularPlanner/App_src/limits/limits.js"
+			],
+			[
+				"nav",
+				"AngularPlanner/App_src/components/nav/nav.html"
+			],
+			[
+				"app",
+				"AngularPlanner/App_src/app.js"
+			],
+			[
+				"navj",
+				"AngularPlanner/App_src/components/nav/nav.js"
+			],
+			[
+				"limits",
+				"AngularPlanner/App_src/limits/limits.html"
+			],
+			[
+				"sim",
+				"AngularPlanner/App_src/simulations/simulations.html"
+			],
+			[
+				"simjs",
+				"AngularPlanner/App_src/simulations/simulations.js"
+			],
+			[
+				"incoscht",
+				"AngularPlanner/App_src/components/graphs/incomesCostsMonthScope/incomesCostsMonthScope.html"
+			],
+			[
+				"scope",
+				"AngularPlanner/App_src/components/graphs/incomesCostsMonthScope/incomesCostsMonthScope.js"
+			],
+			[
+				"summar",
+				"AngularPlanner/App_src/summaries/summaries.js"
+			],
+			[
+				"grap",
+				"AngularPlanner/App_src/components/graphs/summaryGraph/summaryGraph.js"
+			],
+			[
+				"limga",
+				"AngularPlanner/App_src/components/graphs/limitGauge/limitGauge.js"
+			],
+			[
+				"summgr",
+				"AngularPlanner/App_src/components/graphs/summaryGraph/summaryGraph.js"
+			],
+			[
+				"summa",
+				"AngularPlanner/App_src/summaries/summaries.js"
+			],
+			[
+				"limgaed",
+				"AngularPlanner/App_src/components/graphs/limitGauge/limitGauge-edit.html"
+			],
+			[
+				"limiga",
+				"AngularPlanner/App_src/components/graphs/limitGauge/limitGauge.js"
+			],
+			[
+				"sumaed",
+				"AngularPlanner/App_src/components/graphs/summaryGraph/summaryGraph-edit.html"
+			],
+			[
+				"summadd",
+				"AngularPlanner/App_src/summaries/summaries-add.html"
+			],
+			[
+				"limitga",
+				"AngularPlanner/App_src/components/graphs/limitGauge/limitGauge-edit.html"
+			],
+			[
+				"authpr",
+				"AngularPlanner/App_src/components/auth/interceptor.js"
+			],
+			[
+				"month",
+				"AngularPlanner/App_src/components/graphs/incomesCostsMonthScope/incomesCostsMonthScope.js"
+			],
+			[
+				"ng",
+				"AngularPlanner/App_src/libs/highcharts-ng.js"
+			],
+			[
+				"summ",
+				"AngularPlanner/App_src/components/resources/summaries.js"
+			],
+			[
+				"summat",
+				"AngularPlanner/App_src/summaries/summaries.html"
+			],
+			[
+				"summary",
+				"AngularPlanner/App_src/components/graphs/summaryGraph/summaryGraph.html"
+			],
+			[
+				"grun",
+				"Gruntfile.js"
+			],
+			[
+				"app.js",
+				"AngularPlanner/App_src/app.js"
+			],
+			[
+				"limit.js",
+				"AngularPlanner/App_src/limits/limits.js"
+			],
+			[
+				"resinse",
+				"AngularPlanner/App_src/components/resources/index.js"
+			],
+			[
+				"grapin",
+				"AngularPlanner/App_src/components/graphs/index.js"
+			],
+			[
+				"stat",
+				"AngularPlanner/App_src/statistics/statistics.html"
+			],
+			[
+				"simula",
+				"AngularPlanner/App_src/simulations/simulations.html"
+			],
+			[
+				"grunt",
+				"Gruntfile.js"
+			],
+			[
+				"jsh",
+				".jshintrc"
+			],
+			[
+				"limi",
+				"AngularPlanner/App/components/graphs/limitGauge/limitGauge.html"
+			],
+			[
+				"high",
+				"AngularPlanner/Scripts/highcharts-ng.js"
+			],
+			[
+				"limit-add",
+				"AngularPlanner/App/limits/limits-add.html"
+			],
+			[
+				"hig",
+				"AngularPlanner/Scripts/highcharts-ng.js"
+			],
+			[
+				"site.cs",
+				"AngularPlanner/Content/Site.css"
+			],
+			[
+				"inc",
+				"AngularPlanner/App/components/graphs/incomesCosts/incomesCosts.js"
+			],
+			[
+				"reslimi",
+				"AngularPlanner/App/components/resources/limits.js"
+			],
+			[
+				"tags",
+				"AngularPlanner/App/components/tagsPicker/tagsPicker.js"
+			],
+			[
+				"exe",
+				"AngularPlanner/App/expenses/expenses-add.html"
+			],
+			[
+				"site",
+				"AngularPlanner/Content/Site.css"
+			],
+			[
+				"tagsht",
+				"AngularPlanner/App/components/graphs/tagsUsage/tagsUsage.html"
+			],
+			[
+				"lim",
+				"AngularPlanner/App/limits/limits.html"
+			],
+			[
+				"resourcesin",
+				"AngularPlanner/App/components/resources/index.js"
+			],
+			[
+				"nav.ht",
+				"AngularPlanner/App/components/nav/nav.html"
+			],
+			[
+				"nav.",
+				"AngularPlanner/App/components/nav/nav.js"
+			],
+			[
+				"exep",
+				"AngularPlanner/App/expenses/expenses.js"
+			],
+			[
+				"expeht",
+				"AngularPlanner/App/expenses/expenses-list.html"
+			],
+			[
+				"rein",
+				"AngularPlanner/App/components/resources/index.js"
+			],
+			[
+				"resexejs",
+				"AngularPlanner/App/components/resources/expenses.js"
+			],
+			[
+				"expeadd",
+				"AngularPlanner/App/expenses/expenses-add.html"
+			],
+			[
+				"expe",
+				"AngularPlanner/App/expenses/expenses-list.html"
+			],
+			[
+				"navab",
+				"AngularPlanner/App/components/navbar/navbar.html"
+			],
+			[
+				"incomont",
+				"AngularPlanner/App/components/graphs/incomesCostsMonthScope/incomesCostsMonthScope.html"
+			],
+			[
+				"grai",
+				"AngularPlanner/App/components/graphs/index.js"
+			],
+			[
+				"inco",
+				"AngularPlanner/App/components/graphs/incomesCosts/incomesCosts.html"
+			],
+			[
+				"bila",
+				"AngularPlanner/App/components/graphs/incomesCostsBilance/incomesCostsBilance.js"
+			],
+			[
+				"income",
+				"AngularPlanner/App/components/graphs/incomesCosts/incomesCosts.html"
+			],
+			[
+				"tagus",
+				"AngularPlanner/App/components/graphs/tagsUsage/tagsUsage.html"
+			],
+			[
+				"sta",
+				"AngularPlanner/App/statistics/statistics.html"
+			],
+			[
+				"graph",
+				"AngularPlanner/App/components/graphs/index.js"
+			],
+			[
+				"incobjs",
+				"AngularPlanner/App/components/graphs/incomesCostsBilance/incomesCostsBilance.js"
+			],
+			[
+				"staht",
+				"AngularPlanner/App/statistics/statistics.html"
+			],
+			[
+				"incoht",
+				"AngularPlanner/App/components/graphs/incomesCosts/incomesCosts.html"
+			],
+			[
+				"incht",
+				"AngularPlanner/App/components/graphs/incomesCosts/incomesCosts.html"
+			],
+			[
+				"taght",
+				"AngularPlanner/App/components/graphs/tagsUsage/tagsUsage.html"
+			],
+			[
+				"tagusaht",
+				"AngularPlanner/App/components/graphs/tagsUsage/tagsUsage.html"
+			],
+			[
+				"reinjs",
+				"AngularPlanner/App/components/resources/index.js"
+			],
+			[
+				"stati",
+				"AngularPlanner/App/statistics/statistics.html"
+			],
+			[
+				"tagjs",
+				"AngularPlanner/App/components/graphs/tagsUsage/tagsUsage.js"
+			],
+			[
+				"expeed",
+				"AngularPlanner/App/expenses/expenses-editor.html"
+			],
+			[
+				"s",
+				"AngularPlanner/Content/Site.css"
+			],
+			[
+				"expenjs",
+				"AngularPlanner/App/expenses/expenses.js"
+			],
+			[
+				"graphijs",
+				"AngularPlanner/App/components/graphs/index.js"
+			],
+			[
+				"graph.js",
+				"AngularPlanner/App/components/graphs/index.js"
+			],
+			[
+				"tagsjs",
+				"AngularPlanner/App/components/graphs/tagsUsage.js"
+			],
+			[
+				"statht",
+				"AngularPlanner/App/statistics/statistics.html"
+			],
+			[
+				"expeex",
+				"AngularPlanner/App/expenses/expenses-editor.html"
+			],
+			[
+				"stats.js",
+				"AngularPlanner/App/statistics/statistics.js"
+			],
+			[
+				"staiht",
+				"AngularPlanner/App/statistics/statistics.html"
+			],
+			[
+				"jshi",
+				".jshintrc"
+			],
+			[
+				"grain",
+				"AngularPlanner/App/components/graphs/index.js"
+			],
+			[
+				"expensehtml",
+				"AngularPlanner/App/expenses/expenses-list.html"
+			],
+			[
+				"staijs",
+				"AngularPlanner/App/statistics/statistics.js"
+			],
+			[
+				"resinex",
+				"AngularPlanner/App/components/resources/index.js"
+			],
+			[
+				"expes",
+				"AngularPlanner/App/components/resources/expenses.js"
+			],
+			[
+				"tag",
+				"AngularPlanner/App/components/tagsPicker/tagsPicker.html"
+			],
+			[
+				"tagsp",
+				"AngularPlanner/App/components/tagsPicker/tagsPicker.js"
+			],
+			[
+				"expen",
+				"AngularPlanner/App/expenses/expenses-add.html"
+			],
+			[
+				"tagpcjs",
+				"AngularPlanner/App/components/tagsPicker/tagsPicker.js"
+			],
+			[
+				"gruntjs",
+				"Gruntfile.js"
+			],
+			[
+				"tagpht",
+				"AngularPlanner/App/components/tagsPicker/tagsPicker.html"
+			],
+			[
+				"value",
+				"AngularPlanner/App/components/resources/values.js"
+			],
+			[
+				"resinde",
+				"AngularPlanner/App/components/resources/index.js"
+			],
+			[
+				"epx",
+				"AngularPlanner/App/components/resources/expenses.js"
+			],
+			[
+				"resouinde",
+				"AngularPlanner/App/components/resources/index.js"
+			],
+			[
+				"expeaddht",
+				"AngularPlanner/App/expenses/expenses-add.html"
+			],
+			[
+				"navbar",
+				"AngularPlanner/App/components/navbar/navbar.html"
+			],
+			[
+				".jshi",
+				".jshintrc"
+			],
+			[
+				"navba",
+				"AngularPlanner/App/components/navbar/navbar.html"
+			],
+			[
+				"auth",
+				"AngularPlanner/App/components/auth/auth.js"
+			],
+			[
+				"resva",
+				"AngularPlanner/App/components/resources/values.js"
+			],
+			[
+				"resind",
+				"AngularPlanner/App/components/resources/index.js"
+			],
+			[
+				"inde.js",
+				"AngularPlanner/App/index/index.js"
+			],
+			[
+				"expjs",
+				"AngularPlanner/App/expenses/expenses.js"
+			],
+			[
+				"inter",
+				"AngularPlanner/App/components/auth/interceptor.js"
+			],
+			[
+				"aut",
+				"AngularPlanner/App/components/auth/auth.js"
+			],
+			[
+				"chek",
+				"AngularPlanner/App/components/auth/authChecker.js"
+			],
+			[
+				"indins",
+				"AngularPlanner/App/index/index.js"
+			],
+			[
+				"inde",
+				"AngularPlanner/App/components/auth/index.js"
+			],
+			[
+				"inde/in",
+				"AngularPlanner/App/index/index.js"
+			],
+			[
+				"login",
+				"AngularPlanner/App/login/login.js"
+			],
+			[
+				"regi",
+				"AngularPlanner/App/register/register.html"
+			],
+			[
+				"site.",
+				"AngularPlanner/Content/Site.css"
+			],
+			[
+				"log",
+				"AngularPlanner/App/login/login.html"
+			],
+			[
+				"loght",
+				"AngularPlanner/App/login/login.html"
+			],
+			[
+				"reg",
+				"AngularPlanner/App/register/register.js"
+			],
+			[
+				"sec",
+				"AngularPlanner/App/components/auth/security.js"
+			],
+			[
+				"auth.js",
+				"AngularPlanner/App/components/auth/authChecker.js"
+			],
+			[
+				"appjs",
+				"AngularPlanner/App/app.js"
+			],
+			[
+				"fold",
+				"AngularPlanner/folders.txt"
+			],
 			[
 				"stht",
 				"app/views/house.stages.html"
@@ -773,386 +2577,6 @@
 			[
 				"placht",
 				"app/views/house.place-categories.html"
-			],
-			[
-				"pla",
-				"app/models/PlaceCategory.js"
-			],
-			[
-				"sta",
-				"app/controllers/HouseStages.js"
-			],
-			[
-				"place",
-				"app/controllers/HousePlaceCategories.js"
-			],
-			[
-				"stegeite",
-				"app/controllers/HouseStageItemCtrl.js"
-			],
-			[
-				"stagesht",
-				"app/views/house.stages.html"
-			],
-			[
-				"stagejs",
-				"app/controllers/HouseStages.js"
-			],
-			[
-				"stjs",
-				"app/models/Stage.js"
-			],
-			[
-				"stages",
-				"app/views/house.stages.html"
-			],
-			[
-				"houste2",
-				"app/controllers/HouseAddStep2Ctrl.js"
-			],
-			[
-				"route",
-				"app/routes.js"
-			],
-			[
-				"hoss",
-				"app/controllers/HouseAddStep2Ctrl.js"
-			],
-			[
-				"houseaddste2",
-				"app/views/house.add.step2.html"
-			],
-			[
-				"houseadd",
-				"app/views/house.add.step3.html"
-			],
-			[
-				"bootinp",
-				"app/directives/BootstrapInput.js"
-			],
-			[
-				"viewshousadd",
-				"app/views/house.add.step2.html"
-			],
-			[
-				"mis",
-				"app/misc/modelFactory.js"
-			],
-			[
-				"dbcote",
-				"app/misc/dbContext.js"
-			],
-			[
-				"item",
-				"app/controllers/HouseStageItemCtrl.js"
-			],
-			[
-				"dbcon",
-				"app/misc/dbContext.js"
-			],
-			[
-				"step2",
-				"app/controllers/HouseAddStep2Ctrl.js"
-			],
-			[
-				"first",
-				"app/controllers/FirstTimeStep3Ctrl.js"
-			],
-			[
-				"app",
-				"app/app.js"
-			],
-			[
-				"confirs",
-				"app/controllers/FirstTimeCtrl.js"
-			],
-			[
-				"firstimsetp2",
-				"app/controllers/FirstTimeStep2Ctrl.js"
-			],
-			[
-				"db",
-				"app/misc/dbContext.js"
-			],
-			[
-				"housepl",
-				"app/controllers/HousePlaceCategories.js"
-			],
-			[
-				"models",
-				"app/models/Example.js"
-			],
-			[
-				"vihosta",
-				"app/views/house.stages.html"
-			],
-			[
-				"house.prop",
-				"app/views/house.properties.html"
-			],
-			[
-				"prop",
-				"app/controllers/HousePropertiesCtrl.js"
-			],
-			[
-				"site",
-				"Content/Site.css"
-			],
-			[
-				"site.",
-				"Content/Site.css"
-			],
-			[
-				".css",
-				"Content/Site.css"
-			],
-			[
-				"acco",
-				"app/controllers/AccountSettingsCtrl.js"
-			],
-			[
-				"bio",
-				"app/directives/BootstrapInput.js"
-			],
-			[
-				"setting",
-				"app/controllers/AccountSettingsCtrl.js"
-			],
-			[
-				"housepro",
-				"app/controllers/HousePropertiesCtrl.js"
-			],
-			[
-				"direv",
-				"app/views/directive.bootstap-input.input.html"
-			],
-			[
-				"booinput",
-				"app/directives/BootstrapInput.js"
-			],
-			[
-				"direb",
-				"app/views/directive.bootstrap-input.html"
-			],
-			[
-				"dire",
-				"app/views/directive.bootstrap-input.html"
-			],
-			[
-				"lefte",
-				"app/views/house.leftMenu.html"
-			],
-			[
-				"leftmenu",
-				"app/controllers/HouseLeftMenuCtrl.js"
-			],
-			[
-				"house",
-				"app/views/house.html"
-			],
-			[
-				"routes",
-				"app/routes.js"
-			],
-			[
-				"placepicke",
-				"directives/PlaceCategoryPicker.js"
-			],
-			[
-				"",
-				"views/house.planned-expenses.html"
-			],
-			[
-				"planned",
-				"controllers/HousePlannedExpensesCtrl.js"
-			],
-			[
-				"house.pla",
-				"views/house.planned-expenses.html"
-			],
-			[
-				"plc",
-				"controllers\\HousePlaceCategories.js"
-			],
-			[
-				"left",
-				"views\\house.leftMenu.html"
-			],
-			[
-				"remind",
-				"views\\house.reminders.html"
-			],
-			[
-				"scroll",
-				"directives\\scrollLoad.js"
-			],
-			[
-				"dbco",
-				"misc\\dbContext.js"
-			],
-			[
-				"exam",
-				"models\\Example.js"
-			],
-			[
-				"remin",
-				"models\\Reminder.js"
-			],
-			[
-				"mode",
-				"misc\\modelFactory.js"
-			],
-			[
-				"dbc",
-				"misc\\dbContext.js"
-			],
-			[
-				"remi",
-				"views\\house.reminders.html"
-			],
-			[
-				"sett",
-				"controllers\\AccountSettingsCtrl.js"
-			],
-			[
-				"stageshtm",
-				"views\\house.stages.html"
-			],
-			[
-				"model",
-				"misc\\modelFactory.js"
-			],
-			[
-				"menu",
-				"views\\house.leftMenu.html"
-			],
-			[
-				"housepla",
-				"views\\house.place-categories.html"
-			],
-			[
-				"placehtml",
-				"views\\house.place-categories.html"
-			],
-			[
-				"loca",
-				"models\\Localization.js"
-			],
-			[
-				"housel",
-				"views\\house.leftMenu.html"
-			],
-			[
-				"firs",
-				"views\\first-time.step3.html"
-			],
-			[
-				"firstt",
-				"controllers\\FirstTimeStep3Ctrl.js"
-			],
-			[
-				"step3",
-				"controllers\\FirstTimeStep3Ctrl.js"
-			],
-			[
-				"step4",
-				"controllers\\FirstTimeStep4Ctrl.js"
-			],
-			[
-				"inde",
-				"controllers\\IndexCtrl.js"
-			],
-			[
-				"step2ht",
-				"views\\first-time.step2.html"
-			],
-			[
-				"index",
-				"controllers\\IndexCtrl.js"
-			],
-			[
-				"first3ht",
-				"views\\first-time.step3.html"
-			],
-			[
-				"firstct",
-				"controllers\\FirstTimeStep4Ctrl.js"
-			],
-			[
-				"account",
-				"controllers\\AccountSettingsCtrl.js"
-			],
-			[
-				"fir",
-				"controllers\\FirstTimeStep2Ctrl.js"
-			],
-			[
-				"accoht",
-				"app\\views\\account.settings.html"
-			],
-			[
-				"firsht",
-				"app\\views\\first-time.step2.html"
-			],
-			[
-				"ap",
-				"app\\app.js"
-			],
-			[
-				"idne",
-				"app\\views\\index.html"
-			],
-			[
-				"ctrl",
-				"app\\controllers\\AccountSettingsCtrl.js"
-			],
-			[
-				"login",
-				"app\\ajaxlogin.js"
-			],
-			[
-				"us",
-				"app\\models\\UserProfile.js"
-			],
-			[
-				"ac",
-				"app\\controllers\\AccountSettingsCtrl.js"
-			],
-			[
-				"user",
-				"app\\models\\UserProfile.js"
-			],
-			[
-				"html",
-				"app\\views\\account.settings.html"
-			],
-			[
-				"ind",
-				"Views\\Home\\Index.cshtml"
-			],
-			[
-				"si",
-				"Content\\Site.css"
-			],
-			[
-				"dbconte",
-				"app\\misc\\dbContext.js"
-			],
-			[
-				"_regis",
-				"Views\\Home\\_Register.cshtml"
-			],
-			[
-				"ajax",
-				"app\\ajaxlogin.js"
-			],
-			[
-				"_la",
-				"Views\\Shared\\_Layout.cshtml"
-			],
-			[
-				"_a",
-				"Views\\Home\\_Authentication.cshtml"
 			]
 		],
 		"width": 0.0

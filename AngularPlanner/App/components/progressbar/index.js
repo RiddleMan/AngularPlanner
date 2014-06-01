@@ -4,24 +4,27 @@
 *
 * Description
 */
-angular.module('progressbar', [])
-  .constant('NProgress', NProgress)
-  .factory('progressbarInterceptor', ['NProgress', function(NProgress){
+angular.module('progressbar', []).constant('NProgress', NProgress).factory('progressbarInterceptor', [
+  'NProgress',
+  function (NProgress) {
     return {
-      'request': function(config) {
+      'request': function (config) {
         NProgress.start();
         return config;
       },
-      'response': function(config) {
+      'response': function (config) {
         NProgress.done();
         return config;
       },
-      'responseError': function(config) {
+      'responseError': function (config) {
         NProgress.done();
         return config;
       }
     };
-  }])
-  .config(['$httpProvider', function($httpProvider) {
+  }
+]).config([
+  '$httpProvider',
+  function ($httpProvider) {
     $httpProvider.interceptors.push('progressbarInterceptor');
-  }]);
+  }
+]);

@@ -1,5 +1,5 @@
 /**
- * @license AngularJS v1.2.14
+ * @license AngularJS v1.3.0-beta.10
  * (c) 2010-2014 Google, Inc. http://angularjs.org
  * License: MIT
  */
@@ -69,7 +69,7 @@ function minErr(module) {
       return match;
     });
 
-    message = message + '\nhttp://errors.angularjs.org/1.2.14/' +
+    message = message + '\nhttp://errors.angularjs.org/1.3.0-beta.10/' +
       (module ? module + '/' : '') + code;
     for (i = 2; i < arguments.length; i++) {
       message = message + (i == 2 ? '?' : '&') + 'p' + (i-2) + '=' +
@@ -135,16 +135,16 @@ function setupModuleLoader(window) {
      * myModule.value('appName', 'MyCoolApp');
      *
      * // configure existing services inside initialization blocks.
-     * myModule.config(function($locationProvider) {
+     * myModule.config(['$locationProvider', function($locationProvider) {
      *   // Configure existing providers
      *   $locationProvider.hashPrefix('!');
-     * });
+     * }]);
      * ```
      *
      * Then you can create an injector and load your modules like this:
      *
      * ```js
-     * var injector = angular.injector(['ng', 'MyModule'])
+     * var injector = angular.injector(['ng', 'myModule'])
      * ```
      *
      * However it's more likely that you'll just use
@@ -152,9 +152,9 @@ function setupModuleLoader(window) {
      * {@link angular.bootstrap} to simplify this process for you.
      *
      * @param {!string} name The name of the module to create or retrieve.
-     * @param {Array.<string>=} requires If specified then new module is being created. If
-     *        unspecified then the the module is being retrieved for further configuration.
-     * @param {Function} configFn Optional configuration function for the module. Same as
+     * @param {!Array.<string>=} requires If specified then new module is being created. If
+     *        unspecified then the module is being retrieved for further configuration.
+     * @param {Function=} configFn Optional configuration function for the module. Same as
      *        {@link angular.Module#config Module#config()}.
      * @returns {module} new module with the {@link angular.Module} api.
      */
@@ -180,21 +180,24 @@ function setupModuleLoader(window) {
         var invokeQueue = [];
 
         /** @type {!Array.<Function>} */
+        var configBlocks = [];
+
+        /** @type {!Array.<Function>} */
         var runBlocks = [];
 
-        var config = invokeLater('$injector', 'invoke');
+        var config = invokeLater('$injector', 'invoke', 'push', configBlocks);
 
         /** @type {angular.Module} */
         var moduleInstance = {
           // Private state
           _invokeQueue: invokeQueue,
+          _configBlocks: configBlocks,
           _runBlocks: runBlocks,
 
           /**
            * @ngdoc property
            * @name angular.Module#requires
            * @module ng
-           * @propertyOf angular.Module
            * @returns {Array.<string>} List of module names which must be loaded before this module.
            * @description
            * Holds the list of modules which the injector will load before the current module is
@@ -206,7 +209,6 @@ function setupModuleLoader(window) {
            * @ngdoc property
            * @name angular.Module#name
            * @module ng
-           * @propertyOf angular.Module
            * @returns {string} Name of the module.
            * @description
            */
@@ -348,6 +350,8 @@ function setupModuleLoader(window) {
            *    configuration.
            * @description
            * Use this method to register work which needs to be performed on module loading.
+           * For more about how to configure services, see
+           * {@link providers#providers_provider-recipe Provider Recipe}.
            */
           config: config,
 
@@ -379,9 +383,10 @@ function setupModuleLoader(window) {
          * @param {String=} insertMethod
          * @returns {angular.Module}
          */
-        function invokeLater(provider, method, insertMethod) {
+        function invokeLater(provider, method, insertMethod, queue) {
+          if (!queue) queue = invokeQueue;
           return function() {
-            invokeQueue[insertMethod || 'push']([provider, method, arguments]);
+            queue[insertMethod || 'push']([provider, method, arguments]);
             return moduleInstance;
           };
         }

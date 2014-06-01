@@ -1,0 +1,8 @@
+<div ng-include="'/App/components/navbar/navbar.html'"></div>
+<div>
+  <div ng-include="'/App/components/nav/nav.html'"></div>
+  <div ng-repeat="limit in limits">
+    <limit-gauge limit="limit"></limit-gauge>
+  </div>
+  <div ng-include="'/App/limits/limits-add.html'"></div>
+</div>

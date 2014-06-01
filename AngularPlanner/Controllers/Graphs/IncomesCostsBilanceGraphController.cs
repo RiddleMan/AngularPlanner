@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using System.Web.Http;
 using AngularPlanner.Dto;
 using AngularPlanner.Models;
+using Microsoft.AspNet.Identity;
 
 namespace AngularPlanner.Controllers
 {
@@ -18,6 +19,7 @@ namespace AngularPlanner.Controllers
         // GET: /IncomesCostsGraph/
         public async Task<IncomesCostsBilanceGraphDto> Get()
         {
+            var userId = User.Identity.GetUserId();
             var now = DateTime.Now;
             now = now.AddMilliseconds(-now.Millisecond)
                 .AddMinutes(-now.Minute)
@@ -26,7 +28,7 @@ namespace AngularPlanner.Controllers
                 .AddMonths(1)
                 .AddYears(-1);
 
-            var expenses = await _db.Expenses.Where(i => i.DateOfExpense > now).ToListAsync();
+            var expenses = await _db.Expenses.Where(i => i.DateOfExpense > now && i.UserId == userId).ToListAsync();
 
             var grouppedExpenses = expenses.GroupBy(i => String.Format("{0:MM-yyyy}", i.DateOfExpense))
                 .Select(i => new

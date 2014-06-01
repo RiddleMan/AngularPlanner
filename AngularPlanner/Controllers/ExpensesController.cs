@@ -38,11 +38,16 @@ namespace AngularPlanner.Controllers
             try
             {
                 return await _db.Expenses
-                    .Where(i => i.UserId == userId && i.DateOfExpense >= timespan.Lower && i.DateOfExpense <= timespan.Higher)
+                    .Where(
+                        i =>
+                            i.UserId == userId &&
+                            i.DateOfExpense >= timespan.Lower &&
+                            i.DateOfExpense <= timespan.Higher)
                     .Include("Tags")
                     .AsNoTracking()
                     .OrderByDescending(i => i.DateOfExpense)
-                    .Skip((page - 1) * 20)
+                    .ThenByDescending(i => i.DateAdded)
+                    .Skip((page - 1)*20)
                     .Take(20)
                     .ToListAsync();
             }
@@ -71,6 +76,7 @@ namespace AngularPlanner.Controllers
                 return await query.Include("Tags")
                     .AsNoTracking()
                     .OrderByDescending(i => i.DateOfExpense)
+                    .ThenByDescending(i => i.DateAdded)
                     .Skip((page - 1) * 20)
                     .Take(20)
                     .ToListAsync();
@@ -96,6 +102,7 @@ namespace AngularPlanner.Controllers
                     .Include("Tags")
                     .AsNoTracking()
                     .OrderByDescending(i => i.DateOfExpense)
+                    .ThenByDescending(i => i.DateAdded)
                     .Skip((page - 1) * 20)
                     .Take(20)
                     .ToListAsync();
@@ -143,6 +150,11 @@ namespace AngularPlanner.Controllers
                 var expenseDB =
                     await _db.Expenses.Include(i => i.Tags).FirstOrDefaultAsync(i => i.Id == expense.Id && i.UserId == userId);
 
+                expenseDB.Title = expense.Title;
+                expenseDB.Comment = expense.Comment;
+                expenseDB.Cost = expense.Cost;
+                expenseDB.DateModified = DateTime.Now;
+                
                 var tagExist = expenseDB.Tags.Select(i => i.Id);
                 var tagIds = expense.Tags.Select(i => i.Id);
 
