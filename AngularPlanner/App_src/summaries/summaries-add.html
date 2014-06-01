@@ -1,0 +1,45 @@
+<div class="col-md-4 col-sm-6 col-xs-12 pull-left offset" ng-controller="SummariesAddCtrl">
+  <div class="panel  tile panel-default">
+    <div ng-show="!addicon" class="panel-heading">Nowe podsumowanie <span ng-click="toggle()" class="glyphicon glyphicon-remove pull-right"></span></div>
+    <div class="panel-body text-center">
+      <div ng-show="addicon">
+        <span  ng-click="toggle()" class="glyphicon glyphicon-plus tile-icon"></span>
+      </div>
+      <div ng-show="!addicon">
+        <form class="text-left" role="form" name="form" novalidate ng-submit="add()">
+          <div class="form-group has-feedback" ng-class="{'has-success': form.name.$valid, 'has-error': form.name.$dirty && form.name.$invalid}">
+            <label for="summarysname">Nazwa</label>
+            <input ng-model="summary.name" name="name" type="text" class="form-control" id="summarysname" required>
+            <span ng-show="form.name.$dirty && form.name.$invalid" class="glyphicon glyphicon-remove form-control-feedback"></span>
+            <span ng-show="form.name.$valid" class="glyphicon glyphicon-ok form-control-feedback"></span>
+          </div>
+          <div class="form-group has-feedback" ng-class="{'has-success': form.from.$valid, 'has-error': form.from.$dirty && form.from.$invalid}">
+            <label for="summarysFrom">Od</label>
+            <input ng-model="summary.from" name="from" type="date" class="form-control" id="summarysFrom" required>
+            <span ng-show="form.from.$dirty && form.from.$invalid" class="glyphicon glyphicon-remove form-control-feedback"></span>
+            <span ng-show="form.from.$valid" class="glyphicon glyphicon-ok form-control-feedback"></span>
+          </div>
+          <div class="form-group has-feedback" ng-class="{'has-success': form.to.$valid, 'has-error': form.to.$dirty && form.to.$invalid}">
+            <label for="summarysto">Do</label>
+            <input ng-model="summary.to" name="to" type="date" class="form-control" id="summarysto" required>
+            <span ng-show="form.to.$dirty && form.to.$invalid" class="glyphicon glyphicon-remove form-control-feedback"></span>
+            <span ng-show="form.to.$valid" class="glyphicon glyphicon-ok form-control-feedback"></span>
+          </div>
+          <div class="form-group has-feedback" ng-class="{'has-success': form.scope.$valid, 'has-error': form.scope.$dirty && form.scope.$invalid}">
+            <label for="summarysto">Do</label>
+            <select ng-model="summary.scope" class="form-control" ng-options="c.name for c in summaryScopes" required>
+              <option value="">-- Wybierz skalę --</option>
+            </select>
+            <span ng-show="form.scope.$dirty && form.scope.$invalid" class="glyphicon glyphicon-remove form-control-feedback"></span>
+            <span ng-show="form.scope.$valid" class="glyphicon glyphicon-ok form-control-feedback"></span>
+          </div>
+          <div class="form-group">
+            <label for="summarysTags">Tagi</label>
+            <tags-picker id="summarysTags" tags="summary.tags"></tags-picker>
+          </div>
+          <button type="submit" class="btn btn-primary">Dodaj <span class="glyphicon glyphicon-plus-sign"></span></button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

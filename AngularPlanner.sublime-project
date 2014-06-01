@@ -4,7 +4,7 @@
     {
       "follow_symlinks": true,
       "path": ".",
-      "folder_exclude_patterns": ["node_modules","TestResults", "packages", "App_Data", "App_Readme", "App_Start", "Areas", "Controllers", "Models", "Properties", "Providers", "Results", "Views", "bin", "fonts", "obj"],
+      "folder_exclude_patterns": ["Document", "node_modules","App","TestResults", "packages", "App_Data", "App_Readme", "App_Start", "Areas", "Controllers", "Models", "Properties", "Providers", "Results", "Views", "bin", "fonts", "obj"],
       "file_exclude_patterns" : ["*.csproj", "*.asax", "*.cs", "Project_Readme.html", "*.sln", "*.user"]
     }
   ]

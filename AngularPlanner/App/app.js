@@ -1,5 +1,4 @@
 'use strict';
-
 /**
 * app Module
 *
@@ -21,14 +20,15 @@ angular.module('app', [
   'statistics',
   'limits',
   'progressbar',
-  'connectionChecker'
+  'connectionChecker',
+  'summaries',
+  'simulations'
 ]);
-
-angular.module('app')
-  .config(['$routeProvider', '$locationProvider',
-    function($routeProvider, $locationProvider) {
-      $locationProvider.html5Mode(true);
-
-      $routeProvider
-        .otherwise({redirectTo: '/statistics'});
-    }]);
+angular.module('app').config([
+  '$routeProvider',
+  '$locationProvider',
+  function ($routeProvider, $locationProvider) {
+    $locationProvider.html5Mode(true);
+    $routeProvider.otherwise({ redirectTo: '/statistics' });
+  }
+]);

@@ -15,8 +15,14 @@ namespace AngularPlanner
                         "~/Scripts/highcharts.js",
                         "~/Scripts/highcharts-more.js",
                         "~/Scripts/angular.js",
-                        "~/Scripts/angular-*",
-                        "~/Scripts/highcharts-ng.js"
+                        "~/Scripts/angular-animate.js",
+                        "~/Scripts/angular-cookies.js",
+                        "~/Scripts/angular-loader.js",
+                        "~/Scripts/angular-resource.js",
+                        "~/Scripts/angular-route.js",
+                        "~/Scripts/angular-sanitize.js",
+                        "~/Scripts/angular-touch.js",
+                        "~/Scripts/i18n/angular-locale_pl-pl.js"
                         ));
 
             bundles.Add(new ScriptBundle("~/bundles/app")
